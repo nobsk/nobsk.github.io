@@ -1,17 +1,3 @@
-/*
-
-Template Name: SKRN Progression
-Template URI: http://progression-studios.com/skrn/
-Author: Progression Studios
-Author URI: https://progressionstudios.com/
-Description: Media Streaming App Site Template
-Version: 1.0
-License: GNU General Public License version 3.0
-License URI: http://www.gnu.org/licenses/gpl-3.0.html
-
-*/
-
-
 /*  Table of Contents
 01. FONT STYLES
 02. BUTTON STYLES
@@ -159,7 +145,7 @@ ul.checkmark-list-pro li:before,
 ul.registration-genres-choice li i.fa-check-circle,
 ul.registration-invite-friends-list li i.fa-check-circle,
 #mobile-navigation-pro li.current-menu-item a {
-	color:#f5c518;
+	color:#4267b2;
 }
 
 .flexslider.progression-studios-dashboard-slider h2 a:hover,
@@ -178,15 +164,15 @@ ul.registration-invite-friends-list li:hover,
 .form-group input:focus, .form-group textarea:focus,
 .jumbotron-pro.jumbotron-selected, .registration-billing-form .jumbotron-pro:hover,
 ul#registration-steps-pro li:hover, ul#registration-steps-pro li.current-menu-item {
-	border-color:#f5c518;
+	border-color:#4267b2;
 }
 
 ul#registration-steps-pro li.current-menu-item .registration-step-circle-icon:before {
-	border-top-color:#f5c518;
+	border-top-color:#4267b2;
 }
 
 .form-group-invite-friends ::-webkit-scrollbar-thumb {
-	background:#f5c518;
+	background:#4267b2;
 }
 
 ul#friends-activity-profiles li.friends-activity-profiles-more a,
@@ -197,7 +183,7 @@ body .asRange .asRange-selected,
 .checkbox-pro-container .checkmark-pro:after,
 span.user-notification-count,
 ul#registration-steps-pro li.current-menu-item .registration-step-circle-icon {
-	background:#f5c518;
+	background:#4267b2;
 }
 
 /* Green Button Color */
@@ -211,8 +197,8 @@ body .short-border-bottom:after,
 .btn-header-pro:hover,
 #pro-scroll-top:hover {
 	color:#ffffff;
-	border-color:#f5c518;
-	background:#f5c518;	
+	border-color:#4267b2;
+	background:#4267b2;	
 }
 
 /* Dark Grey Button Color */
@@ -226,16 +212,16 @@ ul#friends-activity-profiles li.friends-activity-profiles-more a:hover,
 /* Green Mouse Selection Color */
 ::-moz-selection {
 	color:#ffffff;
-	background:#f5c518;
+	background:#4267b2;
 }
 ::selection {
 	color:#ffffff;
-	background:#f5c518;
+	background:#4267b2;
 }
 
 ::selection h2 {
 	color:#ffffff;
-	background:#f5c518;
+	background:#4267b2;
 }
 
 
@@ -849,7 +835,7 @@ ul#vertical-sidebar-nav.sf-menu li a {
 
 
 ul#vertical-sidebar-nav.sf-menu a:hover, ul#vertical-sidebar-nav.sf-menu li.sfHover a, ul#vertical-sidebar-nav.sf-menu li.current-menu-item a {
-	color:#f5c518;
+	color:#4267b2;
 }
 
 /* Sub-menu Styles */
@@ -2192,7 +2178,7 @@ a.movie-detail-header-play-btn i {
 .rating-pro > label:hover ~ label:before,
 .rating-pro > label.selected:before,
 .rating-pro > label.selected ~ label:before {
-    color: #f5c518;
+    color: #4267b2;
 	font-weight:900;
 }
 
@@ -3304,7 +3290,7 @@ ul.checkmark-list-pro li:before {
 .pricing-table-pro h2 {
 	font-size:50px;
 	margin-bottom:25px;
-	color:#f5c518;
+	color:#4267b2;
 }
 
 .pricing-table-pro h2 sup {
