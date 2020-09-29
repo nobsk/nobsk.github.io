@@ -145,7 +145,7 @@ ul.checkmark-list-pro li:before,
 ul.registration-genres-choice li i.fa-check-circle,
 ul.registration-invite-friends-list li i.fa-check-circle,
 #mobile-navigation-pro li.current-menu-item a {
-	color:#4267b2;
+	color:#3278c8;
 }
 
 .flexslider.progression-studios-dashboard-slider h2 a:hover,
@@ -164,15 +164,15 @@ ul.registration-invite-friends-list li:hover,
 .form-group input:focus, .form-group textarea:focus,
 .jumbotron-pro.jumbotron-selected, .registration-billing-form .jumbotron-pro:hover,
 ul#registration-steps-pro li:hover, ul#registration-steps-pro li.current-menu-item {
-	border-color:#4267b2;
+	border-color:#3278c8;
 }
 
 ul#registration-steps-pro li.current-menu-item .registration-step-circle-icon:before {
-	border-top-color:#4267b2;
+	border-top-color:#3278c8;
 }
 
 .form-group-invite-friends ::-webkit-scrollbar-thumb {
-	background:#4267b2;
+	background:#3278c8;
 }
 
 ul#friends-activity-profiles li.friends-activity-profiles-more a,
@@ -183,7 +183,7 @@ body .asRange .asRange-selected,
 .checkbox-pro-container .checkmark-pro:after,
 span.user-notification-count,
 ul#registration-steps-pro li.current-menu-item .registration-step-circle-icon {
-	background:#4267b2;
+	background:#3278c8;
 }
 
 /* Green Button Color */
@@ -197,8 +197,8 @@ body .short-border-bottom:after,
 .btn-header-pro:hover,
 #pro-scroll-top:hover {
 	color:#ffffff;
-	border-color:#4267b2;
-	background:#4267b2;	
+	border-color:#3278c8;
+	background:#3278c8;	
 }
 
 /* Dark Grey Button Color */
@@ -212,22 +212,22 @@ ul#friends-activity-profiles li.friends-activity-profiles-more a:hover,
 /* Green Mouse Selection Color */
 ::-moz-selection {
 	color:#ffffff;
-	background:#4267b2;
+	background:#3278c8;
 }
 ::selection {
 	color:#ffffff;
-	background:#4267b2;
+	background:#3278c8;
 }
 
 ::selection h2 {
 	color:#ffffff;
-	background:#4267b2;
+	background:#3278c8;
 }
 
 
 /* Yellow Box Shadow Color */
 .btn-shadow-pro {
-	box-shadow: 0px 12px 28px rgb(245,197,24, 0.38);
+	box-shadow: 0px 12px 28px rgb(66, 103, 178, 0.38);
 }
 
 .btn-shadow-pro:hover {
@@ -835,7 +835,7 @@ ul#vertical-sidebar-nav.sf-menu li a {
 
 
 ul#vertical-sidebar-nav.sf-menu a:hover, ul#vertical-sidebar-nav.sf-menu li.sfHover a, ul#vertical-sidebar-nav.sf-menu li.current-menu-item a {
-	color:#4267b2;
+	color:#3278c8;
 }
 
 /* Sub-menu Styles */
@@ -2178,7 +2178,7 @@ a.movie-detail-header-play-btn i {
 .rating-pro > label:hover ~ label:before,
 .rating-pro > label.selected:before,
 .rating-pro > label.selected ~ label:before {
-    color: #4267b2;
+    color: #3278c8;
 	font-weight:900;
 }
 
@@ -3290,7 +3290,7 @@ ul.checkmark-list-pro li:before {
 .pricing-table-pro h2 {
 	font-size:50px;
 	margin-bottom:25px;
-	color:#4267b2;
+	color:#3278c8;
 }
 
 .pricing-table-pro h2 sup {
