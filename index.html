@@ -50,10 +50,10 @@
 							< End Sub-Menu example -->
 					</li>
 					<li class="normal-item-pro">
-						<a href="signup-step1.html" class="dark-mode-font">Pricing Plans</a>
+						<a href="#!" class="dark-mode-font">Pricing Plans</a>
 					</li>
 					<li class="normal-item-pro">
-						<a href="faqs.html" class="dark-mode-font">FAQs</a>
+						<a href="#!" class="dark-mode-font">FAQs</a>
 					</li>
 				</ul>
 			</nav>
@@ -89,10 +89,10 @@
 						< End Mobile Sub-Menu Example -->
 				</li>
 				<li>
-					<a href="signup-step1.html">Pricing Plans</a>
+					<a href="#!">Pricing Plans</a>
 				</li>
 				<li>
-					<a href="faqs.html">FAQs</a>
+					<a href="#!">FAQs</a>
 				</li>
 			</ul>
 			<div class="clearfix"></div>
@@ -123,8 +123,8 @@
 										<h6 class="dark-mode-font">Film pendek bukan sekedar film, tetapi sebuah karya
 											menakjubkan yang bisa ditonton
 											kapan saja, di mana saja, GRATIS!</h6>
-										<a class="btn btn-green-pro btn-slider-pro btn-shadow-pro"
-											href="signup-step1.html" role="button">Daftar Sekarang GRATIS</a>
+										<a class="btn btn-green-pro btn-slider-pro btn-shadow-pro daftar-gratis"
+											href="#!" role="button">Daftar Sekarang GRATIS</a>
 									</div>
 								</div>
 
@@ -151,8 +151,8 @@
 										<h6 class="dark-mode-font">Cara baru nunjukkin kalo karya film pendek anak
 											bangsa
 											itu keren dari yang lain, Ayo buat festival!</h6>
-										<a class="btn btn-green-pro btn-slider-pro btn-shadow-pro"
-											href="signup-step1.html" role="button">Buat Sekarang</a>
+										<a class="btn btn-green-pro btn-slider-pro btn-shadow-pro" href="#!"
+											role="button">Buat Sekarang</a>
 									</div>
 								</div>
 
@@ -325,7 +325,7 @@
 
 				</div><!-- close .modal-body -->
 
-				<a class="not-a-member-pro" href="javascript:;">Belum bergabung? <span>Daftar Sekarang!</span></a>
+				<a class="not-a-member-pro" href="javascript:;">Belum bergabung? <span>Daftar sekarang!</span></a>
 			</div><!-- close .modal-content -->
 		</div><!-- close .modal-dialog -->
 	</div><!-- close .modal -->
@@ -399,7 +399,7 @@
 			'' +
 			'				</div><!-- close .modal-body -->' +
 			'' +
-			'				<a class="login-now-pro" href="javascript:;">Belum bergabung? <span>Daftar Sekarang!</span></a>';
+			'				<a class="login-now-pro" href="javascript:;">Sudah bergabung? <span>Login sekarang!</span></a>';
 
 
 
@@ -458,7 +458,7 @@
 				'' +
 				'				</div><!-- close .modal-body -->' +
 				'' +
-				'				<a class="not-a-member-pro" href="javascript:;">Belum bergabung? <span>Daftar Sekarang!</span></a>';
+				'				<a class="not-a-member-pro" href="javascript:;">Belum bergabung? <span>Daftar sekarang!</span></a>';
 
 
 			$(document).on('click', '.login-now-pro', function () {
@@ -485,7 +485,10 @@
 				}, 2000)
 			})
 
-
+			$(document).on('click', '.daftar-gratis', function () {
+				$('#LoginModal').modal('show');
+				$('.not-a-member-pro').trigger('click');
+			})
 
 
 		});
