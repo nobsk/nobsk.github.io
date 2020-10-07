@@ -472,8 +472,28 @@
 				window.sessionStorage.setItem('login', 'signed');
 				$(this).attr('disabled', true);
 				setTimeout(function () {
-					window.location.href = "dashboard-home.html";
-				}, 2000)
+					const Toast = Swal.mixin({
+						toast: true,
+						position: 'top-end',
+						showConfirmButton: false,
+						timer: 3000,
+						timerProgressBar: true,
+						didOpen: (toast) => {
+							toast.addEventListener('mouseenter', Swal.stopTimer)
+							toast.addEventListener('mouseleave', Swal.resumeTimer)
+
+						}
+					})
+
+					Toast.fire({
+						icon: 'error',
+						title: 'Invalid password!'
+					});
+					$(this).attr('disabled', false);
+					$('.register').html('Lanjutkan');
+				}, 3000)
+
+
 			})
 
 			$(document).on('click', '.login', function () {
