@@ -16,7 +16,6 @@
 
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
 	<title>NOBSK - Tempatnya Nonton Film Pendek</title>
-
 </head>
 
 <body>
@@ -245,7 +244,6 @@
 			<div class="clearfix"></div>
 		</div><!-- close .container -->
 	</div><!-- close #content-pro -->
-
 	<footer id="footer-pro">
 		<div class="container">
 			<div class="row">
@@ -277,7 +275,7 @@
 		<button type="button" class="close float-close-pro" data-dismiss="modal" aria-label="Close">
 			<span aria-hidden="true">&times;</span>
 		</button>
-		<div class="modal-dialog modal-dialog-centered modal-md" role="document">
+		<div class="modal-dialog modal-dialog-centered modal-md change-size" role="document">
 			<div class="modal-content">
 				<div class="modal-header-pro">
 					<h2>Selamat Datang Kembali</h2>
@@ -294,7 +292,7 @@
 								<input type="password" class="form-control" id="password" placeholder="Password">
 							</div>
 							<div class="form-group">
-								<button type="button" class="btn btn-green-pro btn-display-block">Masuk</button>
+								<button type="button" class="btn btn-green-pro login btn-display-block">Masuk</button>
 							</div>
 							<div class="container-fluid">
 								<div class="row no-gutters">
@@ -307,7 +305,7 @@
 
 						</form>
 
-						<div class="registration-social-login-or">or</div>
+						<div class="registration-social-login-or">atau</div>
 
 					</div><!-- close .registration-social-login-container -->
 
@@ -323,7 +321,7 @@
 
 				</div><!-- close .modal-body -->
 
-				<a class="not-a-member-pro" href="signup-step2.html">Belum bergabung? <span>Daftar Sekarang!</span></a>
+				<a class="not-a-member-pro" href="javascript:;">Belum bergabung? <span>Daftar Sekarang!</span></a>
 			</div><!-- close .modal-content -->
 		</div><!-- close .modal-dialog -->
 	</div><!-- close .modal -->
@@ -339,12 +337,140 @@
 	<script src="js/navigation.js" defer></script><!-- Header Navigation JS Plugin -->
 	<script src="js/jquery.flexslider-min.js" defer></script><!-- FlexSlider JS Plugin -->
 	<script src="js/script.js" defer></script><!-- Custom Document Ready JS -->
-	<!-- <script>
+	<script>
 		/* UNTUK MODAL REGISTRATION SWITCH */
+		var register = '<div class="modal-header-pro">' +
+			'					<h2>Ingin berselancar lebih jauh?</h2>' +
+			'					<h6>Daftar akun NOBSK<span style="color:#3278C8;">.</span></h6>' +
+			'				</div>' +
+			'				<div class="modal-body-pro social-login-modal-body-pro">' +
+			'' +
+			'					<div class="registration-social-login-container">' +
+			'						<form>' +
+			'<div class="form-group">' +
+			'    								 <label for="full-name" class="col-form-label">Full Name</label>' +
+			'    	  							 <input type="text" class="form-control" id="full-name" placeholder="John Doe">' +
+			'    	  						 </div>' +
+			'    	  						 <div class="form-group">' +
+			'    								 <label for="email" class="col-form-label">Email</label>' +
+			'    	  							 <input type="text" class="form-control" id="email" placeholder="jondoe@gmail.com">' +
+			'    	  						 </div>' +
+			'    	  						 <div class="form-group">' +
+			'    								 <div class="row">' +
+			'    									<div class="col">' +
+			'    	  								 <label for="password" class="col-form-label">Password</label>' +
+			'    	  	  							 <input type="password" class="form-control" id="password" placeholder="······">' +
+			'    									</div>' +
+			'    									<div class="col">' +
+			'    	  								 <label for="confirm-password" class="col-form-label"> </label>' +
+			'    	  	  							 <input type="password" class="form-control" id="confirm-password" placeholder="Confirm Password">' +
+			'    									</div>' +
+			'    								 </div>' +
+			'    	  						 </div>' +
+			'<div class="form-group">' +
+			'				<button type="button" class="btn btn-green-pro btn-display-block register">Lanjutkan</button>' +
+			'			</div>' +
+			'<div class="form-group last-form-group-continue">' +
+			'								 <span class="checkbox-remember-pro"><label for="checkbox-terms" class="col-form-label"><input type="checkbox" id="checkbox-terms"> By clicking "Lanjutkan", you agree to our <a href="#!">Terms of Use</a> and ' +
+			'<a href="#!">Privacy Policy</a> including the use of cookies.</label></span>' +
+			'								 <div class="clearfix"></div>' +
+			'	  						 </div>' +
+			'	  					 </form>' +
+			'' +
+			'' +
+			'						<div class="registration-social-login-or">atau</div>' +
+			'' +
+			'					</div><!-- close .registration-social-login-container -->' +
+			'' +
+			'					<div class="registration-social-login-options">' +
+			'						<h6>Daftar dengan akun media sosial</h6>' +
+			'						<div class="social-icon-login facebook-color"><i class="fab fa-facebook-f"></i> Facebook</div>' +
+			'						<div class="social-icon-login twitter-color"><i class="fab fa-twitter"></i> Twitter</div>' +
+			'						<div class="social-icon-login google-color"><i class="fab fa-google-plus-g"></i> Google</div>' +
+			'					</div><!-- close .registration-social-login-options -->' +
+			'' +
+			'					<div class="clearfix"></div>' +
+
+			'' +
+			'' +
+			'				</div><!-- close .modal-body -->' +
+			'' +
+			'				<a class="login-now-pro" href="javascript:;">Belum bergabung? <span>Daftar Sekarang!</span></a>';
+
+
+
+
+
 		$(document).ready(function () {
-			alert(1);
-		})
-	</script> -->
+			$(document).on('click', '.not-a-member-pro', function () {
+				$(document).find('.change-size').removeClass('modal-md');
+				$(document).find('.change-size').addClass('modal-lg');
+				$('.modal-content').html(register);
+			});
+
+
+
+			var login = '<div class="modal-header-pro">' +
+				'					<h2>Selamat Datang Kembali</h2>' +
+				'					<h6>Masuk ke akun untuk melanjutkan NOBSK<span style="color:#3278C8;">.</span></h6>' +
+				'				</div>' +
+				'				<div class="modal-body-pro social-login-modal-body-pro">' +
+				'' +
+				'					<div class="registration-social-login-container">' +
+				'						<form>' +
+				'							<div class="form-group">' +
+				'								<input type="text" class="form-control" id="username" placeholder="Username">' +
+				'							</div>' +
+				'							<div class="form-group">' +
+				'								<input type="password" class="form-control" id="password" placeholder="Password">' +
+				'							</div>' +
+				'							<div class="form-group">' +
+				'								<button type="button" class="btn btn-green-pro btn-display-block login">Masuk</button>' +
+				'							</div>' +
+				'							<div class="container-fluid">' +
+				'								<div class="row no-gutters">' +
+				'									<div class="col checkbox-remember-pro"><input type="checkbox"' +
+				'											id="checkbox-remember"><label for="checkbox-remember"' +
+				'											class="col-form-label">Ingat saya</label></div>' +
+				'									<div class="col forgot-your-password"><a href="#!">Lupa password?</a></div>' +
+				'								</div>' +
+				'							</div><!-- close .container-fluid -->' +
+				'' +
+				'						</form>' +
+				'' +
+				'						<div class="registration-social-login-or">atau</div>' +
+				'' +
+				'					</div><!-- close .registration-social-login-container -->' +
+				'' +
+				'					<div class="registration-social-login-options">' +
+				'						<h6>Masuk dengan akun media sosial</h6>' +
+				'						<div class="social-icon-login facebook-color"><i class="fab fa-facebook-f"></i> Facebook</div>' +
+				'						<div class="social-icon-login twitter-color"><i class="fab fa-twitter"></i> Twitter</div>' +
+				'						<div class="social-icon-login google-color"><i class="fab fa-google-plus-g"></i> Google</div>' +
+				'					</div><!-- close .registration-social-login-options -->' +
+				'' +
+				'					<div class="clearfix"></div>' +
+				'' +
+				'' +
+				'				</div><!-- close .modal-body -->' +
+				'' +
+				'				<a class="not-a-member-pro" href="javascript:;">Belum bergabung? <span>Daftar Sekarang!</span></a>';
+
+
+			$(document).on('click', '.login-now-pro', function () {
+				$(document).find('.change-size').removeClass('modal-lg');
+				$(document).find('.change-size').addClass('modal-md');
+				$('.modal-content').html(login);
+			});
+
+			$(document).on('click', '.register', function () {
+				$('.register').html('<i class="fab fa-circle-o-notch fa-spin"></i>');
+				setTimeout(function () {
+					$('.register').html('Lanjutkan');
+				}, 1000)
+			})
+		});
+	</script>
 </body>
 
 </html>

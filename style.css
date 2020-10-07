@@ -242,6 +242,7 @@ ul#registration-steps-pro li.current-menu-item .registration-step-circle-icon {
 /* Green Button Color */
 ul.page-numbers li span.page-numbers.current,
 a.not-a-member-pro:hover,
+a.login-now-pro:hover,
 .sf-menu a:before,
 body .short-border-bottom:after,
 .btn-green-pro,
@@ -2717,6 +2718,17 @@ button.close.float-close-pro {
 	color: white;
 }
 
+@media only screen and (max-width: 768px) {
+	button.close.float-close-pro {
+		position:fixed;
+		top:20px;
+		right:20px;
+		font-size:35px;
+		z-index:99;
+		color: #262626;
+	}
+}
+
 .modal-header-pro {
 	padding:40px 30px 0px 30px;
 	text-align:center;
@@ -2773,6 +2785,20 @@ a.not-a-member-pro {
 }
 
 a.not-a-member-pro span {
+	font-weight:700;
+}
+
+a.login-now-pro {
+	display:block;
+	padding:12px 20px;
+	background:#9d9d9d;
+	text-align:center;
+	color:#ffffff;
+	letter-spacing:0.02em;
+	font-family: 'Montserrat', sans-serif;
+}
+
+a.login-now-pro span {
 	font-weight:700;
 }
 
