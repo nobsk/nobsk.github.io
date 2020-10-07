@@ -751,28 +751,29 @@
 	<script src="js/script-dashboard.js" defer></script><!-- Custom Document Ready for Dashboard Only JS -->
 
 	<script>
+		var is_signed = window.sessionStorage.getItem('login');
+		if (is_signed) {
+			const Toast = Swal.mixin({
+				toast: true,
+				position: 'top-end',
+				showConfirmButton: false,
+				timer: 3000,
+				timerProgressBar: true,
+				didOpen: (toast) => {
+					toast.addEventListener('mouseenter', Swal.stopTimer)
+					toast.addEventListener('mouseleave', Swal.resumeTimer)
+				}
+			})
+
+			Toast.fire({
+				icon: 'success',
+				title: 'Signed in successfully'
+			});
+
+			window.sessionStorage.removeItem('login');
+		}
 		$(document).ready(function () {
-			var is_signed = window.sessionStorage.getItem('login');
-			if (is_signed) {
-				const Toast = Swal.mixin({
-					toast: true,
-					position: 'top-end',
-					showConfirmButton: false,
-					timer: 3000,
-					timerProgressBar: true,
-					didOpen: (toast) => {
-						toast.addEventListener('mouseenter', Swal.stopTimer)
-						toast.addEventListener('mouseleave', Swal.resumeTimer)
-					}
-				})
 
-				Toast.fire({
-					icon: 'success',
-					title: 'Signed in successfully'
-				});
-
-				window.sessionStorage.removeItem('login');
-			}
 
 		});
 
