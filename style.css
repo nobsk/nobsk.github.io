@@ -26,6 +26,79 @@
 
 */
 
+/* TICKET BUTTON */
+.btn-ticket {
+	/*   margin:1em 3em; */
+	/*   font-family:arial; */
+	  text-decoration:none;
+	  position:relative;
+	  display:inline-block;
+	  padding:1.5em 5em;
+	/*   text-transform:uppercase;   */
+	  overflow:hidden;
+	  color:whitesmoke;
+	  border:3px dotted whitesmoke;
+	  border-left:none;
+	  border-right:none;
+	  background:linear-gradient(to left, whitesmoke 3px, transparent 3px, transparent calc(100% - 3px), whitesmoke calc(100% - 3px)) top left no-repeat,linear-gradient(to left, whitesmoke 3px, transparent 3px, transparent calc(100% - 3px), whitesmoke calc(100% - 3px)) bottom left no-repeat;
+	  background-size:100% 1.45em;
+	   
+	}
+
+.btn-ticket:hover{
+	color:whitesmoke;
+	box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+}
+	
+	.btn-ticket:before,.btn-ticket:after {
+	  z-index:-1;
+	  content:'';
+	  position:absolute;
+	  height:2em;
+	  width:2em;
+	  top:1.4em;
+	  border-radius:50%;
+	  border:3px solid whitesmoke;
+	  box-shadow:0 0 0 10em #3278C8;
+	}
+	.btn-ticket:before {
+	  left:-0.7em;
+	 }
+	
+	.btn-ticket:after {
+	  right:-0.7em;
+	}
+	span.ticket-text:after {
+	  content:'';
+	  display:inline-block;
+	  padding:0.325em;
+	  transform:rotate(45deg);
+	  color:#e9e3c6;vertical-align:-1px;  
+	  border: solid;
+	  border-left:none;
+	  border-bottom:none;
+	  }
+
+/* BTN NO RADIUS */
+
+.no-radius{
+	border-radius: 2px !important;
+	box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+	transition: all 0.3s cubic-bezier(.25,.8,.25,1);
+}
+  
+  .no-radius:hover {
+	box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+  }
+
+/* Dotted border */
+hr.dotted {
+	position: absolute;
+	left: 0;
+	margin-top: 0;
+	border-top: 5px dotted #bbb;
+	width: 100%;
+  }
 /* ATUR SORTING */
 
 		@media only screen and (max-width: 768px) {
