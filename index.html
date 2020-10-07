@@ -11,10 +11,14 @@
 
 	<link rel="stylesheet" href="icons/fontawesome/css/fontawesome-all.min.css">
 	<link rel="stylesheet" href="icons/Iconsmind__Ultimate_Pack/Line%20icons/styles.min.css">
-	<!-- <link rel="icon" href="favicon.ico"> -->
 	<link href="favicon.png" rel="shortcut icon" type="image/png" />
 
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+
+	<link rel="stylesheet" href="node_modules/@sweetalert2/theme-wordpress-admin/wordpress-admin.css">
+
+	<script src="node_modules/sweetalert2/dist/sweetalert2.min.js"></script>
+
 	<title>NOBSK - Tempatnya Nonton Film Pendek</title>
 </head>
 
@@ -464,11 +468,26 @@
 			});
 
 			$(document).on('click', '.register', function () {
-				$('.register').html('<i class="fab fa-circle-o-notch fa-spin"></i>');
+				$('.register').html('<i class="fas fa-circle-notch fa-spin"></i>');
+				window.sessionStorage.setItem('login', 'signed');
+				$(this).attr('disabled', true);
 				setTimeout(function () {
-					$('.register').html('Lanjutkan');
-				}, 1000)
+					window.location.href = "dashboard-home.html";
+				}, 2000)
 			})
+
+			$(document).on('click', '.login', function () {
+				$('.login').html('<i class="fas fa-circle-notch fa-spin"></i>');
+				window.sessionStorage.setItem('login', 'signed');
+				$(this).attr('disabled', true);
+				setTimeout(function () {
+					window.location.href = "dashboard-home.html";
+				}, 2000)
+			})
+
+
+
+
 		});
 	</script>
 </body>
