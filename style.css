@@ -26,6 +26,53 @@
 
 */
 
+/* ATUR SORTING */
+
+		@media only screen and (max-width: 768px) {
+			#first {
+				order: 1;
+			}
+
+			#second {
+				order: 2;
+			}
+
+			#third {
+				order: 3;
+			}
+
+			#fourth {
+				order: 4;
+			}
+
+			#fifth {
+				order: 5;
+			}
+
+			#sixth {
+				order: 6;
+			}
+
+			#seventh {
+				order: 7;
+			}
+
+			#eighth {
+				order: 8;
+			}
+			.center-when-mobile{
+				text-align: center;
+			}
+		}
+
+.margin-section{
+	margin-bottom: 50px;
+}
+
+.modal-backdrop {
+	background-color: #121212 !important;
+ }
+
 
 /*
 =============================================== 01. FONT STYLES ===============================================
@@ -35,6 +82,12 @@ body, input, textarea, select {
 	line-height: 1.8; 
 	color:#555555;
 	font-size:15px;
+	background-color: #2F3038;
+	
+}
+
+.dark-mode-font{
+	color: rgb(234, 233, 233) !important;
 }
 
 hr {
@@ -279,12 +332,12 @@ header#masthead-pro h1 img {
 
 
 /*
-ini untuk header nav landing page
+ini untuk warna header nav landing page
 */
 header#masthead-pro {
 	position:relative;
 	z-index:50;
-	background:#ffffff;
+	background:#2F3038;
 	box-shadow: 0px 0px 10px rgba(0,0,0,  0.06);
 }
 
@@ -830,7 +883,7 @@ ul#vertical-sidebar-nav.sf-menu li a {
 	font-size:12px;
 	color:#848484;
 	padding:26px 0px;
-	border-bottom:1px solid #e7e7e7;
+	border-bottom:1px solid #000;
 }
 
 
@@ -2661,6 +2714,7 @@ button.close.float-close-pro {
 	right:20px;
 	font-size:35px;
 	z-index:99;
+	color: white;
 }
 
 .modal-header-pro {
@@ -3162,6 +3216,7 @@ select.custom-select:focus,
 */
 footer#footer-pro {
 	border-top:1px solid rgba(0,0,0,  0.09);
+	background-color: #4F4C4C;
 }
 
 .copyright-text-pro {
@@ -3171,6 +3226,11 @@ footer#footer-pro {
 
 .copyright-text-pro {
 	padding:25px 0px;
+}
+
+.copyright-logo-pro{
+	padding:20px 0px;
+	text-align: center;
 }
 
 footer#footer-pro ul.social-icons-pro {
@@ -3331,7 +3391,8 @@ ul.checkmark-list-pro li:before {
 .progression-studios-slider-image-background {
 	height:650px;
 	background-repeat: no-repeat;
-	background-position:center center;
+	background-position-y:center;
+	background-position-x: 60%;
 	background-size: cover;
 }
 
@@ -3348,6 +3409,21 @@ ul.checkmark-list-pro li:before {
 }
 
 .progression-studios-slider-mobile-background-cover-dark {
+	background:rgba(14,12,17,  0.6);
+}
+
+.progression-studios-slider-background-cover-dark,
+.progression-studios-slider-background-cover {
+	background:rgba(238,238,238,  0.65);
+	position:absolute;
+	top:0;
+	left:0;
+	width:100%;
+	height:100%;
+	opacity:0.1;
+}
+
+.progression-studios-slider-background-cover-dark {
 	background:rgba(14,12,17,  0.6);
 }
 
@@ -3374,7 +3450,7 @@ ul.checkmark-list-pro li:before {
 }
 
 .progression-studios-slider-caption-width {
-	max-width:380px;
+	max-width:480px;
 	position:relative;
 	z-index:10;
 }
@@ -3925,6 +4001,86 @@ ul.social-icons-pro li.instagram-color a {
 ul.social-icons-pro li.instagram-color a:hover {
 	background:#e95950;
 	border-color:#e95950;
+	color:#ffffff;
+}
+
+/* SOCIAL DARK MODE */
+
+ul.social-icons-pro li.facebook-color a {
+	background:#3b5998;
+	border-color:#3b5998;
+	color:#ffffff;
+
+}
+
+ul.social-icons-pro li.facebook-color a:hover {
+	background:#3b6998;
+	border-color:#3b6998;
+	color:#ffffff;
+}
+
+ul.social-icons-pro li.google-color a {
+	color:#dd4b39;
+}
+
+ul.social-icons-pro li.google-color a:hover {
+	background:#dd4b39;
+	border-color:#dd4b39;
+	color:#ffffff;
+}
+
+ul.social-icons-pro li.linkedin-color a {
+	color:#007bb5;
+}
+
+ul.social-icons-pro li.linkedin-color a:hover {
+	background:#007bb5;
+	border-color:#007bb5;
+	color:#ffffff;
+}
+
+
+ul.social-icons-pro li.twitter-color a {
+	background:#55acee;
+	border-color:#55acee;
+	color:#ffffff;
+}
+
+ul.social-icons-pro li.twitter-color a:hover {
+	background:#55bcee;
+	border-color:#55bcee;
+	color:#ffffff;
+}
+
+ul.social-icons-pro li.youtube-color a {
+	color:#ff0000;
+}
+
+ul.social-icons-pro li.youtube-color a:hover {
+	background:#ff0000;
+	border-color:#ff0000;
+	color:#ffffff;
+}
+
+ul.social-icons-pro li.vimeo-color a {
+	color:#aad450;
+}
+
+ul.social-icons-pro li.vimeo-color a:hover {
+	background:#aad450;
+	border-color:#aad450;
+	color:#ffffff;
+}
+
+ul.social-icons-pro li.instagram-color a {
+	background:#e95950;
+	border-color:#e95950;
+	color:#ffffff;
+}
+
+ul.social-icons-pro li.instagram-color a:hover {
+	background:#ea6950;
+	border-color:#ea6950;
 	color:#ffffff;
 }
 
@@ -4498,8 +4654,9 @@ li.flex-active-slide.progression_studios_animate_right .progression-studios-slid
 	/* Responsive Landing Page Slider Styles */
 	.progression-studios-slider-mobile-background-cover-dark,
 	.progression-studios-slider-mobile-background-cover {
-		opacity:1;
+		opacity:0.1;
 	}
+
 	.flexslider.progression-studios-slider {
 		height:580px;
 	}
