@@ -549,7 +549,7 @@ header#videohead-pro {
 	margin:0px;
 	padding:0px;
 	z-index:110;
-	background:#ffffff;
+	background:#2F3038;
 	border-bottom:1px solid rgba(0,0,0,0.08);
 }
 
@@ -614,7 +614,7 @@ nav#sidebar-nav.sticky-sidebar-js {
 }
 
 #sidebar-bg:before {
-	background-color: #fff;
+	background-color: #2F3038;
     box-shadow: 0 0 12px rgba(0, 0, 0, 0.08);
 	content: "";
 	display: block;
@@ -1223,7 +1223,7 @@ span.user-notification-count {
 	font-size:15px;
 	font-family: 'Montserrat', sans-serif;
 	font-weight:400;
-	color:#444444;
+	color:whitesmoke;
 	background:none;
 	padding:10px 0px 10px 108px;
 	border:none;
@@ -3747,6 +3747,7 @@ ul#mobile-menu-pro span.user-notification-count {
 #mobile-bars-icon-pro  i.fa-bars {
 	min-width:18px;
 	text-align:center;
+	color:white;
 }
 .active-mobile-icon-pro #mobile-bars-icon-pro  i.fa-bars:before {
 	content: "\f00d"; 
