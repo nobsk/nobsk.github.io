@@ -25,6 +25,9 @@
 24. RESPONSIVE STYLES
 */
 
+
+
+
 /* TICKET BUTTON */
 .btn-ticket {
   /*   margin:1em 3em; */
@@ -905,7 +908,7 @@ ul.dashboard-genres-pro {
   margin: 0px 0px 40px 0px;
   padding: 22px 30px;
   text-align: center;
-  border-bottom: 1px solid #e7e7e7;
+  /* border-bottom: 1px solid #e7e7e7; */
   width: 100%;
   overflow: hidden;
 

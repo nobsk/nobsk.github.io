@@ -7,6 +7,7 @@
 
 	<link rel="stylesheet" href="css/bootstrap.min.css">
 	<link rel="stylesheet" href="style.css">
+	<link rel="stylesheet" href="skeleton-dark.css">
 	<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Lato:400,700%7CMontserrat:300,400,600,700">
 
 	<link rel="stylesheet" href="icons/fontawesome/css/fontawesome-all.min.css">
@@ -18,8 +19,12 @@
 	<link rel="stylesheet" href="node_modules/@sweetalert2/theme-wordpress-admin/wordpress-admin.css">
 
 	<script src="node_modules/sweetalert2/dist/sweetalert2.min.js"></script>
+	<!-- SKELETON LOADER -->
+	<!-- <link rel="stylesheet" href="https://unpkg.com/placeholder-loading/dist/css/placeholder-loading.min.css"> -->
 
 	<title>NOBSK - Tempatnya Nonton Film Pendek</title>
+
+
 </head>
 
 <body>
@@ -31,7 +36,7 @@
 
 			<div id="video-search-header">
 				<div id="search-icon-more"></div>
-				<input type="text" placeholder="Search for Movies or TV Series" aria-label="Search">
+				<input type="text" placeholder="Cari film pendek kesukaanmu" aria-label="Search">
 				<div id="video-search-header-filtering">
 					<form id="video-search-header-filtering-padding">
 						<div class="row">
@@ -40,23 +45,23 @@
 
 								<div class="row">
 									<div class="col-sm">
-										<label class="checkbox-pro-container">Movies
+										<label class="checkbox-pro-container">Festival
 											<input type="checkbox" checked="checked" id="movies-type">
 											<span class="checkmark-pro"></span>
 										</label>
 
-										<label class="checkbox-pro-container">TV Series
+										<label class="checkbox-pro-container">Individual
 											<input type="checkbox" id="tv-type">
 											<span class="checkmark-pro"></span>
 										</label>
 									</div><!-- close .col -->
 									<div class="col">
-										<label class="checkbox-pro-container">New Arrivals
+										<label class="checkbox-pro-container">Baru Rilis
 											<input type="checkbox" id="movie-type">
 											<span class="checkmark-pro"></span>
 										</label>
 
-										<label class="checkbox-pro-container">Documentary
+										<label class="checkbox-pro-container">Populer
 											<input type="checkbox" id="documentary-type">
 											<span class="checkmark-pro"></span>
 										</label>
@@ -139,16 +144,16 @@
 			<div id="header-user-profile">
 				<div id="header-user-profile-click" class="noselect">
 					<img src="images/demo/user-profile.jpg" alt="Suzie">
-					<div id="header-username">Suzie Smith</div><i class="fas fa-angle-down"></i>
+					<div id="header-username">Anak Cantik</div><i class="fas fa-angle-down"></i>
 				</div><!-- close #header-user-profile-click -->
 				<div id="header-user-profile-menu">
 					<ul>
-						<li><a href="dashboard-profile.html"><span class="icon-User"></span>My Profile</a></li>
-						<li><a href="dashboard-favorites.html"><span class="icon-Favorite-Window"></span>My
+						<li><a href="#!"><span class="icon-User"></span>My Profile</a></li>
+						<li><a href="#!"><span class="icon-Favorite-Window"></span>My
 								Favorites</a></li>
-						<li><a href="dashboard-account.html"><span class="icon-Gears"></span>Account Details</a></li>
+						<li><a href="#!"><span class="icon-Gears"></span>Account Details</a></li>
 						<li><a href="#!"><span class="icon-Life-Safer"></span>Help/Support</a></li>
-						<li><a href="index.html"><span class="icon-Power-3"></span>Log Out</a></li>
+						<li><a href="#!"><span class="icon-Power-3"></span>Log Out</a></li>
 					</ul>
 				</div><!-- close #header-user-profile-menu -->
 			</div><!-- close #header-user-profile -->
@@ -162,14 +167,14 @@
 					<h3>Notifications</h3>
 					<div id="header-notification-menu-padding">
 						<ul id="header-user-notification-list">
-							<li><a href="#!"><img src="images/demo/user-profile-2.jpg" alt="Profile">Lorem ipsum dolor
-									sit amet, consec tetur adipiscing elit. <div class="header-user-notify-time">21
+							<li><a href="#!"><img src="images/demo/user-profile-2.jpg" alt="Profile">Hei, apa kabar?<div
+										class="header-user-notify-time">21
 										hours ago</div></a></li>
-							<li><a href="#!"><img src="images/demo/user-profile-3.jpg" alt="Profile">Donec vitae lacus
-									id arcu molestie mollis. <div class="header-user-notify-time">3 days ago</div></a>
+							<li><a href="#!"><img src="images/demo/user-profile-3.jpg" alt="Profile">Nonton barengin yuk
+									<div class="header-user-notify-time">3 days ago</div></a>
 							</li>
-							<li><a href="#!"><img src="images/demo/user-profile-4.jpg" alt="Profile">Aenean vitae lectus
-									non purus facilisis imperdiet. <div class="header-user-notify-time">5 days ago</div>
+							<li><a href="#!"><img src="images/demo/user-profile-4.jpg" alt="Profile">Ada film bagus tuh
+									baru rilis<div class="header-user-notify-time">5 days ago</div>
 								</a></li>
 						</ul>
 						<div class="clearfix"></div>
@@ -187,29 +192,29 @@
 					<li class="current-menu-item">
 						<a href="dashboard-home.html">
 							<span class="icon-Old-TV"></span>
-							TV Series
+							Film Pendek
 						</a>
 					<li>
 					<li>
-						<a href="dashboard-movies.html">
+						<a href="#!">
 							<span class="icon-Reel"></span>
-							Movies
+							Festival
 						</a>
 					</li>
 					<li>
-						<a href="dashboard-playlists.html">
+						<a href="#!">
 							<span class="icon-Movie"></span>
-							Playlists
+							Watchlist
 						</a>
 					</li>
 					<li>
-						<a href="dashboard-new-arrivals.html">
+						<a href="#!">
 							<span class="icon-Movie-Ticket"></span>
-							New Arrivals
+							Baru Rilis
 						</a>
 					</li>
 					<li>
-						<a href="dashboard-coming-soon.html">
+						<a href="#!">
 							<span class="icon-Clock"></span>
 							Coming Soon
 						</a>
@@ -240,29 +245,29 @@
 				<li class="normal-item-pro current-menu-item">
 					<a href="dashboard-home.html">
 						<span class="icon-Old-TV"></span>
-						TV Series
+						Film Pendek
 					</a>
 				</li>
 				<li class="normal-item-pro">
-					<a href="dashboard-movies.html">
+					<a href="#!">
 						<span class="icon-Reel"></span>
-						Movies
+						Festival
 					</a>
 				</li>
 				<li class="normal-item-pro">
-					<a href="dashboard-playlists.html">
+					<a href="#!">
 						<span class="icon-Movie"></span>
-						Playlists
+						Watchlist
 					</a>
 				</li>
 				<li class="normal-item-pro">
-					<a href="dashboard-new-arrivals.html">
+					<a href="#!">
 						<span class="icon-Movie-Ticket"></span>
-						New Arrivals
+						Baru Rilis
 					</a>
 				</li>
 				<li class="normal-item-pro">
-					<a href="dashboard-coming-soon.html">
+					<a href="#!">
 						<span class="icon-Clock"></span>
 						Coming Soon
 					</a>
@@ -276,11 +281,12 @@
 
 
 
+
 			<div class="flexslider progression-studios-dashboard-slider">
 				<ul class="slides">
 					<li class="progression_studios_animate_left">
 						<div class="progression-studios-slider-dashboard-image-background"
-							style="background-image:url(http://via.placeholder.com/1920x698);">
+							style="background-image:linear-gradient(to right, #1f2021 30%, transparent 100%),url(images/img/thumbnail-film/1597826908-tilik.png);">
 							<div class="progression-studios-slider-display-table">
 								<div class="progression-studios-slider-vertical-align">
 
@@ -290,11 +296,9 @@
 											href="#VideoLightbox-1"><i class="fas fa-play"></i></a>
 
 										<video id="VideoLightbox-1"
-											poster="https://cdn.plyr.io/static/demo/View_From_A_Blue_Moon_Trailer-HD.jpg?v1"
-											width="960" height="540">
-											<source
-												src="https://cdn.plyr.io/static/demo/View_From_A_Blue_Moon_Trailer-HD.mp4"
-												type="video/mp4">
+											poster="images/img/thumbnail-film/1597826908-tilik.png" width="960"
+											height="540">
+											<source src="videos/tilik.mp4" type="video/mp4">
 											<source
 												src="https://cdn.plyr.io/static/demo/View_From_A_Blue_Moon_Trailer-HD.webm"
 												type="video/webm">
@@ -308,26 +312,26 @@
 
 										<div class="progression-studios-slider-dashboard-caption-width">
 											<div class="progression-studios-slider-caption-align">
-												<h6>TV Series</h6>
-												<ul class="progression-studios-slider-rating">
+												<h6 class="dark-mode-font">Comedy</h6>
+												<ul class="dark-mode-font progression-studios-slider-rating">
 													<li>PG-13</li>
 													<li>HD</li>
 												</ul>
-												<h2><a href="dashboard-movie-profile.html">Seven Days in Ibiza</a></h2>
+												<h2><a class="dark-mode-font"
+														href="dashboard-movie-profile.html">TILIK</a></h2>
 												<ul class="progression-studios-slider-meta">
-													<li>15 August, 2016 (UK)</li>
-													<li>163 min.</li>
-													<li>Documentary</li>
+													<li class="dark-mode-font">September 2018</li>
+													<li class="dark-mode-font">32 min.</li>
+													<li class="dark-mode-font">Comedy</li>
 												</ul>
-												<p class="progression-studios-slider-description">A sex columnist,
-													Carrie Bradshaw, and her three friends Samantha, Charlotte
-													and Miranda explore Manhattan's dating scene, chronicling the mating
-													habits of
-													single New Yorkers.</p>
+												<p class="dark-mode-font progression-studios-slider-description">Tilik
+													berkisah
+													tentang
+													serombongan ibu-ibu yang pergi menggunakan truk untuk menjenguk Bu
+													Lurah mereka yang sedang dirawat di rumah sakit.</p>
 
 												<a class="btn btn-green-pro btn-slider-pro btn-shadow-pro afterglow"
-													href="#VideoLightbox-1"><i class="fas fa-play"></i> Watch
-													Trailer</a>
+													href="#VideoLightbox-1"><i class="fas fa-play"></i> Tonton</a>
 
 
 												<div class="progression-studios-slider-more-options">
@@ -335,14 +339,14 @@
 													<ul>
 														<li><a href="#!">Add to Favorites</a></li>
 														<li><a href="#!">Add to Watchlist</a></li>
-														<li><a href="#!">Add to Playlist</a></li>
+														<li><a href="#!">Add to Watchlist</a></li>
 														<li><a href="#!">Share...</a></li>
 														<li><a href="#!">Write A Review</a></li>
 													</ul>
 												</div>
 												<div class="clearfix"></div>
 
-												<h5>Starring</h5>
+												<h5 class="dark-mode-font">Dilihat oleh</h5>
 												<ul class="progression-studios-staring-slider">
 													<li><a href="#!"><img src="images/demo/user-1.jpg"
 																alt="Starring"></a></li>
@@ -426,7 +430,7 @@
 													<ul>
 														<li><a href="#!">Add to Favorites</a></li>
 														<li><a href="#!">Add to Watchlist</a></li>
-														<li><a href="#!">Add to Playlist</a></li>
+														<li><a href="#!">Add to Watchlist</a></li>
 														<li><a href="#!">Share...</a></li>
 														<li><a href="#!">Write A Review</a></li>
 													</ul>
@@ -520,6 +524,62 @@
 
 				<h4 class="heading-extra-margin-bottom">Comedies</h4>
 				<div class="row">
+
+
+					<div class="col-12 col-md-6 col-lg-4 col-xl-3 dark-loader">
+						<div class="ph-item">
+							<div class="ph-col-12">
+								<div class="ph-picture" style="height: 260px;"></div>
+								<br>
+								<div class="ph-row">
+									<div class="ph-col-6 big"></div>
+									<div class="ph-col-3 empty"></div>
+									<div class="ph-col-12"></div>
+								</div>
+							</div>
+						</div>
+					</div><!-- close .col -->
+					<div class="col-12 col-md-6 col-lg-4 col-xl-3 dark-loader">
+						<div class="ph-item">
+							<div class="ph-col-12">
+								<div class="ph-picture" style="height: 260px;"></div>
+								<br>
+								<div class="ph-row">
+									<div class="ph-col-6 big"></div>
+									<div class="ph-col-3 empty"></div>
+									<div class="ph-col-12"></div>
+								</div>
+							</div>
+						</div>
+					</div><!-- close .col -->
+					<div class="col-12 col-md-6 col-lg-4 col-xl-3 dark-loader">
+						<div class="ph-item">
+							<div class="ph-col-12">
+								<div class="ph-picture" style="height: 260px;"></div>
+								<br>
+								<div class="ph-row">
+									<div class="ph-col-6 big"></div>
+									<div class="ph-col-3 empty"></div>
+									<div class="ph-col-12"></div>
+								</div>
+							</div>
+						</div>
+					</div><!-- close .col -->
+					<div class="col-12 col-md-6 col-lg-4 col-xl-3 dark-loader">
+						<div class="ph-item">
+							<div class="ph-col-12">
+								<div class="ph-picture" style="height: 260px;"></div>
+								<br>
+								<div class="ph-row">
+									<div class="ph-col-6 big"></div>
+									<div class="ph-col-3 empty"></div>
+									<div class="ph-col-12"></div>
+								</div>
+							</div>
+						</div>
+					</div><!-- close .col -->
+
+
 					<div class="col-12 col-md-6 col-lg-4 col-xl-3">
 						<div class="item-listing-container-skrn">
 							<a href="dashboard-movie-profile.html"><img src="http://via.placeholder.com/500x707"
@@ -781,6 +841,14 @@
 	<script>(function (d) { var s = d.createElement("script"); s.setAttribute("data-account", "FZQLa4ZY1R"); s.setAttribute("src", "https://cdn.userway.org/widget.js"); (d.body || d.head).appendChild(s); })(document)</script>
 	<noscript>Please ensure Javascript is enabled for purposes of <a href="https://userway.org">website
 			accessibility</a></noscript>
+
+	<script>
+		$(document).ready(function () {
+			$(document).on('click', '.dark-loader', function () {
+				$(this).hide()
+			})
+		})
+	</script>
 </body>
 
 </html>
