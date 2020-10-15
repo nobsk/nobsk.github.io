@@ -853,11 +853,6 @@
 		})
 	</script>
 
-	<script>
-		var getUrl = window.location;
-		var baseUrl = getUrl.protocol + "//" + getUrl.host + "/" + getUrl.pathname.split('/')[1];
-		console.log(baseUrl)
-	</script>
 	<!-- AI -->
 	<script src="https://sdk.amazonaws.com/js/aws-sdk-2.763.0.min.js"></script>
 	<script>
@@ -942,7 +937,7 @@
 										nobskAI('Please wait, you will be ended your session')
 										setTimeout(function () {
 											window.sessionStorage.setItem('logoutSuccess', true)
-											window.location.href = baseUrl
+											window.location.href = window.sessionStorage.getItem('baseUrl')
 										}, 3500)
 										break;
 									case 'register':

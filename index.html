@@ -569,6 +569,7 @@
 	<script>
 		var getUrl = window.location;
 		var baseUrl = getUrl.protocol + "//" + getUrl.host + "/" + getUrl.pathname.split('/')[1];
+		window.sessionStorage.setItem('baseUrl', baseUrl)
 	</script>
 	<!-- AI -->
 	<script src="https://sdk.amazonaws.com/js/aws-sdk-2.763.0.min.js"></script>
