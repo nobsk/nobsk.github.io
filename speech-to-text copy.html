@@ -5,13 +5,13 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <title>NOBSK. AI</title>
+    <title>Browser speech recognition</title>
     <link rel="stylesheet" href="./speech-to-text.css" />
 </head>
 
 <body>
     <header>
-        <h1>Speech Mode Assistant</h1>
+        <h1>Pelajaran bahasa inggris warna buat anak TK</h1>
     </header>
     <main>
         <div id="textToSynth">
@@ -19,10 +19,10 @@
             <button class="btn default" id="speaks" style="display:none" onClick="speakText()">Synthesize</button>
             <!-- <p id="result">Enter text above then click Synthesize</p> -->
         </div>
-        <audio id="audioPlayback" style="display: none;" controls autoplay>
+        <audio id="audioPlayback" controls autoplay>
             <source id="audioSource" type="audio/mp3" src="">
         </audio>
-        <button id="button">Start speaking</button>
+        <button id="button">Start listening</button>
         <div id="result"></div>
         <p id="message" hidden aria-hidden="true">
             Your browser doesn't support Speech Recognition. Sorry.
@@ -33,11 +33,6 @@
     </footer>
     <script src="https://sdk.amazonaws.com/js/aws-sdk-2.763.0.min.js"></script>
     <script>
-        var callbackmenu = '';
-        function menuCallback(spokenmenu) {
-            callbackmenu = spokenmenu;
-            return callbackmenu;
-        }
         window.addEventListener("DOMContentLoaded", () => {
             const button = document.getElementById("button");
             const result = document.getElementById("result");
@@ -46,31 +41,28 @@
             //I want to select and change the color of the body, but this could be any HTML element on your page
             let body = document.querySelector("body")
 
-            let cap_nobsk_menus = ["Login", "Register", "Thank You", "Thank's", "Makasih", "Kasih", "Duluan", "Film", "Pendek", "Rekomendasi", "Halo", "Hai"];
-            const MENUS = cap_nobsk_menus.map(menu => {
-                //I need to change all menu names to lower case, because comparison between words will be case sensitive
-                return menu.toLowerCase()
+            let cap_css_colors = ["AliceBlue", "AntiqueWhite", "Aqua", "Aquamarine", "Azure", "Beige", "Bisque", "Black", "BlanchedAlmond", "Blue", "BlueViolet", "Brown", "BurlyWood", "CadetBlue", "Chartreuse", "Chocolate", "Coral", "CornflowerBlue", "Cornsilk", "Crimson", "Cyan", "DarkBlue", "DarkCyan", "DarkGoldenRod", "DarkGray", "DarkGrey", "DarkGreen", "DarkKhaki", "DarkMagenta", "DarkOliveGreen", "Darkorange", "DarkOrchid", "DarkRed", "DarkSalmon", "DarkSeaGreen", "DarkSlateBlue", "DarkSlateGray", "DarkSlateGrey", "DarkTurquoise", "DarkViolet", "DeepPink", "DeepSkyBlue", "DimGray", "DimGrey", "DodgerBlue", "FireBrick", "FloralWhite", "ForestGreen", "Fuchsia", "Gainsboro", "GhostWhite", "Gold", "GoldenRod", "Gray", "Grey", "Green", "GreenYellow", "HoneyDew", "HotPink", "IndianRed", "Indigo", "Ivory", "Khaki", "Lavender", "LavenderBlush", "LawnGreen", "LemonChiffon", "LightBlue", "LightCoral", "LightCyan", "LightGoldenRodYellow", "LightGray", "LightGrey", "LightGreen", "LightPink", "LightSalmon", "LightSeaGreen", "LightSkyBlue", "LightSlateGray", "LightSlateGrey", "LightSteelBlue", "LightYellow", "Lime", "LimeGreen", "Linen", "Magenta", "Maroon", "MediumAquaMarine", "MediumBlue", "MediumOrchid", "MediumPurple", "MediumSeaGreen", "MediumSlateBlue", "MediumSpringGreen", "MediumTurquoise", "MediumVioletRed", "MidnightBlue", "MintCream", "MistyRose", "Moccasin", "NavajoWhite", "Navy", "OldLace", "Olive", "OliveDrab", "Orange", "OrangeRed", "Orchid", "PaleGoldenRod", "PaleGreen", "PaleTurquoise", "PaleVioletRed", "PapayaWhip", "PeachPuff", "Peru", "Pink", "Plum", "PowderBlue", "Purple", "Red", "RosyBrown", "RoyalBlue", "SaddleBrown", "Salmon", "SandyBrown", "SeaGreen", "SeaShell", "Sienna", "Silver", "SkyBlue", "SlateBlue", "SlateGray", "SlateGrey", "Snow", "SpringGreen", "SteelBlue", "Tan", "Teal", "Thistle", "Tomato", "Turquoise", "Violet", "Wheat", "White", "WhiteSmoke", "Yellow", "YellowGreen"];
+            const CSS_COLORS = cap_css_colors.map(color => {
+                //I need to change all color names to lower case, because comparison between words will be case sensitive
+                return color.toLowerCase()
             })
 
-
-            const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
-
+            const SpeechRecognition =
+                window.SpeechRecognition || window.webkitSpeechRecognition;
             if (typeof SpeechRecognition !== "undefined") {
                 const recognition = new SpeechRecognition();
-                recognition.lang = "id";
-
+                // recognition.lang = "id";
 
                 const stop = () => {
                     main.classList.remove("speaking");
                     recognition.stop();
-                    button.textContent = "Start speaking";
+                    button.textContent = "Start listening";
                 };
 
                 const start = () => {
                     main.classList.add("speaking");
                     recognition.start();
-                    button.textContent = "Stop speaking";
-
+                    button.textContent = "Stop listening";
                 };
 
                 var i = 0;
@@ -92,85 +84,28 @@
                             .join("")
                         // p.innerText = transcript
 
-                        MENUS.forEach(function (menu) {
+                        //for each result, map through all color names and check if current result (transcript) contains that color
+                        //i.e. see if a person said any color name you know
+                        CSS_COLORS.forEach(function (color) {
 
-                            // console.log(transcript);
-                            //if find a match, change your background menu to that menu
-
-                            console.log(transcript.includes(menu));
-                            if (transcript.includes(menu)) {
+                            //if find a match, change your background color to that color
+                            if (transcript.includes(color)) {
                                 // console.log(transcript)
-                                menu = lastMenu(menu)
-                                menuCallback(menu);
-                                console.log(callbackmenu)
-                                switch (callbackmenu) {
-                                    case 'login':
-                                        button.click();
-                                        nobskAI('Hi, I am Your Artificial Intelligent assistant for NOBSK. Please login in these field')
-                                        break;
-                                    case 'register':
-                                        button.click();
-                                        nobskAI('Here it is, please register in these field')
-                                        break;
-                                    case 'thank\'s':
-                                        button.click();
-                                        nobskAI('You are welcome, I\'m happy to help you')
-                                        break;
-                                    case 'thank you':
-                                        button.click();
-                                        nobskAI('You are welcome, I\'m very happy to help you')
-                                        break;
-                                    case 'makasih':
-                                        button.click();
-                                        nobskAI('You are welcome, I\'m happy to help you')
-                                        break;
-                                    case 'kasih':
-                                        button.click();
-                                        nobskAI('You are welcome, I\'m very happy to help you')
-                                        break;
-                                    case 'duluan':
-                                        button.click();
-                                        nobskAI('You can register first, if your account haven\'t registered yet, I will show you how, please register in these field')
-                                        break;
-                                    case 'film':
-                                        button.click();
-                                        nobskAI('Great, I\'ll show you "recommended" shortfilm these month for you')
-                                        break;
-                                    case 'rekomendasi':
-                                        button.click();
-                                        nobskAI('Great, I\'ll show you "recommended" shortfilm these month for you')
-                                        break;
-                                    case 'pendek':
-                                        button.click();
-                                        nobskAI('Copy. Here we go.. your shortfilm')
-                                        break;
-                                    case 'halo':
-                                        button.click();
-                                        nobskAI('Hi, I am Your Artificial Intelligent assistant for NOBSK. You can ask me anything by clicking start speaking')
-                                        break;
-                                    case 'hai':
-                                        button.click();
-                                        nobskAI('Hi, I am Your Artificial Intelligent assistant for NOBSK. You can ask me anything by clicking start speaking')
-                                        break;
-                                    default:
-                                        button.click();
-                                        nobskAI('I don\'t understand what you mean?, could you please repeat what you want to do by clicking start again?')
-
-                                }
+                                color = lastColor(transcript)
+                                // console.log(color);
+                                body.style.backgroundColor = color;
 
                             }
                         })
-
-
                     }
                     i++;
-                    // console.log(i);
+                    console.log(i)
                 };
                 // setTimeout(function () {
                 //         document.getElementById('speaks').click()
                 //     }, 500);
                 recognition.continuous = true;
-                recognition.interimResults = false; // ini untuk memperbaiki si kata terus menerus loopnya, kalo false artinya kalo ngomong gak bakal dibenerin alias outputnya 1x aja.
+                recognition.interimResults = true;
                 recognition.addEventListener("result", onResult);
                 button.addEventListener("click", event => {
                     listening ? stop() : start();
@@ -184,13 +119,7 @@
             }
         });
 
-        function nobskAI(words) {
-            document.getElementById('result').innerHTML = words;
-            setTimeout(function () {
-                document.getElementById('speaks').click()
-            }, 500);
-        }
-        function lastMenu(words) {
+        function lastColor(words) {
             var n = words.split(" ");
             return n[n.length - 1];
         }
