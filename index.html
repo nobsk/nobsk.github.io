@@ -521,29 +521,6 @@
 
 
 			})
-			var is_logout = window.sessionStorage.getItem('logoutSuccess');
-			if (is_logout) {
-				const Toast = Swal.mixin({
-					toast: true,
-					position: 'top-end',
-					showConfirmButton: false,
-					timer: 3000,
-					timerProgressBar: true,
-					didOpen: (toast) => {
-						toast.addEventListener('mouseenter', Swal.stopTimer)
-						toast.addEventListener('mouseleave', Swal.resumeTimer)
-					}
-				})
-
-				Toast.fire({
-					icon: 'success',
-					title: 'Logout success successfully'
-				});
-
-				window.sessionStorage.removeItem('logoutSuccess');
-				nobskAI('Logout successfully')
-			}
-
 			$(document).on('click', '.login', function () {
 				$('.login').html('<i class="fas fa-circle-notch fa-spin"></i>');
 				window.sessionStorage.setItem('login', 'signed');
@@ -587,7 +564,7 @@
 			//I want to select and change the color of the body, but this could be any HTML element on your page
 			let body = document.querySelector("body")
 
-			let cap_nobsk_menus = ["Login", "Register", "Thank You", "Thank's", "Makasih", "Kasih", "Duluan", "Film", "Pendek", "Rekomendasi", "Halo", "Hai", "Logout"];
+			let cap_nobsk_menus = ["Login", "Register", "Thank You", "Thank's", "Makasih", "Kasih", "Duluan", "Film", "Pendek", "Rekomendasi", "Halo", "Hai", "Emi", "Logout", "Masuk", "Daftar"];
 			const MENUS = cap_nobsk_menus.map(menu => {
 				//I need to change all menu names to lower case, because comparison between words will be case sensitive
 				return menu.toLowerCase()
@@ -638,14 +615,19 @@
 							// console.log(transcript);
 							//if find a match, change your background menu to that menu
 
-							console.log(transcript.includes(menu));
+							// console.log(transcript.includes(menu));
 							if (transcript.includes(menu)) {
 								// console.log(transcript)
 								menu = lastMenu(menu)
 								menuCallback(menu);
-								console.log(callbackmenu)
+								console.log(menu)
 								switch (callbackmenu) {
 									case 'login':
+										button.click();
+										nobskAI('Good, I will show you the form. Please login in these field')
+										$('#LoginModal').modal('show');
+										break;
+									case 'masuk':
 										button.click();
 										nobskAI('Good, I will show you the form. Please login in these field')
 										$('#LoginModal').modal('show');
@@ -659,6 +641,12 @@
 										}, 3500)
 										break;
 									case 'register':
+										button.click();
+										nobskAI('Here it is, please register in these field')
+										$('#LoginModal').modal('show');
+										$('.not-a-member-pro').trigger('click');
+										break;
+									case 'daftar':
 										button.click();
 										nobskAI('Here it is, please register in these field')
 										$('#LoginModal').modal('show');
@@ -692,6 +680,7 @@
 										setTimeout(function () {
 											$('#LoginModal').modal('show');
 											$('.login').trigger('click');
+											window.sessionStorage.setItem('loginSuccess', true)
 										}, 3000)
 										break;
 									case 'rekomendasi':
@@ -700,6 +689,7 @@
 										setTimeout(function () {
 											$('#LoginModal').modal('show');
 											$('.login').trigger('click');
+											window.sessionStorage.setItem('loginSuccess', true)
 										}, 3000)
 										break;
 									case 'pendek':
@@ -708,6 +698,7 @@
 										setTimeout(function () {
 											$('#LoginModal').modal('show');
 											$('.login').trigger('click');
+											window.sessionStorage.setItem('loginSuccess', true)
 										}, 2000)
 
 										break;
@@ -717,7 +708,11 @@
 										break;
 									case 'hai':
 										button.click();
-										nobskAI('Hi, I am Amy, Your Artificial Intelligent assistant for NOBSK. You can ask me anything by clicking start speaking')
+										nobskAI('Hello, I am Amy, what can I do for you?')
+										break;
+									case 'emi':
+										button.click();
+										nobskAI('Hello, I am Amy, what can I do for you?')
 										break;
 									default:
 										button.click();
@@ -760,6 +755,28 @@
 		function lastMenu(words) {
 			var n = words.split(" ");
 			return n[n.length - 1];
+		}
+		var is_logout = window.sessionStorage.getItem('logoutSuccess');
+		if (is_logout) {
+			const Toast = Swal.mixin({
+				toast: true,
+				position: 'top-end',
+				showConfirmButton: false,
+				timer: 3000,
+				timerProgressBar: true,
+				didOpen: (toast) => {
+					toast.addEventListener('mouseenter', Swal.stopTimer)
+					toast.addEventListener('mouseleave', Swal.resumeTimer)
+				}
+			})
+
+			Toast.fire({
+				icon: 'success',
+				title: 'Logout successfully'
+			});
+
+			window.sessionStorage.removeItem('logoutSuccess');
+			nobskAI('Logout successfully')
 		}
 	</script>
 	<script type="text/javascript">

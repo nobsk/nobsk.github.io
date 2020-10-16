@@ -810,34 +810,7 @@
 	<script src="js/script.js" defer></script><!-- Custom Document Ready JS -->
 	<script src="js/script-dashboard.js" defer></script><!-- Custom Document Ready for Dashboard Only JS -->
 
-	<script>
-		var is_signed = window.sessionStorage.getItem('login');
-		if (is_signed) {
-			const Toast = Swal.mixin({
-				toast: true,
-				position: 'top-end',
-				showConfirmButton: false,
-				timer: 3000,
-				timerProgressBar: true,
-				didOpen: (toast) => {
-					toast.addEventListener('mouseenter', Swal.stopTimer)
-					toast.addEventListener('mouseleave', Swal.resumeTimer)
-				}
-			})
 
-			Toast.fire({
-				icon: 'success',
-				title: 'Signed in successfully'
-			});
-
-			window.sessionStorage.removeItem('login');
-		}
-		$(document).ready(function () {
-
-
-		});
-
-	</script>
 	<script>(function (d) { var s = d.createElement("script"); s.setAttribute("data-account", "FZQLa4ZY1R"); s.setAttribute("src", "https://cdn.userway.org/widget.js"); (d.body || d.head).appendChild(s); })(document)</script>
 	<noscript>Please ensure Javascript is enabled for purposes of <a href="https://userway.org">website
 			accessibility</a></noscript>
@@ -869,7 +842,7 @@
 			//I want to select and change the color of the body, but this could be any HTML element on your page
 			let body = document.querySelector("body")
 
-			let cap_nobsk_menus = ["Login", "Register", "Thank You", "Thank's", "Makasih", "Kasih", "Duluan", "Film", "Pendek", "Rekomendasi", "Halo", "Hai", "Logout"];
+			let cap_nobsk_menus = ["Login", "Register", "Thank You", "Thank's", "Makasih", "Kasih", "Duluan", "Film", "Pendek", "Rekomendasi", "Halo", "Hai", "Logout", "Emi", "Keluar"];
 			const MENUS = cap_nobsk_menus.map(menu => {
 				//I need to change all menu names to lower case, because comparison between words will be case sensitive
 				return menu.toLowerCase()
@@ -940,6 +913,14 @@
 											window.location.href = window.sessionStorage.getItem('baseUrl')
 										}, 3500)
 										break;
+									case 'keluar':
+										button.click();
+										nobskAI('Please wait, you will be ended your session')
+										setTimeout(function () {
+											window.sessionStorage.setItem('logoutSuccess', true)
+											window.location.href = window.sessionStorage.getItem('baseUrl')
+										}, 3500)
+										break;
 									case 'register':
 										button.click();
 										nobskAI('Here it is, please register in these field')
@@ -997,6 +978,10 @@
 										button.click();
 										nobskAI('Hi, I am Amy, Your Artificial Intelligent assistant for NOBSK. You can ask me anything by clicking start speaking')
 										break;
+									case 'emi':
+										button.click();
+										nobskAI('Hi, I am Amy, what can I do for you?')
+										break;
 									case 'hai':
 										button.click();
 										nobskAI('Hi, I am Amy, Your Artificial Intelligent assistant for NOBSK. You can ask me anything by clicking start speaking')
@@ -1042,6 +1027,35 @@
 		function lastMenu(words) {
 			var n = words.split(" ");
 			return n[n.length - 1];
+		}
+	</script>
+	<script>
+		var is_signed = window.sessionStorage.getItem('login');
+		if (is_signed) {
+			const Toast = Swal.mixin({
+				toast: true,
+				position: 'top-end',
+				showConfirmButton: false,
+				timer: 3000,
+				timerProgressBar: true,
+				didOpen: (toast) => {
+					toast.addEventListener('mouseenter', Swal.stopTimer)
+					toast.addEventListener('mouseleave', Swal.resumeTimer)
+				}
+			})
+
+			Toast.fire({
+				icon: 'success',
+				title: 'Signed in successfully'
+			});
+
+			window.sessionStorage.removeItem('login');
+		}
+		var signed = window.sessionStorage.getItem('loginSuccess');
+		console.log(signed);
+		if (signed) {
+			nobskAI('Login successfully')
+			window.sessionStorage.removeItem('loginSuccess');
 		}
 	</script>
 	<script type="text/javascript">
