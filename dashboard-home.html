@@ -824,6 +824,9 @@
 			$(document).find('h6 a').addClass('dark-mode-font');
 			$(document).find('h6 a').html('Tilik (2018)<br><small>Rancavana Films</small>');
 		})
+		var getUrl = window.location;
+		var baseUrl = getUrl.protocol + "//" + getUrl.host + "/" + getUrl.pathname.split('/')[1];
+		console.log(getUrl.href)
 	</script>
 
 	<!-- AI -->
@@ -842,7 +845,7 @@
 			//I want to select and change the color of the body, but this could be any HTML element on your page
 			let body = document.querySelector("body")
 
-			let cap_nobsk_menus = ["Login", "Register", "Thank You", "Thank's", "Makasih", "Kasih", "Duluan", "Film", "Pendek", "Rekomendasi", "Halo", "Hai", "Logout", "Emi", "Keluar"];
+			let cap_nobsk_menus = ["Login", "Register", "Thank You", "Thank's", "Makasih", "Kasih", "Duluan", "Film", "Pendek", "Rekomendasi", "Halo", "Hai", "Logout", "Masuk", "Daftar", "Kopi", "Boleh", "Teh", "Tutup", "Pagi", "Siang", "Sore", "Malam", "Ya", "Logout", "Keluar", "No", "Nggak"];
 			const MENUS = cap_nobsk_menus.map(menu => {
 				//I need to change all menu names to lower case, because comparison between words will be case sensitive
 				return menu.toLowerCase()
@@ -893,39 +896,174 @@
 							// console.log(transcript);
 							//if find a match, change your background menu to that menu
 
-							console.log(transcript.includes(menu));
+							// console.log(transcript.includes(menu));
 							if (transcript.includes(menu)) {
 								// console.log(transcript)
 								menu = lastMenu(menu)
 								menuCallback(menu);
-								console.log(callbackmenu)
+								console.log(menu)
 								switch (callbackmenu) {
 									case 'login':
+										if (window.sessionStorage.getItem('baseUrl') === getUrl.href) {
+											$("#LoginModal .modal-content").load(" #LoginModal .modal-content > *");
+											button.click();
+											nobskAI('Good, I will show you the form. Please login in these field')
+											setTimeout(function () {
+												$('#LoginModal').modal('show');
+											}, 100)
+										} else {
+											nobskAI('You are signed in already')
+										}
+										break;
+									case 'masuk':
+										if (window.sessionStorage.getItem('baseUrl') === getUrl.href) {
+											$("#LoginModal .modal-content").load(" #LoginModal .modal-content > *");
+											button.click();
+											nobskAI('Good, I will show you the form. Please login in these field')
+											setTimeout(function () {
+												$('#LoginModal').modal('show');
+											}, 100)
+										} else {
+											nobskAI('You are signed in already')
+										}
+										break;
+									case 'tutup':
 										button.click();
-										nobskAI('Good, I will show you the form. Please login in these field')
-										$('#LoginModal').modal('show');
+										nobskAI('as you wish, the modal has been closed')
+										$('#LoginModal').modal('hide');
+										$('#template-modal').modal('hide');
+										break;
+									case 'pagi':
+										button.click();
+										nobskAI('Good morning, want to start your day?')
+										window.sessionStorage.setItem('previousWords', 'pagi')
+										break;
+									case 'siang':
+										button.click();
+										nobskAI('Good afternoon, wanna drink?')
+										window.sessionStorage.setItem('previousWords', 'pagi')
+										break;
+									case 'sore':
+										button.click();
+										nobskAI('Good evening, Are you tired? Want some drink?')
+										window.sessionStorage.setItem('previousWords', 'pagi')
+										break;
+									case 'malam':
+										button.click();
+										nobskAI('Good night, have a nice sleep')
+										window.sessionStorage.setItem('previousWords', 'pagi')
+										break;
+									case 'ya':
+										if (window.sessionStorage.getItem('previousWords') === 'pagi') {
+											button.click();
+											nobskAI('Would you like a drink, before you start everything?')
+											$('#template-modal').modal('show');
+											window.sessionStorage.setItem('previousWords', 'choosedrink')
+										} else if (window.sessionStorage.getItem('previousWords') === 'choosedrink') {
+											var aud = document.getElementById("audioPlayback");
+
+											button.click();
+											nobskAI('Well, I have a cup of coffee')
+											$(document).find('.coffee').show();
+											aud.onended = function () {
+												nobskAI('and tea')
+												$(document).find('.tea').show();
+												aud.onended = function () {
+													nobskAI('which do you prefer?')
+												}
+											};
+
+											window.sessionStorage.setItem('previousWords', 'choosenow')
+										} else {
+											button.click();
+											nobskAI('Please repeat, I do not understand what you said')
+										}
+										break;
+									case 'boleh':
+										if (window.sessionStorage.getItem('previousWords') === 'pagi') {
+											button.click();
+											nobskAI('Would you like a drink, before you start everything?')
+											$('#template-modal').modal('show');
+											window.sessionStorage.setItem('previousWords', 'choosedrink')
+										} else if (window.sessionStorage.getItem('previousWords') === 'choosedrink') {
+											var aud = document.getElementById("audioPlayback");
+
+											button.click();
+											nobskAI('Well, I have a cup of coffee')
+											$(document).find('.coffee').show();
+											aud.onended = function () {
+												nobskAI('and tea')
+												$(document).find('.tea').show();
+												aud.onended = function () {
+													nobskAI('which do you prefer?')
+												}
+											};
+
+											window.sessionStorage.setItem('previousWords', 'choosenow')
+										} else {
+											button.click();
+											nobskAI('Please repeat, I do not understand what you said')
+										}
+										break;
+									case 'tidak':
+										if (window.sessionStorage.getItem('previousWords') === 'pagi') {
+											button.click();
+											nobskAI('Okay, just call me when you need it')
+										}
+										break;
+									case 'no':
+										if (window.sessionStorage.getItem('previousWords') === 'pagi') {
+											button.click();
+											nobskAI('Okay, just call me when you need it')
+										}
+										break;
+									case 'nggak':
+										if (window.sessionStorage.getItem('previousWords') === 'pagi') {
+											button.click();
+											nobskAI('Okay, just call me when you need it')
+										}
 										break;
 									case 'logout':
-										button.click();
-										nobskAI('Please wait, you will be ended your session')
-										setTimeout(function () {
-											window.sessionStorage.setItem('logoutSuccess', true)
-											window.location.href = window.sessionStorage.getItem('baseUrl')
-										}, 3500)
+										if (window.sessionStorage.getItem('baseUrl') === getUrl.href) {
+											nobskAI('You are logged out already.')
+										} else {
+											button.click();
+											nobskAI('Please wait, you will be ended your session')
+											setTimeout(function () {
+												window.sessionStorage.setItem('logoutSuccess', true)
+												window.location.href = window.sessionStorage.getItem('baseUrl')
+											}, 3500)
+										}
 										break;
 									case 'keluar':
-										button.click();
-										nobskAI('Please wait, you will be ended your session')
-										setTimeout(function () {
-											window.sessionStorage.setItem('logoutSuccess', true)
-											window.location.href = window.sessionStorage.getItem('baseUrl')
-										}, 3500)
+										if (window.sessionStorage.getItem('baseUrl') === getUrl.href) {
+											nobskAI('You are logged out already.')
+										} else {
+											button.click();
+											nobskAI('Please wait, you will be ended your session')
+											setTimeout(function () {
+												window.sessionStorage.setItem('logoutSuccess', true)
+												window.location.href = window.sessionStorage.getItem('baseUrl')
+											}, 3500)
+										}
 										break;
 									case 'register':
-										button.click();
+										$("#LoginModal .modal-content").load(" #LoginModal .modal-content > *");
 										nobskAI('Here it is, please register in these field')
-										$('#LoginModal').modal('show');
-										$('.not-a-member-pro').trigger('click');
+										setTimeout(function () {
+											button.click();
+											$('#LoginModal').modal('show');
+											$('.not-a-member-pro').trigger('click');
+										}, 100)
+										break;
+									case 'daftar':
+										$("#LoginModal .modal-content").load(" #LoginModal .modal-content > *");
+										nobskAI('Here it is, please register in these field')
+										setTimeout(function () {
+											button.click();
+											$('#LoginModal').modal('show');
+											$('.not-a-member-pro').trigger('click');
+										}, 100)
 										break;
 									case 'thank\'s':
 										button.click();
@@ -949,28 +1087,86 @@
 										$('#LoginModal').modal('show');
 										$('.not-a-member-pro').trigger('click');
 										break;
+									case 'kopi':
+										if (window.sessionStorage.getItem('previousWords') === 'choosenow') {
+											button.click();
+											nobskAI('Here you are, your coffee without sugar')
+											$(document).find('.tea').hide()
+											$(document).find('.coffee').addClass('text-center');
+											$(document).find('.coffee').addClass('mx-auto');
+											$(document).find('.coffee').css('border', "dotted 5px aquamarine");
+											$(document).find('.coffee').addClass('fullimage')
+											window.sessionStorage.removeItem('previousWords')
+										} else {
+											$(document).find('.coffee').removeClass('fullimage')
+											$(document).find('.coffee').css('border', "");
+											$(document).find('.coffee').hide()
+											$(document).find('.tea').removeClass('fullimage')
+											$(document).find('.tea').css('border', "");
+											$(document).find('.tea').hide()
+											$(".template-modal .modal-content").load(" .template-modal .modal-content > *");
+											nobskAI('So today, do you want some coffee?')
+											setTimeout(function () {
+												button.click();
+												window.sessionStorage.setItem('previousWords', 'choosedrink')
+												$('#template-modal').modal('show');
+											}, 100)
+										}
+										break;
+									case 'teh':
+										if (window.sessionStorage.getItem('previousWords') === 'choosenow') {
+											button.click();
+											nobskAI('Here you are, your teh without sugar')
+											$(document).find('.coffee').hide()
+											$(document).find('.tea').addClass('text-center');
+											$(document).find('.tea').addClass('mx-auto');
+											$(document).find('.tea').css('border', "dotted 5px aquamarine");
+											$(document).find('.tea').addClass('fullimage')
+											window.sessionStorage.removeItem('previousWords')
+										} else {
+											$(document).find('.coffee').removeClass('fullimage')
+											$(document).find('.coffee').css('border', "");
+											$(document).find('.coffee').hide()
+											$(document).find('.tea').removeClass('fullimage')
+											$(document).find('.tea').css('border', "");
+											$(document).find('.tea').hide()
+											$(".template-modal .modal-content").load(" .template-modal .modal-content > *");
+											nobskAI('So today, do you want some tea?')
+											setTimeout(function () {
+												button.click();
+												window.sessionStorage.setItem('previousWords', 'choosedrink')
+												$('#template-modal').modal('show');
+											}, 100)
+										}
+										break;
 									case 'film':
+										$("#LoginModal .modal-content").load(" #LoginModal .modal-content > *");
 										button.click();
 										nobskAI('Great, I\'ll show you "recommended" shortfilm these month for you')
 										setTimeout(function () {
 											$('#LoginModal').modal('show');
 											$('.login').trigger('click');
+											window.sessionStorage.setItem('loginSuccess', true)
 										}, 3000)
 										break;
 									case 'rekomendasi':
+										$("#LoginModal .modal-content").load(" #LoginModal .modal-content > *");
 										button.click();
 										nobskAI('Great, I\'ll show you "recommended" shortfilm these month for you')
 										setTimeout(function () {
 											$('#LoginModal').modal('show');
 											$('.login').trigger('click');
+											window.sessionStorage.setItem('loginSuccess', true)
 										}, 3000)
 										break;
 									case 'pendek':
+										$("#LoginModal .modal-content").load(" #LoginModal .modal-content > *");
 										button.click();
 										nobskAI('Copy, Here we go, your shortfilm lists')
 										setTimeout(function () {
 											$('#LoginModal').modal('show');
 											$('.login').trigger('click');
+											window.sessionStorage.setItem('loginSuccess', true)
 										}, 2000)
 
 										break;
@@ -978,13 +1174,9 @@
 										button.click();
 										nobskAI('Hi, I am Amy, Your Artificial Intelligent assistant for NOBSK. You can ask me anything by clicking start speaking')
 										break;
-									case 'emi':
-										button.click();
-										nobskAI('Hi, I am Amy, what can I do for you?')
-										break;
 									case 'hai':
 										button.click();
-										nobskAI('Hi, I am Amy, Your Artificial Intelligent assistant for NOBSK. You can ask me anything by clicking start speaking')
+										nobskAI('Hello, I am Amy, what can I do for you?')
 										break;
 									default:
 										button.click();
@@ -1021,14 +1213,18 @@
 		function nobskAI(words) {
 			document.getElementById('result').innerHTML = words;
 			setTimeout(function () {
+				$(document).find('.btn-speaking').html(words)
 				document.getElementById('speaks').click()
 			}, 500);
+			var aud = document.getElementById("audioPlayback");
+			aud.onended = function () {
+				$(document).find('.btn-speaking').html('<img src="images/img/homePage/mic-on.svg" alt="">')
+			};
 		}
 		function lastMenu(words) {
 			var n = words.split(" ");
 			return n[n.length - 1];
 		}
-
 		var is_signed = window.sessionStorage.getItem('login');
 		if (is_signed) {
 			const Toast = Swal.mixin({

@@ -356,6 +356,46 @@
 	</div><!-- close .modal -->
 
 
+	<!-- Modal -->
+	<div class="modal fade" id="template-modal" tabindex="-1" role="dialog" aria-labelledby="template-modal"
+		aria-hidden="true">
+		<button type="button" class="close float-close-pro" data-dismiss="modal" aria-label="Close">
+			<span aria-hidden="true">&times;</span>
+		</button>
+		<div class="modal-dialog modal-dialog-centered modal-md change-size" role="document">
+			<div class="modal-content">
+				<div class="modal-header-pro">
+					<h2></h2>
+					<h6>Amy here, would you like to drink?</h6>
+				</div>
+				<div class="modal-body-pro social-login-modal-body-pro">
+
+					<div class="registration-social-login-container coffee">
+						<h6>Coffee</h6>
+						<img src="images/img/AI/coffee.jpg" alt="">
+						<!-- <div class="registration-social-login-or">atau</div> -->
+
+					</div><!-- close .registration-social-login-container -->
+
+					<div class="registration-social-login-options tea">
+						<h6>Tea</h6>
+						<img src="images/img/AI/tea.jpg" class="" alt="">
+
+					</div><!-- close .registration-social-login-options -->
+
+					<div class="clearfix"></div>
+
+
+				</div><!-- close .modal-body -->
+
+				<a class="template-modal" data-dismiss="modal" aria-label="Close" href="javascript:;">I'm not
+					interested,
+					<span>Cancel</span></a>
+			</div><!-- close .modal-content -->
+		</div><!-- close .modal-dialog -->
+	</div><!-- close .modal -->
+
+
 	<!-- Required Framework JavaScript -->
 	<script src="js/libs/jquery-3.3.1.min.js"></script><!-- jQuery -->
 	<script src="js/libs/popper.min.js" defer></script><!-- Bootstrap Popper/Extras JS -->
@@ -546,7 +586,8 @@
 	<script>
 		var getUrl = window.location;
 		var baseUrl = getUrl.protocol + "//" + getUrl.host + "/" + getUrl.pathname.split('/')[1];
-		window.sessionStorage.setItem('baseUrl', baseUrl)
+		window.sessionStorage.setItem('baseUrl', getUrl.href)
+		// console.log(getUrl.href)
 	</script>
 	<script src="https://sdk.amazonaws.com/js/aws-sdk-2.763.0.min.js"></script>
 	<script>
@@ -563,7 +604,7 @@
 			//I want to select and change the color of the body, but this could be any HTML element on your page
 			let body = document.querySelector("body")
 
-			let cap_nobsk_menus = ["Login", "Register", "Thank You", "Thank's", "Makasih", "Kasih", "Duluan", "Film", "Pendek", "Rekomendasi", "Halo", "Hai", "Emi", "Logout", "Masuk", "Daftar"];
+			let cap_nobsk_menus = ["Login", "Register", "Thank You", "Thank's", "Makasih", "Kasih", "Duluan", "Film", "Pendek", "Rekomendasi", "Halo", "Hai", "Logout", "Masuk", "Daftar", "Kopi", "Boleh", "Teh", "Tutup", "Pagi", "Siang", "Sore", "Malam", "Ya", "Logout", "Keluar", "No", "Nggak"];
 			const MENUS = cap_nobsk_menus.map(menu => {
 				//I need to change all menu names to lower case, because comparison between words will be case sensitive
 				return menu.toLowerCase()
@@ -622,34 +663,166 @@
 								console.log(menu)
 								switch (callbackmenu) {
 									case 'login':
-										button.click();
-										nobskAI('Good, I will show you the form. Please login in these field')
-										$('#LoginModal').modal('show');
+										if (window.sessionStorage.getItem('baseUrl') === getUrl.href) {
+											$("#LoginModal .modal-content").load(" #LoginModal .modal-content > *");
+											button.click();
+											nobskAI('Good, I will show you the form. Please login in these field')
+											setTimeout(function () {
+												$('#LoginModal').modal('show');
+											}, 100)
+										} else {
+											nobskAI('You are signed in already')
+										}
 										break;
 									case 'masuk':
+										if (window.sessionStorage.getItem('baseUrl') === getUrl.href) {
+											$("#LoginModal .modal-content").load(" #LoginModal .modal-content > *");
+											button.click();
+											nobskAI('Good, I will show you the form. Please login in these field')
+											setTimeout(function () {
+												$('#LoginModal').modal('show');
+											}, 100)
+										} else {
+											nobskAI('You are signed in already')
+										}
+										break;
+									case 'tutup':
 										button.click();
-										nobskAI('Good, I will show you the form. Please login in these field')
-										$('#LoginModal').modal('show');
+										nobskAI('as you wish, the modal has been closed')
+										$('#LoginModal').modal('hide');
+										$('#template-modal').modal('hide');
+										break;
+									case 'pagi':
+										button.click();
+										nobskAI('Good morning, want to start your day?')
+										window.sessionStorage.setItem('previousWords', 'pagi')
+										break;
+									case 'siang':
+										button.click();
+										nobskAI('Good afternoon, wanna drink?')
+										window.sessionStorage.setItem('previousWords', 'pagi')
+										break;
+									case 'sore':
+										button.click();
+										nobskAI('Good evening, Are you tired? Want some drink?')
+										window.sessionStorage.setItem('previousWords', 'pagi')
+										break;
+									case 'malam':
+										button.click();
+										nobskAI('Good night, have a nice sleep')
+										window.sessionStorage.setItem('previousWords', 'pagi')
+										break;
+									case 'ya':
+										if (window.sessionStorage.getItem('previousWords') === 'pagi') {
+											button.click();
+											nobskAI('Would you like a drink, before you start everything?')
+											$('#template-modal').modal('show');
+											window.sessionStorage.setItem('previousWords', 'choosedrink')
+										} else if (window.sessionStorage.getItem('previousWords') === 'choosedrink') {
+											var aud = document.getElementById("audioPlayback");
+
+											button.click();
+											nobskAI('Well, I have a cup of coffee')
+											$(document).find('.coffee').show();
+											aud.onended = function () {
+												nobskAI('and tea')
+												$(document).find('.tea').show();
+												aud.onended = function () {
+													nobskAI('which do you prefer?')
+												}
+											};
+
+											window.sessionStorage.setItem('previousWords', 'choosenow')
+										} else {
+											button.click();
+											nobskAI('Please repeat, I do not understand what you said')
+										}
+										break;
+									case 'boleh':
+										if (window.sessionStorage.getItem('previousWords') === 'pagi') {
+											button.click();
+											nobskAI('Would you like a drink, before you start everything?')
+											$('#template-modal').modal('show');
+											window.sessionStorage.setItem('previousWords', 'choosedrink')
+										} else if (window.sessionStorage.getItem('previousWords') === 'choosedrink') {
+											var aud = document.getElementById("audioPlayback");
+
+											button.click();
+											nobskAI('Well, I have a cup of coffee')
+											$(document).find('.coffee').show();
+											aud.onended = function () {
+												nobskAI('and tea')
+												$(document).find('.tea').show();
+												aud.onended = function () {
+													nobskAI('which do you prefer?')
+												}
+											};
+
+											window.sessionStorage.setItem('previousWords', 'choosenow')
+										} else {
+											button.click();
+											nobskAI('Please repeat, I do not understand what you said')
+										}
+										break;
+									case 'tidak':
+										if (window.sessionStorage.getItem('previousWords') === 'pagi') {
+											button.click();
+											nobskAI('Okay, just call me when you need it')
+										}
+										break;
+									case 'no':
+										if (window.sessionStorage.getItem('previousWords') === 'pagi') {
+											button.click();
+											nobskAI('Okay, just call me when you need it')
+										}
+										break;
+									case 'nggak':
+										if (window.sessionStorage.getItem('previousWords') === 'pagi') {
+											button.click();
+											nobskAI('Okay, just call me when you need it')
+										}
 										break;
 									case 'logout':
-										button.click();
-										nobskAI('Please wait, you will be ended your session')
-										setTimeout(function () {
-											window.sessionStorage.setItem('logoutSuccess', true)
-											window.location.href = baseUrl
-										}, 3500)
+										if (window.sessionStorage.getItem('baseUrl') === getUrl.href) {
+											nobskAI('You are logged out already.')
+										} else {
+											button.click();
+											nobskAI('Please wait, you will be ended your session')
+											setTimeout(function () {
+												window.sessionStorage.setItem('logoutSuccess', true)
+												window.location.href = window.sessionStorage.getItem('baseUrl')
+											}, 3500)
+										}
+										break;
+									case 'keluar':
+										if (window.sessionStorage.getItem('baseUrl') === getUrl.href) {
+											nobskAI('You are logged out already.')
+										} else {
+											button.click();
+											nobskAI('Please wait, you will be ended your session')
+											setTimeout(function () {
+												window.sessionStorage.setItem('logoutSuccess', true)
+												window.location.href = window.sessionStorage.getItem('baseUrl')
+											}, 3500)
+										}
 										break;
 									case 'register':
-										button.click();
+										$("#LoginModal .modal-content").load(" #LoginModal .modal-content > *");
 										nobskAI('Here it is, please register in these field')
-										$('#LoginModal').modal('show');
-										$('.not-a-member-pro').trigger('click');
+										setTimeout(function () {
+											button.click();
+											$('#LoginModal').modal('show');
+											$('.not-a-member-pro').trigger('click');
+										}, 100)
 										break;
 									case 'daftar':
-										button.click();
+										$("#LoginModal .modal-content").load(" #LoginModal .modal-content > *");
 										nobskAI('Here it is, please register in these field')
-										$('#LoginModal').modal('show');
-										$('.not-a-member-pro').trigger('click');
+										setTimeout(function () {
+											button.click();
+											$('#LoginModal').modal('show');
+											$('.not-a-member-pro').trigger('click');
+										}, 100)
 										break;
 									case 'thank\'s':
 										button.click();
@@ -673,7 +846,60 @@
 										$('#LoginModal').modal('show');
 										$('.not-a-member-pro').trigger('click');
 										break;
+									case 'kopi':
+										if (window.sessionStorage.getItem('previousWords') === 'choosenow') {
+											button.click();
+											nobskAI('Here you are, your coffee without sugar')
+											$(document).find('.tea').hide()
+											$(document).find('.coffee').addClass('text-center');
+											$(document).find('.coffee').addClass('mx-auto');
+											$(document).find('.coffee').css('border', "dotted 5px aquamarine");
+											$(document).find('.coffee').addClass('fullimage')
+											window.sessionStorage.removeItem('previousWords')
+										} else {
+											$(document).find('.coffee').removeClass('fullimage')
+											$(document).find('.coffee').css('border', "");
+											$(document).find('.coffee').hide()
+											$(document).find('.tea').removeClass('fullimage')
+											$(document).find('.tea').css('border', "");
+											$(document).find('.tea').hide()
+											$(".template-modal .modal-content").load(" .template-modal .modal-content > *");
+											nobskAI('So today, do you want some coffee?')
+											setTimeout(function () {
+												button.click();
+												window.sessionStorage.setItem('previousWords', 'choosedrink')
+												$('#template-modal').modal('show');
+											}, 100)
+										}
+										break;
+									case 'teh':
+										if (window.sessionStorage.getItem('previousWords') === 'choosenow') {
+											button.click();
+											nobskAI('Here you are, your teh without sugar')
+											$(document).find('.coffee').hide()
+											$(document).find('.tea').addClass('text-center');
+											$(document).find('.tea').addClass('mx-auto');
+											$(document).find('.tea').css('border', "dotted 5px aquamarine");
+											$(document).find('.tea').addClass('fullimage')
+											window.sessionStorage.removeItem('previousWords')
+										} else {
+											$(document).find('.coffee').removeClass('fullimage')
+											$(document).find('.coffee').css('border', "");
+											$(document).find('.coffee').hide()
+											$(document).find('.tea').removeClass('fullimage')
+											$(document).find('.tea').css('border', "");
+											$(document).find('.tea').hide()
+											$(".template-modal .modal-content").load(" .template-modal .modal-content > *");
+											nobskAI('So today, do you want some tea?')
+											setTimeout(function () {
+												button.click();
+												window.sessionStorage.setItem('previousWords', 'choosedrink')
+												$('#template-modal').modal('show');
+											}, 100)
+										}
+										break;
 									case 'film':
+										$("#LoginModal .modal-content").load(" #LoginModal .modal-content > *");
 										button.click();
 										nobskAI('Great, I\'ll show you "recommended" shortfilm these month for you')
 										setTimeout(function () {
@@ -683,6 +909,7 @@
 										}, 3000)
 										break;
 									case 'rekomendasi':
+										$("#LoginModal .modal-content").load(" #LoginModal .modal-content > *");
 										button.click();
 										nobskAI('Great, I\'ll show you "recommended" shortfilm these month for you')
 										setTimeout(function () {
@@ -692,6 +919,7 @@
 										}, 3000)
 										break;
 									case 'pendek':
+										$("#LoginModal .modal-content").load(" #LoginModal .modal-content > *");
 										button.click();
 										nobskAI('Copy, Here we go, your shortfilm lists')
 										setTimeout(function () {
@@ -706,10 +934,6 @@
 										nobskAI('Hi, I am Amy, Your Artificial Intelligent assistant for NOBSK. You can ask me anything by clicking start speaking')
 										break;
 									case 'hai':
-										button.click();
-										nobskAI('Hello, I am Amy, what can I do for you?')
-										break;
-									case 'emi':
 										button.click();
 										nobskAI('Hello, I am Amy, what can I do for you?')
 										break;
@@ -748,8 +972,13 @@
 		function nobskAI(words) {
 			document.getElementById('result').innerHTML = words;
 			setTimeout(function () {
+				$(document).find('.btn-speaking').html(words)
 				document.getElementById('speaks').click()
 			}, 500);
+			var aud = document.getElementById("audioPlayback");
+			aud.onended = function () {
+				$(document).find('.btn-speaking').html('<img src="images/img/homePage/mic-on.svg" alt="">')
+			};
 		}
 		function lastMenu(words) {
 			var n = words.split(" ");
@@ -821,7 +1050,17 @@
 				str = str.toString();
 			return str.replace(/(<([^>]+)>)/ig, '');
 		}
+
+		$(document).find('.coffee').hide();
+		$(document).find('.tea').hide();
+		// $(document).ready(function () {
+
+		// 	$(document).find('#template-modal').modal('show')
+		// })
+
+
 	</script>
+
 </body>
 
 </html>
