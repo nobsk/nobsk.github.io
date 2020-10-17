@@ -382,6 +382,11 @@
 						<img src="images/img/AI/tea.jpg" class="" alt="">
 
 					</div><!-- close .registration-social-login-options -->
+					<div class="registration-social-login-options milk">
+						<h6>Milk</h6>
+						<img src="images/img/AI/ultramilk.jpg" class="" alt="">
+
+					</div><!-- close .registration-social-login-options -->
 
 					<div class="clearfix"></div>
 
@@ -604,7 +609,7 @@
 			//I want to select and change the color of the body, but this could be any HTML element on your page
 			let body = document.querySelector("body")
 
-			let cap_nobsk_menus = ["Login", "Register", "Thank You", "Thank's", "Makasih", "Kasih", "Duluan", "Film", "Pendek", "Rekomendasi", "Halo", "Hai", "Logout", "Masuk", "Daftar", "Kopi", "Boleh", "Teh", "Tutup", "Pagi", "Siang", "Sore", "Malam", "Ya", "Logout", "Keluar", "No", "Nggak"];
+			let cap_nobsk_menus = ["Login", "Register", "Thank You", "Thank's", "Makasih", "Kasih", "Duluan", "Film", "Pendek", "Rekomendasi", "Halo", "Hai", "Logout", "Masuk", "Daftar", "Kopi", "Boleh", "Teh", "Tutup", "Pagi", "Siang", "Sore", "Malam", "Ya", "Iya", "Logout", "Keluar", "No", "Nggak", "Susu", "Ultramilk", "Mau"];
 			const MENUS = cap_nobsk_menus.map(menu => {
 				//I need to change all menu names to lower case, because comparison between words will be case sensitive
 				return menu.toLowerCase()
@@ -693,24 +698,64 @@
 										$('#template-modal').modal('hide');
 										break;
 									case 'pagi':
+										$(document).find('.milk').removeClass('fullimage')
+										$(document).find('.milk').css('border', "");
+										$(document).find('.milk').hide()
+										$(document).find('.coffee').removeClass('fullimage')
+										$(document).find('.coffee').css('border', "");
+										$(document).find('.coffee').hide()
+										$(document).find('.tea').removeClass('fullimage')
+										$(document).find('.tea').css('border', "");
+										$(document).find('.tea').hide()
+										$(".template-modal .modal-content").load(" .template-modal .modal-content > *");
 										button.click();
 										nobskAI('Good morning, want to start your day?')
 										window.sessionStorage.setItem('previousWords', 'pagi')
 										break;
 									case 'siang':
+										$(document).find('.milk').removeClass('fullimage')
+										$(document).find('.milk').css('border', "");
+										$(document).find('.milk').hide()
+										$(document).find('.coffee').removeClass('fullimage')
+										$(document).find('.coffee').css('border', "");
+										$(document).find('.coffee').hide()
+										$(document).find('.tea').removeClass('fullimage')
+										$(document).find('.tea').css('border', "");
+										$(document).find('.tea').hide()
+										$(".template-modal .modal-content").load(" .template-modal .modal-content > *");
 										button.click();
 										nobskAI('Good afternoon, wanna drink?')
-										window.sessionStorage.setItem('previousWords', 'pagi')
+										window.sessionStorage.setItem('previousWords', 'siang')
 										break;
 									case 'sore':
+										$(document).find('.milk').removeClass('fullimage')
+										$(document).find('.milk').css('border', "");
+										$(document).find('.milk').hide()
+										$(document).find('.coffee').removeClass('fullimage')
+										$(document).find('.coffee').css('border', "");
+										$(document).find('.coffee').hide()
+										$(document).find('.tea').removeClass('fullimage')
+										$(document).find('.tea').css('border', "");
+										$(document).find('.tea').hide()
+										$(".template-modal .modal-content").load(" .template-modal .modal-content > *");
 										button.click();
 										nobskAI('Good evening, Are you tired? Want some drink?')
-										window.sessionStorage.setItem('previousWords', 'pagi')
+										window.sessionStorage.setItem('previousWords', 'sore')
 										break;
 									case 'malam':
+										$(document).find('.milk').removeClass('fullimage')
+										$(document).find('.milk').css('border', "");
+										$(document).find('.milk').hide()
+										$(document).find('.coffee').removeClass('fullimage')
+										$(document).find('.coffee').css('border', "");
+										$(document).find('.coffee').hide()
+										$(document).find('.tea').removeClass('fullimage')
+										$(document).find('.tea').css('border', "");
+										$(document).find('.tea').hide()
+										$(".template-modal .modal-content").load(" .template-modal .modal-content > *");
 										button.click();
-										nobskAI('Good night, have a nice sleep')
-										window.sessionStorage.setItem('previousWords', 'pagi')
+										nobskAI('Hi, do you want to drink something?')
+										window.sessionStorage.setItem('previousWords', 'malam')
 										break;
 									case 'ya':
 										if (window.sessionStorage.getItem('previousWords') === 'pagi') {
@@ -725,14 +770,33 @@
 											nobskAI('Well, I have a cup of coffee')
 											$(document).find('.coffee').show();
 											aud.onended = function () {
-												nobskAI('and tea')
+												nobskAI('a cup of tea')
 												$(document).find('.tea').show();
 												aud.onended = function () {
-													nobskAI('which do you prefer?')
+													nobskAI('and ultramilk')
+													$(document).find('.milk').show();
+													aud.onended = function () {
+														nobskAI('which do you prefer?')
+													}
 												}
 											};
 
 											window.sessionStorage.setItem('previousWords', 'choosenow')
+										} else if (window.sessionStorage.getItem('previousWords') === 'siang') {
+											button.click();
+											nobskAI('Would you like a drink, before you go back to work?')
+											$('#template-modal').modal('show');
+											window.sessionStorage.setItem('previousWords', 'choosedrink')
+										} else if (window.sessionStorage.getItem('previousWords') === 'sore') {
+											button.click();
+											nobskAI('Would you like a drink, before you go to rest?')
+											$('#template-modal').modal('show');
+											window.sessionStorage.setItem('previousWords', 'choosedrink')
+										} else if (window.sessionStorage.getItem('previousWords') === 'malam') {
+											button.click();
+											nobskAI('Would you like a drink, before you are going to sleep?')
+											$('#template-modal').modal('show');
+											window.sessionStorage.setItem('previousWords', 'choosedrink')
 										} else {
 											button.click();
 											nobskAI('Please repeat, I do not understand what you said')
@@ -751,33 +815,151 @@
 											nobskAI('Well, I have a cup of coffee')
 											$(document).find('.coffee').show();
 											aud.onended = function () {
-												nobskAI('and tea')
+												nobskAI('a cup of tea')
 												$(document).find('.tea').show();
 												aud.onended = function () {
-													nobskAI('which do you prefer?')
+													nobskAI('and ultramilk')
+													$(document).find('.milk').show();
+													aud.onended = function () {
+														nobskAI('which do you prefer?')
+													}
 												}
 											};
 
 											window.sessionStorage.setItem('previousWords', 'choosenow')
+										} else if (window.sessionStorage.getItem('previousWords') === 'siang') {
+											button.click();
+											nobskAI('Would you like a drink, before you go back to work?')
+											$('#template-modal').modal('show');
+											window.sessionStorage.setItem('previousWords', 'choosedrink')
+										} else if (window.sessionStorage.getItem('previousWords') === 'sore') {
+											button.click();
+											nobskAI('Would you like a drink, before you go to rest?')
+											$('#template-modal').modal('show');
+											window.sessionStorage.setItem('previousWords', 'choosedrink')
+										} else if (window.sessionStorage.getItem('previousWords') === 'malam') {
+											button.click();
+											nobskAI('Would you like a drink, before you are going to sleep?')
+											$('#template-modal').modal('show');
+											window.sessionStorage.setItem('previousWords', 'choosedrink')
+										} else {
+											button.click();
+											nobskAI('Please repeat, I do not understand what you said')
+										}
+										break;
+									case 'iya':
+										if (window.sessionStorage.getItem('previousWords') === 'pagi') {
+											button.click();
+											nobskAI('Would you like a drink, before you start everything?')
+											$('#template-modal').modal('show');
+											window.sessionStorage.setItem('previousWords', 'choosedrink')
+										} else if (window.sessionStorage.getItem('previousWords') === 'choosedrink') {
+											var aud = document.getElementById("audioPlayback");
+
+											button.click();
+											nobskAI('Well, I have a cup of coffee')
+											$(document).find('.coffee').show();
+											aud.onended = function () {
+												nobskAI('a cup of tea')
+												$(document).find('.tea').show();
+												aud.onended = function () {
+													nobskAI('and ultramilk')
+													$(document).find('.milk').show();
+													aud.onended = function () {
+														nobskAI('which do you prefer?')
+													}
+												}
+											};
+
+											window.sessionStorage.setItem('previousWords', 'choosenow')
+										} else if (window.sessionStorage.getItem('previousWords') === 'siang') {
+											button.click();
+											nobskAI('Would you like a drink, before you go back to work?')
+											$('#template-modal').modal('show');
+											window.sessionStorage.setItem('previousWords', 'choosedrink')
+										} else if (window.sessionStorage.getItem('previousWords') === 'sore') {
+											button.click();
+											nobskAI('Would you like a drink, before you go to rest?')
+											$('#template-modal').modal('show');
+											window.sessionStorage.setItem('previousWords', 'choosedrink')
+										} else if (window.sessionStorage.getItem('previousWords') === 'malam') {
+											button.click();
+											nobskAI('Would you like a drink, before you are going to sleep?')
+											$('#template-modal').modal('show');
+											window.sessionStorage.setItem('previousWords', 'choosedrink')
+										} else {
+											button.click();
+											nobskAI('Please repeat, I do not understand what you said')
+										}
+										break;
+									case 'mau':
+										if (window.sessionStorage.getItem('previousWords') === 'pagi') {
+											button.click();
+											nobskAI('Would you like a drink, before you start everything?')
+											$('#template-modal').modal('show');
+											window.sessionStorage.setItem('previousWords', 'choosedrink')
+										} else if (window.sessionStorage.getItem('previousWords') === 'choosedrink') {
+											var aud = document.getElementById("audioPlayback");
+
+											button.click();
+											nobskAI('Well, I have a cup of coffee')
+											$(document).find('.coffee').show();
+											aud.onended = function () {
+												nobskAI('a cup of tea')
+												$(document).find('.tea').show();
+												aud.onended = function () {
+													nobskAI('and ultramilk')
+													$(document).find('.milk').show();
+													aud.onended = function () {
+														nobskAI('which do you prefer?')
+													}
+												}
+											};
+
+											window.sessionStorage.setItem('previousWords', 'choosenow')
+										} else if (window.sessionStorage.getItem('previousWords') === 'siang') {
+											button.click();
+											nobskAI('Would you like a drink, before you go back to work?')
+											$('#template-modal').modal('show');
+											window.sessionStorage.setItem('previousWords', 'choosedrink')
+										} else if (window.sessionStorage.getItem('previousWords') === 'sore') {
+											button.click();
+											nobskAI('Would you like a drink, before you go to rest?')
+											$('#template-modal').modal('show');
+											window.sessionStorage.setItem('previousWords', 'choosedrink')
+										} else if (window.sessionStorage.getItem('previousWords') === 'malam') {
+											button.click();
+											nobskAI('Would you like a drink, before you are going to sleep?')
+											$('#template-modal').modal('show');
+											window.sessionStorage.setItem('previousWords', 'choosedrink')
 										} else {
 											button.click();
 											nobskAI('Please repeat, I do not understand what you said')
 										}
 										break;
 									case 'tidak':
-										if (window.sessionStorage.getItem('previousWords') === 'pagi') {
+										if (window.sessionStorage.getItem('previousWords') === 'pagi' ||
+											window.sessionStorage.getItem('previousWords') === 'siang' ||
+											window.sessionStorage.getItem('previousWords') === 'sore' ||
+											window.sessionStorage.getItem('previousWords') === 'malam') {
 											button.click();
 											nobskAI('Okay, just call me when you need it')
 										}
 										break;
 									case 'no':
-										if (window.sessionStorage.getItem('previousWords') === 'pagi') {
+										if (window.sessionStorage.getItem('previousWords') === 'pagi' ||
+											window.sessionStorage.getItem('previousWords') === 'siang' ||
+											window.sessionStorage.getItem('previousWords') === 'sore' ||
+											window.sessionStorage.getItem('previousWords') === 'malam') {
 											button.click();
 											nobskAI('Okay, just call me when you need it')
 										}
 										break;
 									case 'nggak':
-										if (window.sessionStorage.getItem('previousWords') === 'pagi') {
+										if (window.sessionStorage.getItem('previousWords') === 'pagi' ||
+											window.sessionStorage.getItem('previousWords') === 'siang' ||
+											window.sessionStorage.getItem('previousWords') === 'sore' ||
+											window.sessionStorage.getItem('previousWords') === 'malam') {
 											button.click();
 											nobskAI('Okay, just call me when you need it')
 										}
@@ -851,12 +1033,16 @@
 											button.click();
 											nobskAI('Here you are, your coffee without sugar')
 											$(document).find('.tea').hide()
+											$(document).find('.milk').hide()
 											$(document).find('.coffee').addClass('text-center');
 											$(document).find('.coffee').addClass('mx-auto');
 											$(document).find('.coffee').css('border', "dotted 5px aquamarine");
 											$(document).find('.coffee').addClass('fullimage')
 											window.sessionStorage.removeItem('previousWords')
 										} else {
+											$(document).find('.milk').removeClass('fullimage')
+											$(document).find('.milk').css('border', "");
+											$(document).find('.milk').hide()
 											$(document).find('.coffee').removeClass('fullimage')
 											$(document).find('.coffee').css('border', "");
 											$(document).find('.coffee').hide()
@@ -877,12 +1063,16 @@
 											button.click();
 											nobskAI('Here you are, your teh without sugar')
 											$(document).find('.coffee').hide()
+											$(document).find('.milk').hide()
 											$(document).find('.tea').addClass('text-center');
 											$(document).find('.tea').addClass('mx-auto');
 											$(document).find('.tea').css('border', "dotted 5px aquamarine");
 											$(document).find('.tea').addClass('fullimage')
 											window.sessionStorage.removeItem('previousWords')
 										} else {
+											$(document).find('.milk').removeClass('fullimage')
+											$(document).find('.milk').css('border', "");
+											$(document).find('.milk').hide()
 											$(document).find('.coffee').removeClass('fullimage')
 											$(document).find('.coffee').css('border', "");
 											$(document).find('.coffee').hide()
@@ -891,6 +1081,66 @@
 											$(document).find('.tea').hide()
 											$(".template-modal .modal-content").load(" .template-modal .modal-content > *");
 											nobskAI('So today, do you want some tea?')
+											setTimeout(function () {
+												button.click();
+												window.sessionStorage.setItem('previousWords', 'choosedrink')
+												$('#template-modal').modal('show');
+											}, 100)
+										}
+										break;
+									case 'susu':
+										if (window.sessionStorage.getItem('previousWords') === 'choosenow') {
+											button.click();
+											nobskAI('Here you are, your ultramilk without sugar, goodnight have a nive sleep')
+											$(document).find('.coffee').hide()
+											$(document).find('.tea').hide()
+											$(document).find('.milk').addClass('text-center');
+											$(document).find('.milk').addClass('mx-auto');
+											$(document).find('.milk').css('border', "dotted 5px aquamarine");
+											$(document).find('.milk').addClass('fullimage')
+											window.sessionStorage.removeItem('previousWords')
+										} else {
+											$(document).find('.milk').removeClass('fullimage')
+											$(document).find('.milk').css('border', "");
+											$(document).find('.milk').hide()
+											$(document).find('.coffee').removeClass('fullimage')
+											$(document).find('.coffee').css('border', "");
+											$(document).find('.coffee').hide()
+											$(document).find('.tea').removeClass('fullimage')
+											$(document).find('.tea').css('border', "");
+											$(document).find('.tea').hide()
+											$(".template-modal .modal-content").load(" .template-modal .modal-content > *");
+											nobskAI('Milk will makes you feel sleepy, do you want some milk?')
+											setTimeout(function () {
+												button.click();
+												window.sessionStorage.setItem('previousWords', 'choosedrink')
+												$('#template-modal').modal('show');
+											}, 100)
+										}
+										break;
+									case 'ultramilk':
+										if (window.sessionStorage.getItem('previousWords') === 'choosenow') {
+											button.click();
+											nobskAI('Here you are, your ultramilk without sugar, goodnight have a nive sleep')
+											$(document).find('.coffee').hide()
+											$(document).find('.tea').hide()
+											$(document).find('.milk').addClass('text-center');
+											$(document).find('.milk').addClass('mx-auto');
+											$(document).find('.milk').css('border', "dotted 5px aquamarine");
+											$(document).find('.milk').addClass('fullimage')
+											window.sessionStorage.removeItem('previousWords')
+										} else {
+											$(document).find('.milk').removeClass('fullimage')
+											$(document).find('.milk').css('border', "");
+											$(document).find('.milk').hide()
+											$(document).find('.coffee').removeClass('fullimage')
+											$(document).find('.coffee').css('border', "");
+											$(document).find('.coffee').hide()
+											$(document).find('.tea').removeClass('fullimage')
+											$(document).find('.tea').css('border', "");
+											$(document).find('.tea').hide()
+											$(".template-modal .modal-content").load(" .template-modal .modal-content > *");
+											nobskAI('Milk will makes you feel sleepy, do you want some milk?')
 											setTimeout(function () {
 												button.click();
 												window.sessionStorage.setItem('previousWords', 'choosedrink')
@@ -1053,6 +1303,7 @@
 
 		$(document).find('.coffee').hide();
 		$(document).find('.tea').hide();
+		$(document).find('.milk').hide();
 		// $(document).ready(function () {
 
 		// 	$(document).find('#template-modal').modal('show')
