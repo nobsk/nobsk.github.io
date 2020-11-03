@@ -1,0 +1,501 @@
+<DOCTYPE! html>
+
+<html>
+    <head>
+        <meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+		<link rel="stylesheet" href="css/bootstrap.min.css">
+		<link rel="stylesheet" href="style.css">
+		<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Lato:400,700%7CMontserrat:300,400,600,700">
+		
+		<link rel="stylesheet" href="icons/fontawesome/css/fontawesome-all.min.css"><!-- FontAwesome Icons -->
+		<link rel="stylesheet" href="icons/Iconsmind__Ultimate_Pack/Line%20icons/styles.min.css"><!-- iconsmind.com Icons -->
+		<link href="https://fonts.googleapis.com/css2?family=Lato:wght@900&display=swap" rel="stylesheet">
+		<link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+		<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Poppins&display=swap" rel="stylesheet">
+
+		<style>
+			html{
+				scroll-behavior:smooth;
+			}
+			p {
+				font-family: 'Poppins', sans-serif;
+				color:  #E5E5E5;
+			}
+			.header {
+				color: #E5E5E5;
+				position: fixed;
+				padding: 15px;
+           		background-color: #4F4C4C;
+           		margin: 0;
+				width: 100%;
+				z-index: 10;
+			}
+			.thumbnail {
+				background-image: linear-gradient(to right, #1F2021 30%, transparent 100%);
+			}
+			.img{
+				position: relative;
+				max-height: 100px;
+				opacity: 35%;
+				top: 30%;
+				left: 45%;
+  				-webkit-transition: -webkit-transform .8s ease-in-out;
+         		transition:         transform .8s ease-in-out;
+			}
+			.img:hover{
+				position: relative;
+				opacity: 60%;
+				filter: invert(100%);
+				-webkit-transform: rotate(90deg);
+          		transform: rotate(120deg);
+			}
+			.more-cast{
+				position: relative;
+				max-width: 100px;
+				opacity: 40%;
+				top: 30%;
+				left: 30px;
+			}
+			.more-cast:hover{
+				opacity: 100%;
+			}
+			.detail{
+				position: relative;
+				top: 200;
+			}
+			.title{
+				color: #E5E5E5;
+				font-family: 'Bebas Neue', cursive;
+				font-size: 100px;
+			}
+			.div-left{
+				position: absolute;
+			}
+			.div-right{
+				position: absolute;
+				right: 50;
+			}
+			h4{
+				font-family: 'Poppins', sans-serif;
+				color: #E5E5E5;
+				margin-top: 1px;
+			}
+			h5 {
+				color: #E5E5E5;
+			}
+			.description{
+				font-family: 'Poppins', sans-serif;
+				color: #E5E5E5;
+			}
+			.cast{ 
+				box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+   				border-radius: 5px;
+			}
+			.container {
+           		display: flex;
+           		width: 1400px;
+				height: auto;
+				background-color: transparent;
+				padding: 20px;
+				border-radius: 10px;
+				margin: 0 auto;
+			}
+			.box {
+				flex-grow: 1;
+				background-color: transparent;
+				margin: 5px;
+				border: 2px solid black;
+				border-radius: 10px;
+				width: auto;
+				text-align: center;
+				color: #E5E5E5;
+			}
+			.cast-photo{
+				width: 100%;
+				max-height: 180px;
+				object-fit: contain;
+  				object-position: center;
+				border-radius: 10px;
+			}
+			li{
+				position: relative;
+				display: inline-block;
+				font-family: 'Poppins', sans-serif;
+				color: #E5E5E5;
+				font-size: 20px;
+				margin-left: 25px;
+			}
+			a {
+				color: #E5E5E5;
+			}
+			a:hover{
+				color: aquamarine;
+			}
+			.icon{
+				position: relative;
+				opacity: 50%;
+				width: 100%;
+				max-height: 50px;
+				object-fit: contain;
+				object-position: center;
+				margin-bottom: 20px;
+  				-webkit-transition: -webkit-transform .8s ease-in-out;
+         		transition:         transform .8s ease-in-out;
+			}
+			.icon:hover{
+				opacity: 100%;
+				-webkit-transform: rotate(90deg);
+          		transform: rotate(20deg);
+			}
+			.review-container {
+				display: flex;
+				flex-direction: column;
+				width: 1100px;
+				margin: 65px;
+				border: transparent;
+				border-radius: 10px;
+				background-color: transparent;
+			}
+		
+			.review-box {
+				display: flex;
+				flex-direction: row;
+				flex-grow: 1;
+				padding: 20px;
+				margin: 5px;
+				background-color: transparent;
+				border: 2px solid black;
+				border-radius: 10px;
+			}
+		
+			.review {
+				display: flex;
+				flex-direction: row;
+				background-color: transparent;
+				border: 2px solid black;
+				border-radius: 10px;
+				padding: 10px;
+			}
+			.profil-review {
+				display: flex;
+				flex-direction: column;
+				flex-grow: 1;
+				height: 160px;
+				background-color: transparent;
+				border: 2px solid black;
+				border-radius: 10px;
+				padding: 10px;
+				margin: auto;
+			}
+			.review-profil-picture {
+				max-width: 140px;
+				height: 140px;
+				margin: auto;
+			}
+			.review-content {
+				display: flex;
+				flex-direction: column;
+				flex-grow: 3;
+				height: 160px;
+				background-color: transparent;
+				border: 2px solid black;
+				border-radius: 10px;
+				padding: 10px;
+				margin: auto;
+			}
+			.button {
+				display: inline-block;
+				font-size: 24px;
+				cursor: pointer;
+				text-align: center;
+				text-decoration: none;
+				outline: none;
+				color: #fff;
+				background-color: #3278C8;
+				border: none;
+				border-radius: 10px;
+				box-shadow: 0 4px #999;
+				width: 500px;
+				top: 50%;
+				left: 50%;
+				-ms-transform: translate(50%);
+				transform: translate(50%);
+			}
+			.button:hover {
+				background-color: #034898;
+			}
+			.button:active {
+				background-color: #034898;
+				box-shadow: 0 1px #666;
+				transform: translateY(2px);
+				-ms-transform: translate(50%);
+				transform: translate(50%);
+			}
+			label {
+				font-family: 'Poppins', sans-serif;
+				color:  #E5E5E5;
+			}
+			.name{
+				font-family: 'Poppins', sans-serif;
+				color: #E5E5E5;
+				width: 1000px;
+				display: flex;
+				flex-direction: row;
+				background-color: transparent;
+				border: 2px solid black;
+				border-radius: 10px;
+				padding: 10px;
+			}
+			.comment{
+				font-family: 'Poppins', sans-serif;
+				color: #E5E5E5;
+				width: 1000px;
+				height: 100px;
+				display: flex;
+				flex-direction: row;
+				background-color: transparent;
+				border: 2px solid black;
+				border-radius: 10px;
+				padding: 10px;
+			}
+			footer{		
+				padding: 10px;
+				height: 70px;
+				color: white;
+				background-color: #4F4C4C;
+				font-weight: bold;
+			}
+			.logo{
+				
+				height: 30px;
+				object-position: left;
+			}
+		</style>
+		
+
+        <title>NOBSK. - Tempatnya Nonton Film Pendek</title>
+    </head>
+
+    <body>
+		<header>
+			<h3 class="header"><a href="dashboard-movies.html">Kembali</a></h3>
+		</header>
+		<main>
+			<div class="progression-studios-slider-dashboard-image-background cast" style="background-image:linear-gradient(to top, #1f2021 20%, transparent 100%),url(images/img/thumbnail-film/1597826908-tilik.png);">
+				<a href="https://www.youtube.com/watch?v=GAyvgz8_zV8" target="_blank"><img src="images/play-button.png" class="img"></a>
+				
+				<div class="detail">
+					<h1 class="title">TILIK</h1>
+
+					<div class="div-left">
+						<h5>SEPTEMBER 2018</h5>
+						<h5>32 Menit</h5>
+					</div>
+					
+					<div class="div-right">
+						<h5>Penulis: Bagus Sumantoro</h5>
+						<h5>Diproduksi Oleh: Ravacana Films</h5>
+					</div>
+
+				</div>
+			</div> 
+
+			<div class="description container">
+				<p>Serombongan ibu-ibu yang menaiki truk untuk pergi menjenguk Bu Lurah yang sedang di rawat di rumah sakit. Di sepanjang perjalanan diisi oleh ocehan dari bu Tejo yang tidak henti mengumbar gosip tentang Dian, kembang desa yang cantik dan mandiri.</p>
+			</div>
+
+			<h4 class="container">PEMERAN</h4>
+				
+			<div class="container">
+
+				<div class="box">
+					<img src="images/cast-photo.png" class="cast-photo">
+					<h4>Pemeran 1</h4>
+					<p >sebagai</p>
+					<h5>Peran 1</h5>
+				</div>
+
+				<div class="box">
+					<img src="images/cast-photo.png" class="cast-photo">
+					<h4>Pemeran 2</h4>
+					<p>sebagai</p>
+					<h5>Peran 2</h5>
+				</div>
+
+				<div class="box">
+					<img src="images/cast-photo.png" class="cast-photo">
+					<h4>Pemeran 3</h4>
+					<p>sebagai</p>
+					<h5>Peran 3</h5>
+				</div>
+				<div class="box">
+					<img src="images/cast-photo.png" class="cast-photo">
+					<h4>Pemeran 3</h4>
+					<p>sebagai</p>
+					<h5>Peran 3</h5>
+				</div>
+
+				<div>
+					<a><img src="images/ellipsis.png" class="more-cast"></a>
+				</div>
+				
+			</div>
+
+			<div class="container">
+				<div class="box">
+					<a href="#"><img src="images/056-pin.png" class="icon"></a>
+					<h5>Tambah ke Favorit</h5>
+				</div>
+				
+				<div class="box">
+					<a href="#"><img src="images/037-loving.png" class="icon"></a>
+					<h5>Sukai</h5>
+				</div>
+
+				<div class="box">
+					<a href="#"><img src="images/068-reply.png" class="icon"></a>
+					<h5>Komentar</h5>
+				</div>
+  
+				<div class="box">
+					<a href="#"><img src="images/053-edit.png" class="icon"></a>
+					<h5>Review</h5>
+				</div>
+
+				<div class="box">
+					<a href="#"><img src="images/069-forward.png" class="icon"></a>
+					<h5>Bagikan</h5>
+				</div>
+			</div>
+
+			<div class="review-container">
+				<div class="review">
+					<h5>Apa kata reviewer?</h5>
+				</div>
+				<div class="review">
+					<div class="profil-review">
+						<img src="images/cast-photo.png" class="review-profil-picture">
+					</div>
+
+					<div class="review-content">
+						<div>
+							<h5>Reviewer 1</h5>
+						</div>
+						<div>
+							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus justo purus, interdum ac mi vitae, tristique semper arcu. Sed iaculis nibh a eros porta interdum. Phasellus a metus quis ex vulputate blandit. Nulla ullamcorper sem nec dui volutpat lobortis.</p>
+						</div>
+					</div>
+					
+				</div>
+
+				<div class="review">
+					<div class="profil-review">
+						<img src="images/cast-photo.png" class="review-profil-picture">
+					</div>
+
+					<div class="review-content">
+						<div>
+							<h5>Reviewer 2</h5>
+						</div>
+						<div>
+							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus justo purus, interdum ac mi vitae, tristique semper arcu. Sed iaculis nibh a eros porta interdum. Phasellus a metus quis ex vulputate blandit. Nulla ullamcorper sem nec dui volutpat lobortis.</p>
+						</div>
+					</div>
+					
+				</div>
+
+				<div>
+					<button class="button">Lebih Banyak</button>
+				</div>
+
+			</div>
+
+			<div class="review-container">
+				<div class="review">
+					<h5>Komentar tentang film ini</h5>
+				</div>
+				<div class="review">
+					<div class="profil-review">
+						<img src="images/cast-photo.png" class="review-profil-picture">
+					</div>
+
+					<div class="review-content">
+						<div>
+							<h5>Komentar 1</h5>
+						</div>
+						<div>
+							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus justo purus, interdum ac mi vitae, tristique semper arcu. Sed iaculis nibh a eros porta interdum. Phasellus a metus quis ex vulputate blandit. Nulla ullamcorper sem nec dui volutpat lobortis.</p>
+						</div>
+					</div>
+					
+				</div>
+
+				<div class="review">
+					<div class="profil-review">
+						<img src="images/cast-photo.png" class="review-profil-picture">
+					</div>
+
+					<div class="review-content">
+						<div>
+							<h5>Komentar 2</h5>
+						</div>
+						<div>
+							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus justo purus, interdum ac mi vitae, tristique semper arcu. Sed iaculis nibh a eros porta interdum. Phasellus a metus quis ex vulputate blandit. Nulla ullamcorper sem nec dui volutpat lobortis.</p>
+						</div>
+					</div>
+					
+				</div>
+
+				<div class="review">
+					<div class="profil-review">
+						<img src="images/cast-photo.png" class="review-profil-picture">
+					</div>
+
+					<div class="review-content">
+						<div>
+							<h5>Komentar 3</h5>
+						</div>
+						<div>
+							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus justo purus, interdum ac mi vitae, tristique semper arcu. Sed iaculis nibh a eros porta interdum. Phasellus a metus quis ex vulputate blandit. Nulla ullamcorper sem nec dui volutpat lobortis.</p>
+						</div>
+					</div>
+					
+				</div>
+
+				<div>
+					<button class="button">Lebih Banyak</button>
+				</div>
+
+			</div>
+
+			<div class="review-container">
+				<div class="review">
+					<h5>Berikan komentar anda pada film ini</h5>
+				</div>
+				
+				<div class="review">
+					<form>
+						<label><h5>Nama Anda: </h5></label>
+						<input type="text" id="nama" name="nama" required class="name">
+						<label><h5>Komentar Anda: </h5></label>
+						<input type="text" id="komentar" name="komentar" class="comment">
+					</form>
+				</div>
+
+				<div>
+					<button class="button">Pos komentar</button>
+				</div>
+				
+			</div>
+			
+		</main>
+		
+		<footer>
+			<div>
+				<a href="dashboard-home.html"><img src="images/logo.png" class="logo"></a>
+			</div>
+		</footer>
+    </body>
+</html>
