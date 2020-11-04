@@ -1,0 +1,1115 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+	<link rel="stylesheet" href="css/bootstrap.min.css">
+	<link rel="stylesheet" href="style.css">
+	<link rel="stylesheet" href="skeleton-dark.css">
+	<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Lato:400,700%7CMontserrat:300,400,600,700">
+
+	<link rel="stylesheet" href="icons/fontawesome/css/fontawesome-all.min.css">
+	<link rel="stylesheet" href="icons/Iconsmind__Ultimate_Pack/Line%20icons/styles.min.css">
+	<link href="favicon.png" rel="shortcut icon" type="image/png" />
+
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+
+	<link rel="stylesheet" href="node_modules/@sweetalert2/theme-wordpress-admin/wordpress-admin.css">
+
+	<script src="node_modules/sweetalert2/dist/sweetalert2.min.js"></script>
+	<!-- iconsmind.com Icons -->
+	<link href="https://fonts.googleapis.com/css2?family=Lato:wght@900&display=swap" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Poppins&display=swap" rel="stylesheet">
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/keen-slider@5.0.2/keen-slider.min.css" />
+	<style>
+		p {
+			font-family: 'Poppins', sans-serif;
+			color: #E5E5E5;
+		}
+
+		.header {
+			color: #E5E5E5;
+			position: fixed;
+			padding: 15px;
+			background-color: #4F4C4C;
+			margin: 0;
+			width: 100%;
+			z-index: 10;
+		}
+
+		@media only screen and (max-width: 768px) {
+			.header {
+				color: #E5E5E5;
+				position: fixed;
+				text-align: center;
+				bottom: 0;
+				padding: 15px;
+				background-color: #4F4C4C;
+				margin: 0;
+				width: 100%;
+				z-index: 10;
+			}
+		}
+
+		.thumbnail {
+			background-image: linear-gradient(to right, #1F2021 30%, transparent 100%);
+		}
+
+		.img {
+			position: relative;
+			max-height: 100px;
+			opacity: 35%;
+			top: 30%;
+			left: 45%;
+			-webkit-transition: -webkit-transform .8s ease-in-out;
+			transition: transform .8s ease-in-out;
+		}
+
+		.img:hover {
+			position: relative;
+			opacity: 60%;
+			filter: invert(100%);
+			-webkit-transform: rotate(90deg);
+			transform: rotate(120deg);
+		}
+
+		.more-cast {
+			position: relative;
+			max-width: 100px;
+			opacity: 40%;
+			top: 30%;
+			left: 30px;
+		}
+
+		.more-cast:hover {
+			opacity: 100%;
+		}
+
+		.detail {
+			margin-top: 200px;
+		}
+
+		.title {
+			color: #E5E5E5;
+			font-family: 'Bebas Neue', cursive;
+			font-size: 100px;
+		}
+
+		h4 {
+			font-family: 'Poppins', sans-serif;
+			color: #E5E5E5;
+			margin-top: 1px;
+		}
+
+		h5 {
+			color: #E5E5E5;
+		}
+
+		h6 {
+			color: #E5E5E5;
+			font-weight: 200;
+		}
+
+		.description {
+			font-family: 'Poppins', sans-serif;
+			color: #E5E5E5;
+		}
+
+		.cast {
+			box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+			/* border-radius: 5px; */
+		}
+
+		.container2 {
+			display: flex;
+			width: 1400px;
+			height: auto;
+			background-color: transparent;
+			padding: 20px;
+			border-radius: 10px;
+			margin: 0 auto;
+		}
+
+		.box {
+			flex-grow: 1;
+			background-color: transparent;
+			margin: 5px;
+			border: 2px solid black;
+			border-radius: 10px;
+			width: auto;
+			text-align: center;
+			color: #E5E5E5;
+		}
+
+		.cast-photo {
+			width: 100%;
+			max-height: 180px;
+			object-fit: contain;
+			object-position: center;
+			border-radius: 10px;
+		}
+
+		a {
+			color: #E5E5E5;
+		}
+
+		a:hover {
+			color: aquamarine;
+		}
+
+		.icon {
+			position: relative;
+			opacity: 50%;
+			width: 100%;
+			max-height: 50px;
+			object-fit: contain;
+			object-position: center;
+			margin-bottom: 20px;
+			-webkit-transition: -webkit-transform .8s ease-in-out;
+			transition: transform .8s ease-in-out;
+		}
+
+		.icon:hover {
+			opacity: 100%;
+			-webkit-transform: rotate(90deg);
+			transform: rotate(20deg);
+		}
+
+		.review-container {
+			display: flex;
+			flex-direction: column;
+			width: 1100px;
+			margin: 65px;
+			border: transparent;
+			border-radius: 10px;
+			background-color: transparent;
+		}
+
+		.review-box {
+			display: flex;
+			flex-direction: row;
+			flex-grow: 1;
+			padding: 20px;
+			margin: 5px;
+			background-color: transparent;
+			border: 2px solid black;
+			border-radius: 10px;
+		}
+
+		.profil-review {
+			display: flex;
+			flex-direction: column;
+			flex-grow: 1;
+			height: 160px;
+			background-color: transparent;
+			border: 2px solid black;
+			border-radius: 10px;
+			padding: 10px;
+			margin: auto;
+		}
+
+		.review {
+			border: 2px dashed #4F4C4C;
+			border-radius: 10px;
+			padding: 5px;
+		}
+
+		.form-control {
+			background-color: #999;
+			border-style: none;
+		}
+
+		::placeholder {
+			/* Chrome, Firefox, Opera, Safari 10.1+ */
+			color: whitesmoke !important;
+			opacity: 1;
+			/* Firefox */
+		}
+
+		.half {
+			background: linear-gradient(to right, gold 50%, #555 50%);
+			-webkit-background-clip: text;
+			-webkit-text-fill-color: transparent;
+		}
+
+		.button {
+			font-size: 24px;
+			text-decoration: none;
+			outline: none;
+			color: #fff;
+			background-color: #3278C8;
+			border: none;
+			border-radius: 10px;
+			box-shadow: 0 4px #999;
+		}
+
+		.button:active {
+			background-color: #034898;
+			box-shadow: 0 1px #666;
+		}
+
+		label {
+			font-family: 'Poppins', sans-serif;
+			color: #E5E5E5;
+		}
+
+		.name {
+			font-family: 'Poppins', sans-serif;
+			color: #E5E5E5;
+			width: 1000px;
+			display: flex;
+			flex-direction: row;
+			background-color: transparent;
+			border: 2px solid black;
+			border-radius: 10px;
+			padding: 10px;
+		}
+
+		.comment {
+			font-family: 'Poppins', sans-serif;
+			color: #E5E5E5;
+			width: 1000px;
+			height: 100px;
+			display: flex;
+			flex-direction: row;
+			background-color: transparent;
+			border: 2px solid black;
+			border-radius: 10px;
+			padding: 10px;
+		}
+
+		[class^="number-slide"],
+		[class*=" number-slide"] {
+			background: grey;
+			/* display: flex; */
+			/* align-items: center; */
+			/* justify-content: center; */
+			/* font-size: 50px; */
+			color: #fff;
+			/* font-weight: 500; */
+			padding: 5px;
+			height: 300px;
+			max-height: 100vh;
+			border-radius: 5px;
+		}
+
+		.number-slide1 {
+			background: rgb(64, 175, 255);
+			background: linear-gradient(128deg,
+					rgba(64, 175, 255, 1) 0%,
+					rgba(63, 97, 255, 1) 100%);
+		}
+
+		.number-slide2 {
+			background: rgb(255, 75, 64);
+			background: linear-gradient(128deg,
+					rgba(255, 154, 63, 1) 0%,
+					rgba(255, 75, 64, 1) 100%);
+		}
+
+		.number-slide3 {
+			background: rgb(64, 255, 242);
+			background: linear-gradient(128deg,
+					rgba(64, 255, 242, 1) 0%,
+					rgba(63, 188, 255, 1) 100%);
+		}
+
+		.number-slide4 {
+			background: rgb(255, 64, 156);
+			background: linear-gradient(128deg,
+					rgba(255, 64, 156, 1) 0%,
+					rgba(255, 63, 63, 1) 100%);
+		}
+
+		.number-slide5 {
+			background: rgb(64, 76, 255);
+			background: linear-gradient(128deg,
+					rgba(64, 76, 255, 1) 0%,
+					rgba(174, 63, 255, 1) 100%);
+		}
+
+		.w-20 {
+			-webkit-box-flex: 0;
+			-ms-flex: 0 0 20% !important;
+			flex: 0 0 20% !important;
+			max-width: 20%;
+			text-align: center;
+		}
+	</style>
+
+
+	<title>NOBSK. - Tempatnya Nonton Film Pendek</title>
+</head>
+
+<body>
+
+	<h3 class="header cast"><a href="dashboard-movies.html">Kembali</a></h3>
+
+
+	<div class="progression-studios-slider-dashboard-image-background"
+		style="background-image:linear-gradient(to top, #1f2021 20%, transparent 100%),url(images/img/thumbnail-film/1597826908-tilik.png);">
+		<a href="#VideoLightbox-2" class="afterglow" target="_blank"><img src="images/play-button.png" class="img"></a>
+		<video id="VideoLightbox-2" poster="images/img/thumbnail-film/1597826908-tilik.png" width="960" height="540">
+			<source src="videos/tilik.mp4" type="video/mp4">
+			<source src="https://cdn.plyr.io/static/demo/View_From_A_Blue_Moon_Trailer-HD.webm" type="video/webm">
+		</video>
+		<div class="container">
+			<div class="row detail">
+				<div class="col-md-12">
+					<h1 class="title">TILIK</h1>
+				</div>
+				<div class="col-md-6">
+					<div class="">
+						<h5>SEPTEMBER 2018</h5>
+						<h6>32 Menit</h6>
+					</div>
+				</div>
+				<div class="col-md-6">
+					<div class=" text-right">
+						<h5>Penulis: Bagus Sumantoro</h5>
+						<h6>Diproduksi Oleh: Ravacana Films</h6>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="description container">
+		<div class="row">
+			<div class="col-md-12">
+				<h4>DESCRIPTION</h4>
+				<p>Serombongan ibu-ibu yang menaiki truk untuk pergi menjenguk Bu Lurah yang sedang di rawat di
+					rumah
+					sakit. Di sepanjang perjalanan diisi oleh ocehan dari bu Tejo yang tidak henti mengumbar
+					gosip
+					tentang Dian, kembang desa yang cantik dan mandiri.</p>
+			</div>
+		</div>
+	</div>
+
+
+	<div class="container">
+		<div class="row">
+			<div class="col-md-12">
+				<h4>PEMERAN</h4>
+			</div>
+		</div>
+	</div>
+
+	<div id="my-keen-slider" class="keen-slider">
+		<div class="keen-slider__slide number-slide1">
+			<div class="row">
+				<div class="col-md-12">
+					<img src="images/cast-photo.png" class="cast-photo">
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-md-12 text-center">
+					<h4>Pemeran 1</h4>
+					<p>sebagai</p>
+					<h5>Peran 1</h5>
+				</div>
+			</div>
+
+		</div>
+		<div class="keen-slider__slide number-slide2">
+			<div class="row">
+				<div class="col-md-12">
+					<img src="images/cast-photo.png" class="cast-photo">
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-md-12 text-center">
+					<h4>Pemeran 2</h4>
+					<p>sebagai</p>
+					<h5>Peran 2</h5>
+				</div>
+			</div>
+		</div>
+		<div class="keen-slider__slide number-slide3">
+			<div class="row">
+				<div class="col-md-12">
+					<img src="images/cast-photo.png" class="cast-photo">
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-md-12 text-center">
+					<h4>Pemeran 3</h4>
+					<p>sebagai</p>
+					<h5>Peran 3</h5>
+				</div>
+			</div>
+		</div>
+		<div class="keen-slider__slide number-slide4">
+			<div class="row">
+				<div class="col-md-12">
+					<img src="images/cast-photo.png" class="cast-photo">
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-md-12 text-center">
+					<h4>Pemeran 4</h4>
+					<p>sebagai</p>
+					<h5>Peran 4</h5>
+				</div>
+			</div>
+		</div>
+		<div class="keen-slider__slide number-slide5">
+			<div class="row">
+				<div class="col-md-12">
+					<img src="images/cast-photo.png" class="cast-photo">
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-md-12 text-center">
+					<h4>Pemeran 5</h4>
+					<p>sebagai</p>
+					<h5>Peran 5</h5>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="container mt-5">
+		<div class="d-flex flex-wrap">
+			<div class="w-20">
+				<a href="#!" class="btn-fav"><img src="images/056-pin.png" class="icon"></a>
+				<h6>+ Favorit</h6>
+			</div>
+			<div class="w-20">
+				<a href="#!" class="btn-suka"><img src="images/037-loving.png" class="icon"></a>
+				<h6>Suka</h6>
+			</div>
+			<div class="w-20">
+				<a href="#!" class="btn-komen"><img src="images/068-reply.png" class="icon"></a>
+				<h6>Komen</h6>
+			</div>
+			<div class="w-20">
+				<a href="#!" class="btn-review"><img src="images/053-edit.png" class="icon"></a>
+				<h6>Review</h6>
+			</div>
+			<div class="w-20">
+				<a href="#!" class="btn-bagi"><img src="images/069-forward.png" class="icon"></a>
+				<h6>Bagikan</h6>
+			</div>
+		</div>
+	</div>
+
+	<div class="container mt-5">
+		<div class="row">
+			<div class="col-md-12">
+				<div class="row">
+					<div class="col-md-12">
+						<h4>APA KATA REVIEWER?</h4>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-md-12">
+						<div class="row">
+							<div class="col-md text-center review">
+								<img src="images/cast-photo.png" class="img-fluid" width="140">
+							</div>
+							<div class="col-md-10 review">
+								<div class="row">
+									<div class="col-md">
+										<h5>Reviewer 1</h5>
+										<p>
+											Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus
+											justo
+											purus,
+											interdum
+											ac mi vitae, tristique semper arcu. Sed iaculis nibh a eros porta
+											interdum.
+											Phasellus a
+											metus quis ex vulputate blandit. Nulla ullamcorper sem nec dui
+											volutpat
+											lobortis.
+										</p>
+									</div>
+									<div class="col-md-2 text-center my-auto">
+										<div class="row">
+											<div class="col-md-12">
+												<i class="fas fa-star" style="color: gold"></i>
+												<i class="fas fa-star" style="color: gold"></i>
+												<i class="fas fa-star" style="color: gold"></i>
+												<i class="fas fa-star" style="color: gold"></i>
+												<i class="fas fa-star" style="color: gold"></i>
+											</div>
+										</div>
+										<div class="row">
+											<div class="col-md-12">
+												<i class="fas fa-star" style="color: gold"></i>
+												<i class="fas fa-star" style="color: gold"></i>
+												<i class="fas fa-star" style="color: gold"></i>
+												<i class="fas fa-star half"></i>
+												<i class="fas fa-star"></i>
+											</div>
+										</div>
+										<h5>8.5</h5>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<div class="row">
+					<div class="col-md-12">
+						<div class="row">
+							<div class="col-md text-center review">
+								<img src="images/cast-photo.png" class="img-fluid" width="140">
+							</div>
+							<div class="col-md-10 review">
+								<div class="row">
+									<div class="col-md">
+										<h5>Reviewer 2</h5>
+										<p>
+											Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus
+											justo
+											purus,
+											interdum
+											ac mi vitae, tristique semper arcu. Sed iaculis nibh a eros porta
+											interdum.
+											Phasellus a
+											metus quis ex vulputate blandit. Nulla ullamcorper sem nec dui
+											volutpat
+											lobortis.
+										</p>
+									</div>
+									<div class="col-md-2 text-center my-auto">
+										<div class="row">
+											<div class="col-md-12">
+												<i class="fas fa-star" style="color: gold"></i>
+												<i class="fas fa-star" style="color: gold"></i>
+												<i class="fas fa-star" style="color: gold"></i>
+												<i class="fas fa-star" style="color: gold"></i>
+												<i class="fas fa-star" style="color: gold"></i>
+											</div>
+										</div>
+										<div class="row">
+											<div class="col-md-12">
+												<i class="fas fa-star" style="color: gold"></i>
+												<i class="fas fa-star" style="color: gold"></i>
+												<i class="fas fa-star" style="color: gold"></i>
+												<i class="fas fa-star half"></i>
+												<i class="fas fa-star"></i>
+											</div>
+										</div>
+										<h5>8.5</h5>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<div class="insert-reviews"></div>
+
+				<div class="row">
+					<div class="col-md-12 mt-3">
+						<div class="text-center">
+							<button class="btn btn-md button insertReviews">Lebih Banyak</button>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="container mt-5">
+		<div class="row">
+			<div class="col-md-12">
+				<div class="row">
+					<div class="col-md-12">
+						<h4>KOMENTAR TENTANG FILM INI</h4>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-md-12">
+						<div class="row">
+							<div class="col-md text-center review">
+								<img src="images/cast-photo.png" class="img-fluid" width="140">
+							</div>
+							<div class="col-md-10 review">
+								<div class="row">
+									<div class="col-md-6">
+										<h5>KOMENTAR 1 </h5>
+									</div>
+									<div class="col-md-6 text-right">
+										<span class="text-right"><small>22<sup>nd</sup> Jan, 2020 |
+												23:59</small></span>
+									</div>
+								</div>
+								<p>
+									Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus
+									justo
+									purus,
+									interdum
+									ac mi vitae, tristique semper arcu. Sed iaculis nibh a eros porta
+									interdum.
+									Phasellus a
+									metus quis ex vulputate blandit. Nulla ullamcorper sem nec dui
+									volutpat
+									lobortis.
+								</p>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<div class="row">
+					<div class="col-md-12">
+						<div class="row">
+							<div class="col-md text-center review">
+								<img src="images/cast-photo.png" class="img-fluid" width="140">
+							</div>
+							<div class="col-md-10 review">
+								<div class="row">
+									<div class="col-md-6">
+										<h5>KOMENTAR 2 </h5>
+									</div>
+									<div class="col-md-6 text-right">
+										<span class="text-right"><small>22<sup>nd</sup> Jan, 2020 |
+												23:59</small></span>
+									</div>
+								</div>
+								<p>
+									Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus
+									justo
+									purus,
+									interdum
+									ac mi vitae, tristique semper arcu. Sed iaculis nibh a eros porta
+									interdum.
+									Phasellus a
+									metus quis ex vulputate blandit. Nulla ullamcorper sem nec dui
+									volutpat
+									lobortis.
+								</p>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<div class="row">
+					<div class="col-md-12">
+						<div class="row">
+							<div class="col-md text-center review">
+								<img src="images/cast-photo.png" class="img-fluid" width="140">
+							</div>
+							<div class="col-md-10 review">
+								<div class="row">
+									<div class="col-md-6">
+										<h5>KOMENTAR 3 </h5>
+									</div>
+									<div class="col-md-6 text-right">
+										<span class="text-right"><small>22<sup>nd</sup> Jan, 2020 |
+												23:59</small></span>
+									</div>
+								</div>
+								<p>
+									Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus
+									justo
+									purus,
+									interdum
+									ac mi vitae, tristique semper arcu. Sed iaculis nibh a eros porta
+									interdum.
+									Phasellus a
+									metus quis ex vulputate blandit. Nulla ullamcorper sem nec dui
+									volutpat
+									lobortis.
+								</p>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<div class="row">
+					<div class="col-md-12">
+						<div class="row">
+							<div class="col-md text-center review">
+								<img src="images/cast-photo.png" class="img-fluid" width="140">
+							</div>
+							<div class="col-md-10 review">
+								<div class="row">
+									<div class="col-md-6">
+										<h5>KOMENTAR 4 </h5>
+									</div>
+									<div class="col-md-6 text-right">
+										<span class="text-right"><small>22<sup>nd</sup> Jan, 2020 |
+												23:59</small></span>
+									</div>
+								</div>
+								<p>
+									Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus
+									justo
+									purus,
+									interdum
+									ac mi vitae, tristique semper arcu. Sed iaculis nibh a eros porta
+									interdum.
+									Phasellus a
+									metus quis ex vulputate blandit. Nulla ullamcorper sem nec dui
+									volutpat
+									lobortis.
+								</p>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<div class="insert-comments"></div>
+
+				<div class="row">
+					<div class="col-md-12 mt-3">
+						<div class="text-center">
+							<button class="btn btn-md button insertComments">Lebih Banyak</button>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="container mt-5">
+		<div class="row">
+			<div class="col-md-12">
+				<div class="row">
+					<div class="col-md-12">
+						<h4>BERIKAN KOMENTAR ANDA</h4>
+					</div>
+				</div>
+				<form>
+					<div class="form-group">
+						<label for="exampleFormControlInput1">
+							<h5>Alamat Email</h5>
+						</label>
+						<input type="email" class="form-control" id="exampleFormControlInput1"
+							placeholder="name@example.com">
+					</div>
+					<div class="form-group">
+						<label for="exampleFormControlInput1">
+							<h5>Nama Anda</h5>
+						</label>
+						<input type="email" class="form-control" id="exampleFormControlInput1"
+							placeholder="Tulis Nama Anda Di sini">
+					</div>
+					<div class="form-group">
+						<label for="exampleFormControlTextarea1">
+							<h5>Komentar Anda:</h5>
+						</label>
+						<textarea class="form-control" id="exampleFormControlTextarea1"
+							placeholder="Tulis Komentar Anda di sini" rows="3"></textarea>
+					</div>
+				</form>
+
+				<div class="row">
+					<div class="col-md-12 mt-3">
+						<div class="text-center">
+							<button class="btn btn-md button btn-post">Post Komentar</button>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="mt-5"></div>
+
+	<footer id="footer-pro">
+		<hr class="dotted">
+		<div class="container">
+			<div class="row">
+				<div class="col-md">
+					<div class="copyright-logo-pro"><img src="images/logo-dark.png" width="90" alt="Logo"></div>
+				</div>
+				<div class="col-md">
+					<div class="copyright-text-pro">&copy; Copyright 2020 NOBSK. All Rights Reserved</div>
+				</div><!-- close .col -->
+				<div class="col-md">
+					<ul class="social-icons-pro">
+						<li class="facebook-color"><a href="javascript:;" target="_blank"><i
+									class="fab fa-facebook-f"></i></a></li>
+						<li class="twitter-color"><a href="javascript:;" target="_blank"><i
+									class="fab fa-twitter"></i></a></li>
+						<li class="instagram-color"><a href="javascript:;" target="_blank"><i
+									class="fab fa-instagram"></i></a></li>
+					</ul>
+				</div><!-- close .col -->
+			</div><!-- close .row -->
+		</div><!-- close .container -->
+	</footer>
+	<!-- Required Framework JavaScript -->
+	<script src="js/libs/jquery-3.3.1.min.js"></script><!-- jQuery -->
+	<script src="js/libs/popper.min.js" defer></script><!-- Bootstrap Popper/Extras JS -->
+	<script src="js/libs/bootstrap.min.js" defer></script><!-- Bootstrap Main JS -->
+	<!-- All JavaScript in Footer -->
+
+	<!-- Additional Plugins and JavaScript -->
+	<script src="js/navigation.js" defer></script><!-- Header Navigation JS Plugin -->
+	<script src="js/jquery.flexslider-min.js" defer></script><!-- FlexSlider JS Plugin -->
+	<script src="js/jquery-asRange.min.js" defer></script><!-- Range Slider JS Plugin -->
+	<script src="js/circle-progress.min.js" defer></script><!-- Circle Progress JS Plugin -->
+	<script src="js/afterglow.min.js" defer></script><!-- Video Player JS Plugin -->
+	<script src="js/script.js" defer></script><!-- Custom Document Ready JS -->
+	<script src="js/script-dashboard.js" defer></script><!-- Custom Document Ready for Dashboard Only JS -->
+	<script src="https://cdn.jsdelivr.net/npm/keen-slider@5.0.2/keen-slider.min.js"></script>
+	<script>
+		var slider = new KeenSlider("#my-keen-slider", {
+			slidesPerView: 4,
+			spacing: 15
+		});
+	</script>
+
+	<script>
+
+		var reviewers = '<div class="row">' +
+			'					<div class="col-md-12">' +
+			'						<div class="row">' +
+			'							<div class="col-md text-center review">' +
+			'								<img src="images/cast-photo.png" class="img-fluid" width="140">' +
+			'							</div>' +
+			'							<div class="col-md-10 review">' +
+			'								<div class="row">' +
+			'									<div class="col-md">' +
+			'										<h5>Reviewer 3</h5>' +
+			'										<p>' +
+			'											Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus' +
+			'											justo' +
+			'											purus,' +
+			'											interdum' +
+			'											ac mi vitae, tristique semper arcu. Sed iaculis nibh a eros porta' +
+			'											interdum.' +
+			'											Phasellus a' +
+			'											metus quis ex vulputate blandit. Nulla ullamcorper sem nec dui' +
+			'											volutpat' +
+			'											lobortis.' +
+			'										</p>' +
+			'									</div>' +
+			'									<div class="col-md-2 text-center my-auto">' +
+			'										<div class="row">' +
+			'											<div class="col-md-12">' +
+			'												<i class="fas fa-star" style="color: gold"></i>' +
+			'												<i class="fas fa-star" style="color: gold"></i>' +
+			'												<i class="fas fa-star" style="color: gold"></i>' +
+			'												<i class="fas fa-star" style="color: gold"></i>' +
+			'												<i class="fas fa-star" style="color: gold"></i>' +
+			'											</div>' +
+			'										</div>' +
+			'										<div class="row">' +
+			'											<div class="col-md-12">' +
+			'												<i class="fas fa-star" style="color: gold"></i>' +
+			'												<i class="fas fa-star" style="color: gold"></i>' +
+			'												<i class="fas fa-star" style="color: gold"></i>' +
+			'												<i class="fas fa-star half"></i>' +
+			'												<i class="fas fa-star"></i>' +
+			'											</div>' +
+			'										</div>' +
+			'										<h5>8.5</h5>' +
+			'									</div>' +
+			'								</div>' +
+			'							</div>' +
+			'						</div>' +
+			'					</div>' +
+			'				</div>';
+
+
+
+		var comments = '<div class="row">' +
+			'					<div class="col-md-12">' +
+			'						<div class="row">' +
+			'							<div class="col-md text-center review">' +
+			'								<img src="images/cast-photo.png" class="img-fluid" width="140">' +
+			'							</div>' +
+			'							<div class="col-md-10 review">' +
+			'								<div class="row">' +
+			'									<div class="col-md-6">' +
+			'										<h5>KOMENTAR 5 </h5>' +
+			'									</div>' +
+			'									<div class="col-md-6 text-right">' +
+			'										<span class="text-right"><small>22<sup>nd</sup> Jan, 2020 |' +
+			'												23:59</small></span>' +
+			'									</div>' +
+			'								</div>' +
+			'								<p>' +
+			'									Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus' +
+			'									justo' +
+			'									purus,' +
+			'									interdum' +
+			'									ac mi vitae, tristique semper arcu. Sed iaculis nibh a eros porta' +
+			'									interdum.' +
+			'									Phasellus a' +
+			'									metus quis ex vulputate blandit. Nulla ullamcorper sem nec dui' +
+			'									volutpat' +
+			'									lobortis.' +
+			'								</p>' +
+			'							</div>' +
+			'						</div>' +
+			'					</div>' +
+			'				</div>';
+
+
+		$(document).ready(function () {
+
+			$(document).find('.insertReviews').click(function (e) {
+				var getText = $(this).html();
+				$('.insertReviews').html('<i class="fas fa-circle-notch fa-spin"></i>');
+				setTimeout(function () {
+					$('.insertReviews').hide();
+
+					$('.insert-reviews').fadeOut(500, function () {
+						$(this).html(reviewers).fadeIn(500);
+					});
+				}, 2000)
+
+			})
+
+
+			$(document).find('.insertComments').click(function (e) {
+				var getText = $(this).html();
+				$('.insertComments').html('<i class="fas fa-circle-notch fa-spin"></i>');
+				setTimeout(function () {
+					$('.insertComments').hide();
+					$('.insert-comments').fadeOut(500, function () {
+						$(this).html(comments).fadeIn(500);
+					});
+				}, 2000)
+
+			})
+
+			$(document).find('.btn-suka').click(function () {
+				const Toast = Swal.mixin({
+					toast: true,
+					position: 'top-end',
+					showConfirmButton: false,
+					timer: 3000,
+					timerProgressBar: true,
+					didOpen: (toast) => {
+						toast.addEventListener('mouseenter', Swal.stopTimer)
+						toast.addEventListener('mouseleave', Swal.resumeTimer)
+					}
+				})
+
+				Toast.fire({
+					imageUrl: "images/037-loving.png",
+					imageWidth: 20,
+					imageHeight: 20,
+					title: 'Disukai'
+				});
+			})
+
+
+
+
+
+			$(document).find('.btn-fav').click(function () {
+				const Toast = Swal.mixin({
+					toast: true,
+					position: 'top-end',
+					showConfirmButton: false,
+					timer: 3000,
+					timerProgressBar: true,
+					didOpen: (toast) => {
+						toast.addEventListener('mouseenter', Swal.stopTimer)
+						toast.addEventListener('mouseleave', Swal.resumeTimer)
+					}
+				})
+
+				Toast.fire({
+					imageUrl: "images/056-pin.png",
+					imageWidth: 20,
+					imageHeight: 20,
+					title: 'Difavoritkan'
+				});
+			})
+
+			$(document).find('.btn-komen').click(function () {
+				const Toast = Swal.mixin({
+					toast: true,
+					position: 'top-end',
+					showConfirmButton: false,
+					timer: 3000,
+					timerProgressBar: true,
+					didOpen: (toast) => {
+						toast.addEventListener('mouseenter', Swal.stopTimer)
+						toast.addEventListener('mouseleave', Swal.resumeTimer)
+					}
+				})
+
+				Toast.fire({
+					icon: "info",
+					imageWidth: 20,
+					imageHeight: 20,
+					title: 'Komentar di field yang disediakan'
+				});
+			})
+
+			$(document).find('.btn-review').click(function () {
+				const Toast = Swal.mixin({
+					toast: true,
+					position: 'top-end',
+					showConfirmButton: false,
+					timer: 3000,
+					timerProgressBar: true,
+					didOpen: (toast) => {
+						toast.addEventListener('mouseenter', Swal.stopTimer)
+						toast.addEventListener('mouseleave', Swal.resumeTimer)
+					}
+				})
+
+				Toast.fire({
+					imageUrl: "images/053-edit.png",
+					imageWidth: 20,
+					imageHeight: 20,
+					title: 'Review pada halaman yang disediakan'
+				});
+			})
+
+			$(document).find('.btn-bagi').click(function () {
+				const Toast = Swal.mixin({
+					toast: true,
+					position: 'top-end',
+					showConfirmButton: false,
+					timer: 3000,
+					timerProgressBar: true,
+					didOpen: (toast) => {
+						toast.addEventListener('mouseenter', Swal.stopTimer)
+						toast.addEventListener('mouseleave', Swal.resumeTimer)
+					}
+				})
+
+				Toast.fire({
+					icon: "success",
+					imageWidth: 20,
+					imageHeight: 20,
+					title: 'Bagikan berhasil'
+				});
+			})
+
+			$(document).find('.btn-post').click(function () {
+				const Toast = Swal.mixin({
+					toast: true,
+					position: 'top-end',
+					showConfirmButton: false,
+					timer: 3000,
+					timerProgressBar: true,
+					didOpen: (toast) => {
+						toast.addEventListener('mouseenter', Swal.stopTimer)
+						toast.addEventListener('mouseleave', Swal.resumeTimer)
+					}
+				})
+
+				Toast.fire({
+					icon: "success",
+					imageWidth: 20,
+					imageHeight: 20,
+					title: 'Komentar berhasil ditambahkan'
+				});
+			})
+
+		})
+
+	</script>
+</body>
+
+</html>
