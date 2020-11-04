@@ -24,6 +24,33 @@
 23. CSS3 ANIMATIONS
 24. RESPONSIVE STYLES
 */
+.pointer {
+  cursor: pointer;
+}
+
+.clickable-row:hover {
+  background: #121212;
+}
+
+.bottom-border {
+  border-bottom: #333333;
+  border-bottom-style: dashed;
+}
+
+
+.nav-link {
+  color: whitesmoke
+}
+
+.festival-card-title {
+  font-family: 'Poppins', sans-serif;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 40px;
+  line-height: 60px;
+  display: flex;
+  align-items: center;
+}
 
 .fullimage {}
 
