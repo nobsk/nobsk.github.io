@@ -7,26 +7,34 @@
 
 	<link rel="stylesheet" href="css/bootstrap.min.css">
 	<link rel="stylesheet" href="style.css">
+	<link rel="stylesheet" href="skeleton-dark.css">
 	<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Lato:400,700%7CMontserrat:300,400,600,700">
 
-	<link rel="stylesheet" href="icons/fontawesome/css/fontawesome-all.min.css"><!-- FontAwesome Icons -->
+	<link rel="stylesheet" href="icons/fontawesome/css/fontawesome-all.min.css">
 	<link rel="stylesheet" href="icons/Iconsmind__Ultimate_Pack/Line%20icons/styles.min.css">
-	<!-- iconsmind.com Icons -->
+	<link href="favicon.png" rel="shortcut icon" type="image/png" />
 
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
 
-	<title>SKRN - Media Streaming App</title>
+	<link rel="stylesheet" href="node_modules/@sweetalert2/theme-wordpress-admin/wordpress-admin.css">
+
+	<script src="node_modules/sweetalert2/dist/sweetalert2.min.js"></script>
+	<!-- SKELETON LOADER -->
+	<!-- <link rel="stylesheet" href="https://unpkg.com/placeholder-loading/dist/css/placeholder-loading.min.css"> -->
+
+	<title>NOBSK - Tempatnya Nonton Film Pendek</title>
 </head>
 
 <body>
 	<div id="sidebar-bg">
 
 		<header id="videohead-pro" class="sticky-header">
-			<div id="video-logo-background"><a href="dashboard-home.html"><img src="images/logo-video-layout.png"
+			<div id="video-logo-background"><a href="dashboard-home.html"><img src="images/logo-video-layout-dark.png"
 						alt="Logo"></a></div>
 
 			<div id="video-search-header">
 				<div id="search-icon-more"></div>
-				<input type="text" placeholder="Search for Movies or TV Series" aria-label="Search">
+				<input type="text" placeholder="Cari film pendek kesukaanmu" aria-label="Search">
 				<div id="video-search-header-filtering">
 					<form id="video-search-header-filtering-padding">
 						<div class="row">
@@ -35,23 +43,23 @@
 
 								<div class="row">
 									<div class="col-sm">
-										<label class="checkbox-pro-container">Movies
+										<label class="checkbox-pro-container">Festival
 											<input type="checkbox" checked="checked" id="movies-type">
 											<span class="checkmark-pro"></span>
 										</label>
 
-										<label class="checkbox-pro-container">TV Series
+										<label class="checkbox-pro-container">Individual
 											<input type="checkbox" id="tv-type">
 											<span class="checkmark-pro"></span>
 										</label>
 									</div><!-- close .col -->
 									<div class="col">
-										<label class="checkbox-pro-container">New Arrivals
+										<label class="checkbox-pro-container">Baru Rilis
 											<input type="checkbox" id="movie-type">
 											<span class="checkmark-pro"></span>
 										</label>
 
-										<label class="checkbox-pro-container">Documentary
+										<label class="checkbox-pro-container">Populer
 											<input type="checkbox" id="documentary-type">
 											<span class="checkmark-pro"></span>
 										</label>
@@ -99,7 +107,7 @@
 									<option value="14">Guatemala</option>
 									<option value="15">Italy</option>
 									<option value="16">Japan</option>
-									<option value="17">asdfasdf</option>
+									<option value="17">Indonesia</option>
 									<option value="18">Korea</option>
 									<option value="19">Malaysia</option>
 									<option value="20">Monaco</option>
@@ -134,16 +142,16 @@
 			<div id="header-user-profile">
 				<div id="header-user-profile-click" class="noselect">
 					<img src="images/demo/user-profile.jpg" alt="Suzie">
-					<div id="header-username">Suzie Smith</div><i class="fas fa-angle-down"></i>
+					<div id="header-username">Anak Cantik</div><i class="fas fa-angle-down"></i>
 				</div><!-- close #header-user-profile-click -->
 				<div id="header-user-profile-menu">
 					<ul>
-						<li><a href="dashboard-profile.html"><span class="icon-User"></span>My Profile</a></li>
-						<li><a href="dashboard-favorites.html"><span class="icon-Favorite-Window"></span>My
+						<li><a href="#!"><span class="icon-User"></span>My Profile</a></li>
+						<li><a href="#!"><span class="icon-Favorite-Window"></span>My
 								Favorites</a></li>
-						<li><a href="dashboard-account.html"><span class="icon-Gears"></span>Account Details</a></li>
+						<li><a href="#!"><span class="icon-Gears"></span>Account Details</a></li>
 						<li><a href="#!"><span class="icon-Life-Safer"></span>Help/Support</a></li>
-						<li><a href="index.html"><span class="icon-Power-3"></span>Log Out</a></li>
+						<li><a href="#!"><span class="icon-Power-3"></span>Log Out</a></li>
 					</ul>
 				</div><!-- close #header-user-profile-menu -->
 			</div><!-- close #header-user-profile -->
@@ -157,14 +165,14 @@
 					<h3>Notifications</h3>
 					<div id="header-notification-menu-padding">
 						<ul id="header-user-notification-list">
-							<li><a href="#!"><img src="images/demo/user-profile-2.jpg" alt="Profile">Lorem ipsum dolor
-									sit amet, consec tetur adipiscing elit. <div class="header-user-notify-time">21
+							<li><a href="#!"><img src="images/demo/user-profile-2.jpg" alt="Profile">Hei, apa kabar?<div
+										class="header-user-notify-time">21
 										hours ago</div></a></li>
-							<li><a href="#!"><img src="images/demo/user-profile-3.jpg" alt="Profile">Donec vitae lacus
-									id arcu molestie mollis. <div class="header-user-notify-time">3 days ago</div></a>
+							<li><a href="#!"><img src="images/demo/user-profile-3.jpg" alt="Profile">Nonton barengin yuk
+									<div class="header-user-notify-time">3 days ago</div></a>
 							</li>
-							<li><a href="#!"><img src="images/demo/user-profile-4.jpg" alt="Profile">Aenean vitae lectus
-									non purus facilisis imperdiet. <div class="header-user-notify-time">5 days ago</div>
+							<li><a href="#!"><img src="images/demo/user-profile-4.jpg" alt="Profile">Ada film bagus tuh
+									baru rilis<div class="header-user-notify-time">5 days ago</div>
 								</a></li>
 						</ul>
 						<div class="clearfix"></div>
@@ -179,32 +187,32 @@
 			<nav id="mobile-navigation-pro">
 
 				<ul id="mobile-menu-pro">
-					<li class="current-menu-item">
+					<li>
 						<a href="dashboard-home.html">
 							<span class="icon-Old-TV"></span>
-							TV Series
+							Film Pendek
 						</a>
 					<li>
-					<li>
-						<a href="dashboard-movies.html">
+					<li class="current-menu-item">
+						<a href="festival.html">
 							<span class="icon-Reel"></span>
-							Movies
+							Festival
 						</a>
 					</li>
 					<li>
-						<a href="dashboard-playlists.html">
+						<a href="#!">
 							<span class="icon-Movie"></span>
-							Playlists
+							Watchlist
 						</a>
 					</li>
 					<li>
-						<a href="dashboard-new-arrivals.html">
+						<a href="#!">
 							<span class="icon-Movie-Ticket"></span>
-							New Arrivals
+							Baru Rilis
 						</a>
 					</li>
 					<li>
-						<a href="dashboard-coming-soon.html">
+						<a href="#!">
 							<span class="icon-Clock"></span>
 							Coming Soon
 						</a>
@@ -224,40 +232,39 @@
 				</div>
 
 			</nav>
+			</nav>
 
 		</header>
-
-
 
 		<nav id="sidebar-nav">
 			<!-- Add class="sticky-sidebar-js" for auto-height sidebar -->
 			<ul id="vertical-sidebar-nav" class="sf-menu">
-				<li class="normal-item-pro current-menu-item">
+				<li class="normal-item-pro">
 					<a href="dashboard-home.html">
 						<span class="icon-Old-TV"></span>
-						TV Series
+						Film Pendek
 					</a>
 				</li>
-				<li class="normal-item-pro">
-					<a href="dashboard-movies.html">
+				<li class="normal-item-pro current-menu-item">
+					<a href="festival.html">
 						<span class="icon-Reel"></span>
-						Movies
+						Festival
 					</a>
 				</li>
 				<li class="normal-item-pro">
-					<a href="dashboard-playlists.html">
+					<a href="#!">
 						<span class="icon-Movie"></span>
-						Playlists
+						Watchlist
 					</a>
 				</li>
 				<li class="normal-item-pro">
-					<a href="dashboard-new-arrivals.html">
+					<a href="#!">
 						<span class="icon-Movie-Ticket"></span>
-						New Arrivals
+						Baru Rilis
 					</a>
 				</li>
 				<li class="normal-item-pro">
-					<a href="dashboard-coming-soon.html">
+					<a href="#!">
 						<span class="icon-Clock"></span>
 						Coming Soon
 					</a>
@@ -290,33 +297,23 @@
 				<div class="row">
 					<h4 class="dark-mode-font">Festival yang anda ikuti</h4>
 				</div>
-				<div class="row">
-					<div class="col-md-12">
-						<ul class="nav nav-tabs">
-							<li class="nav-item">
-								<a class="nav-link active" href="#">Aktif</a>
-							</li>
-							<li class="nav-item">
-								<a class="nav-link" href="#">Selesai</a>
-							</li>
-							<li class="nav-item">
-								<a class="nav-link disabled" href="#">Ditandai</a>
-							</li>
-							<li class="nav-item">
-								<a class="nav-link" href="#">Dihosting</a>
-							</li>
-							<li class="nav-item dropdown ml-auto">
-								<a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button"
-									aria-haspopup="true" aria-expanded="false">Urutkan</a>
-								<div class="dropdown-menu dropdown-menu-right">
-									<a class="dropdown-item" href="#">Berdasarkan Judul</a>
-									<a class="dropdown-item" href="#">Berdasarkan Hadiah</a>
-									<a class="dropdown-item" href="#">Something else here</a>
-								</div>
-							</li>
-						</ul>
-					</div>
-				</div>
+
+				<ul class="dashboard-sub-menu">
+					<li class="current"><a href="#!" class="dark-mode-font">Aktif</a></li>
+					<li><a href="#!">Selesai</a></li>
+					<li><a href="#!">Ditandai</a></li>
+					<li><a href="#!">Dihosting</a></li>
+					<li class="nav-item dropdown float-right">
+						<a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button"
+							aria-haspopup="true" aria-expanded="false">Urutkan</a>
+						<div class="dropdown-menu dropdown-menu-right">
+							<a class="dropdown-item" href="#">Berdasarkan Judul</a>
+							<a class="dropdown-item" href="#">Berdasarkan Hadiah</a>
+							<a class="dropdown-item" href="#">Something else here</a>
+						</div>
+					</li>
+				</ul>
+				<hr class="dotted">
 				<div class="row p-4 pointer bottom-border clickable-row">
 					<div class="col-md-2 text-center">
 						<img src="./images/Event_logo1.png" class="img-fluid">
@@ -325,7 +322,7 @@
 					<div class="col-md-1"></div>
 					<div class="col-md-7">
 						<div class="row">
-							<h4 class="dark-mode-font"> Judul Festival</h4>
+							<h4 class="dark-mode-font">Judul Festival</h4>
 						</div>
 						<div class="row">
 							<p class="dark-mode-font">deskripsi singkat tentang event</p>
@@ -398,107 +395,221 @@
 				<div class="row mt-5">
 					<h4 class="dark-mode-font">Semua Festival</h4>
 				</div>
-				<div class="row">
-					<div class="col-md-12">
-						<ul class="nav nav-tabs">
-							<li class="nav-item">
-								<a class="nav-link active" href="#">Aktif</a>
-							</li>
-							<li class="nav-item">
-								<a class="nav-link" href="#">Selesai</a>
-							</li>
-							<li class="nav-item">
-								<a class="nav-link" href="#">Berjalan</a>
-							</li>
-							<li class="nav-item dropdown ml-auto">
-								<a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button"
-									aria-haspopup="true" aria-expanded="false">Urutkan</a>
-								<div class="dropdown-menu dropdown-menu-right">
-									<a class="dropdown-item" href="#">Berdasarkan Judul</a>
-									<a class="dropdown-item" href="#">Berdasarkan Hadiah</a>
-									<a class="dropdown-item" href="#">Something else here</a>
-								</div>
-							</li>
-						</ul>
+				<ul class="dashboard-sub-menu">
+					<li class="current"><a href="#!" class="dark-mode-font">Aktif</a></li>
+					<li><a href="#!">Selesai</a></li>
+					<li><a href="#!">Berjalan</a></li>
+					<li class="nav-item dropdown float-right">
+						<a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button"
+							aria-haspopup="true" aria-expanded="false">Urutkan</a>
+						<div class="dropdown-menu dropdown-menu-right">
+							<a class="dropdown-item" href="#">Berdasarkan Judul</a>
+							<a class="dropdown-item" href="#">Berdasarkan Hadiah</a>
+							<a class="dropdown-item" href="#">Something else here</a>
+						</div>
+					</li>
+				</ul>
+				<hr class="dotted">
+				<div class="infinite">
+					<div class="row p-4 pointer bottom-border clickable-row">
+						<div class="col-md-2 text-center">
+							<img src="./images/Event_logo1.png" class="img-fluid">
+
+						</div>
+						<div class="col-md-1"></div>
+						<div class="col-md-7">
+							<div class="row">
+								<h4 class="dark-mode-font"> Judul Festival</h4>
+							</div>
+							<div class="row">
+								<p class="dark-mode-font">deskripsi singkat tentang event</p>
+							</div>
+							<div class="row">
+								<p class="dark-mode-font">kategori • deadline • totaltime</p>
+							</div>
+
+
+						</div>
+						<div class="col-md-2">
+							<h5 class="dark-mode-font">HADIAH</h5>
+						</div>
+
+
+					</div>
+					<div class="row bottom-border p-4 pointer clickable-row">
+						<div class="col-md-2 text-center">
+							<img src="./images/Event_logo1.png" class="img-fluid">
+
+						</div>
+						<div class="col-md-1"></div>
+						<div class="col-md-7">
+							<div class="row">
+								<h4 class="dark-mode-font"> Judul Festival</h4>
+							</div>
+							<div class="row">
+								<p class="dark-mode-font">deskripsi singkat tentang event</p>
+							</div>
+							<div class="row">
+								<p class="dark-mode-font">kategori • deadline • totaltime</p>
+							</div>
+
+
+						</div>
+						<div class="col-md-2">
+							<h5 class="dark-mode-font">HADIAH</h5>
+						</div>
+
+
+					</div>
+					<div class="row bottom-border p-4 pointer clickable-row">
+						<div class="col-md-2 text-center">
+							<img src="./images/Event_logo1.png" class="img-fluid">
+
+						</div>
+						<div class="col-md-1"></div>
+						<div class="col-md-7">
+							<div class="row">
+								<h4 class="dark-mode-font"> Judul Festival</h4>
+							</div>
+							<div class="row">
+								<p class="dark-mode-font">deskripsi singkat tentang event</p>
+							</div>
+							<div class="row">
+								<p class="dark-mode-font">kategori • deadline • totaltime</p>
+							</div>
+
+
+						</div>
+						<div class="col-md-2">
+							<h5 class="dark-mode-font">HADIAH</h5>
+						</div>
+
+
+					</div>
+					<div class="row bottom-border p-4 pointer clickable-row">
+						<div class="col-md-2 text-center">
+							<img src="./images/Event_logo1.png" class="img-fluid">
+
+						</div>
+						<div class="col-md-1"></div>
+						<div class="col-md-7">
+							<div class="row">
+								<h4 class="dark-mode-font"> Judul Festival</h4>
+							</div>
+							<div class="row">
+								<p class="dark-mode-font">deskripsi singkat tentang event</p>
+							</div>
+							<div class="row">
+								<p class="dark-mode-font">kategori • deadline • totaltime</p>
+							</div>
+
+
+						</div>
+						<div class="col-md-2">
+							<h5 class="dark-mode-font">HADIAH</h5>
+						</div>
+
+
+					</div>
+					<div class="row bottom-border p-4 pointer clickable-row">
+						<div class="col-md-2 text-center">
+							<img src="./images/Event_logo1.png" class="img-fluid">
+
+						</div>
+						<div class="col-md-1"></div>
+						<div class="col-md-7">
+							<div class="row">
+								<h4 class="dark-mode-font"> Judul Festival</h4>
+							</div>
+							<div class="row">
+								<p class="dark-mode-font">deskripsi singkat tentang event</p>
+							</div>
+							<div class="row">
+								<p class="dark-mode-font">kategori • deadline • totaltime</p>
+							</div>
+
+
+						</div>
+						<div class="col-md-2">
+							<h5 class="dark-mode-font">HADIAH</h5>
+						</div>
+
+
+					</div>
+					<div class="row bottom-border p-4 pointer clickable-row">
+						<div class="col-md-2 text-center">
+							<img src="./images/Event_logo1.png" class="img-fluid">
+
+						</div>
+						<div class="col-md-1"></div>
+						<div class="col-md-7">
+							<div class="row">
+								<h4 class="dark-mode-font"> Judul Festival</h4>
+							</div>
+							<div class="row">
+								<p class="dark-mode-font">deskripsi singkat tentang event</p>
+							</div>
+							<div class="row">
+								<p class="dark-mode-font">kategori • deadline • totaltime</p>
+							</div>
+
+
+						</div>
+						<div class="col-md-2">
+							<h5 class="dark-mode-font">HADIAH</h5>
+						</div>
+
+
+					</div>
+					<div class="row bottom-border p-4 pointer clickable-row">
+						<div class="col-md-2 text-center">
+							<img src="./images/Event_logo1.png" class="img-fluid">
+
+						</div>
+						<div class="col-md-1"></div>
+						<div class="col-md-7">
+							<div class="row">
+								<h4 class="dark-mode-font"> Judul Festival</h4>
+							</div>
+							<div class="row">
+								<p class="dark-mode-font">deskripsi singkat tentang event</p>
+							</div>
+							<div class="row">
+								<p class="dark-mode-font">kategori • deadline • totaltime</p>
+							</div>
+
+
+						</div>
+						<div class="col-md-2">
+							<h5 class="dark-mode-font">HADIAH</h5>
+						</div>
+
+
+					</div>
+					<div class="row bottom-border p-4 pointer clickable-row">
+						<div class="col-md-2 text-center">
+							<img src="./images/Event_logo1.png" class="img-fluid">
+
+						</div>
+						<div class="col-md-1"></div>
+						<div class="col-md-7">
+							<div class="row">
+								<h4 class="dark-mode-font"> Judul Festival</h4>
+							</div>
+							<div class="row">
+								<p class="dark-mode-font">deskripsi singkat tentang event</p>
+							</div>
+							<div class="row">
+								<p class="dark-mode-font">kategori • deadline • totaltime</p>
+							</div>
+
+
+						</div>
+						<div class="col-md-2">
+							<h5 class="dark-mode-font">HADIAH</h5>
+						</div>
 					</div>
 				</div>
-				<div class="row p-4 pointer bottom-border clickable-row">
-					<div class="col-md-2 text-center">
-						<img src="./images/Event_logo1.png" class="img-fluid">
-
-					</div>
-					<div class="col-md-1"></div>
-					<div class="col-md-7">
-						<div class="row">
-							<h4 class="dark-mode-font"> Judul Festival</h4>
-						</div>
-						<div class="row">
-							<p class="dark-mode-font">deskripsi singkat tentang event</p>
-						</div>
-						<div class="row">
-							<p class="dark-mode-font">kategori • deadline • totaltime</p>
-						</div>
-
-
-					</div>
-					<div class="col-md-2">
-						<h5 class="dark-mode-font">HADIAH</h5>
-					</div>
-
-
-				</div>
-				<div class="row bottom-border p-4 pointer clickable-row">
-					<div class="col-md-2 text-center">
-						<img src="./images/Event_logo1.png" class="img-fluid">
-
-					</div>
-					<div class="col-md-1"></div>
-					<div class="col-md-7">
-						<div class="row">
-							<h4 class="dark-mode-font"> Judul Festival</h4>
-						</div>
-						<div class="row">
-							<p class="dark-mode-font">deskripsi singkat tentang event</p>
-						</div>
-						<div class="row">
-							<p class="dark-mode-font">kategori • deadline • totaltime</p>
-						</div>
-
-
-					</div>
-					<div class="col-md-2">
-						<h5 class="dark-mode-font">HADIAH</h5>
-					</div>
-
-
-				</div>
-				<div class="row bottom-border p-4 pointer clickable-row">
-					<div class="col-md-2 text-center">
-						<img src="./images/Event_logo1.png" class="img-fluid">
-
-					</div>
-					<div class="col-md-1"></div>
-					<div class="col-md-7">
-						<div class="row">
-							<h4 class="dark-mode-font"> Judul Festival</h4>
-						</div>
-						<div class="row">
-							<p class="dark-mode-font">deskripsi singkat tentang event</p>
-						</div>
-						<div class="row">
-							<p class="dark-mode-font">kategori • deadline • totaltime</p>
-						</div>
-
-
-					</div>
-					<div class="col-md-2">
-						<h5 class="dark-mode-font">HADIAH</h5>
-					</div>
-
-
-				</div>
-
-
 			</div><!-- close .dashboard-container -->
 		</main>
 
@@ -519,8 +630,50 @@
 	<script src="js/afterglow.min.js" defer></script><!-- Video Player JS Plugin -->
 	<script src="js/script.js" defer></script><!-- Custom Document Ready JS -->
 	<script src="js/script-dashboard.js" defer></script><!-- Custom Document Ready for Dashboard Only JS -->
+	<script>
+
+		var scrollItem = '<div class="row bottom-border p-4 pointer clickable-row">' +
+			'						<div class="col-md-2 text-center">' +
+			'							<img src="./images/Event_logo1.png" class="img-fluid">' +
+			'' +
+			'						</div>' +
+			'						<div class="col-md-1"></div>' +
+			'						<div class="col-md-7">' +
+			'							<div class="row">' +
+			'								<h4 class="dark-mode-font"> Judul Festival</h4>' +
+			'							</div>' +
+			'							<div class="row">' +
+			'								<p class="dark-mode-font">deskripsi singkat tentang event</p>' +
+			'							</div>' +
+			'							<div class="row">' +
+			'								<p class="dark-mode-font">kategori • deadline • totaltime</p>' +
+			'							</div>' +
+			'' +
+			'' +
+			'						</div>' +
+			'						<div class="col-md-2">' +
+			'							<h5 class="dark-mode-font">HADIAH</h5>' +
+			'						</div>' +
+			'' +
+			'' +
+			'					</div><div></div><div class="row hidethis">' +
+			'			<div div class="col-md-12 text-center" style="font-size: 40px;">' +
+			'				<i class="fas fa-circle-notch fa-spin"></i>' +
+			'			</div>' +
+			'		</div>';
 
 
+
+		$(window).scroll(function () {
+			if ($(window).scrollTop() >= $(document).height() - $(window).height() - 10) {
+				setTimeout(function () {
+					$(document).find('.hidethis').hide();
+					$('.infinite').append(scrollItem);
+				}, 500)
+			}
+		});
+
+	</script>
 </body>
 
 </html>
