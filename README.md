@@ -61,7 +61,7 @@ Amy juga mampu melakukan nested question dengan keyword:
 dan ikuti amy seterusnya untuk menjawab pertanyaannya.
 
 Berikut contoh penggunaan Amy. (Maaf jika bahasa yang diujicobakan sangat random.)
-<iframe width="560" height="315" src="https://www.youtube.com/embed/zOL0_gS4VxE" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+[![Amy](http://img.youtube.com/vi/zOL0_gS4VxE/0.jpg)](http://www.youtube.com/watch?v=zOL0_gS4VxE "Amy.")
 
 ### Sequence Diagram Amy
 ![](https://i.imgur.com/rTWliHV.png)
