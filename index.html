@@ -609,7 +609,7 @@
 			//I want to select and change the color of the body, but this could be any HTML element on your page
 			let body = document.querySelector("body")
 
-			let cap_nobsk_menus = ["Login", "Register", "Thank You", "Thank's", "Makasih", "Kasih", "Duluan", "Film", "Pendek", "Rekomendasi", "Halo", "Hai", "Logout", "Masuk", "Daftar", "Kopi", "Boleh", "Teh", "Tutup", "Pagi", "Siang", "Sore", "Malam", "Ya", "Iya", "Logout", "Keluar", "No", "Nggak", "Susu", "Ultramilk", "Mau"];
+			let cap_nobsk_menus = ["Login", "Register", "Thank You", "Thank's", "Makasih", "Kasih", "Duluan", "Film", "Pendek", "Rekomendasi", "Halo", "Hai", "Logout", "Masuk", "Daftar", "Kopi", "Boleh", "Teh", "Tutup", "Pagi", "Siang", "Sore", "Malam", "Ya", "Iya", "Logout", "Keluar", "No", "Nggak", "Susu", "Ultramilk", "Mau", "Emi"];
 			const MENUS = cap_nobsk_menus.map(menu => {
 				//I need to change all menu names to lower case, because comparison between words will be case sensitive
 				return menu.toLowerCase()
@@ -653,6 +653,7 @@
 							.map(result => result[0])
 							.map(result => result.transcript)
 							.join("")
+							.toLowerCase()
 						// p.innerText = transcript
 
 						MENUS.forEach(function (menu) {
@@ -1170,6 +1171,10 @@
 									case 'halo':
 										button.click();
 										nobskAI('Hi, I am Amy, Your Artificial Intelligent assistant for NOBSK. You can ask me anything by clicking start speaking')
+										break;
+									case 'emi':
+										button.click();
+										nobskAI('Hi, Amy here, Your Artificial Intelligent assistant for NOBSK. You can ask me anything by clicking start speaking')
 										break;
 									case 'hai':
 										button.click();

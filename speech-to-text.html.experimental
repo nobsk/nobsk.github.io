@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>NOBSK. AI</title>
+    <link rel="stylesheet" href="./speech-to-text.css" />
+</head>
+
+<body>
+    <header>
+        <h1>Speech Mode Assistant</h1>
+    </header>
+    <main>
+        <div id="textToSynth">
+            <!-- <input autofocus size="23" type="text" id="textEntry" value="It's very good to meet you." /> -->
+            <button class="btn default" id="speaks" style="display:none" onClick="speakText()">Synthesize</button>
+            <!-- <p id="result">Enter text above then click Synthesize</p> -->
+        </div>
+        <audio id="audioPlayback" style="display: none;" controls autoplay>
+            <source id="audioSource" type="audio/mp3" src="">
+        </audio>
+        <button id="button">Start speaking</button>
+        <div id="result"></div>
+        <p id="message" hidden aria-hidden="true">
+            Your browser doesn't support Speech Recognition. Sorry.
+        </p>
+    </main>
+    <footer>
+        <p>Built by <a href="#!">alfian</a></p>
+    </footer>
+    <script src="https://sdk.amazonaws.com/js/aws-sdk-2.763.0.min.js"></script>
+    <script>
+        var callbackmenu = '';
+        function menuCallback(spokenmenu) {
+            callbackmenu = spokenmenu;
+            return callbackmenu;
+        }
+        window.addEventListener("DOMContentLoaded", () => {
+            const button = document.getElementById("button");
+            const result = document.getElementById("result");
+            const main = document.getElementsByTagName("main")[0];
+            let listening = false;
+            //I want to select and change the color of the body, but this could be any HTML element on your page
+            let body = document.querySelector("body")
+
+            let cap_nobsk_menus = ["Login", "Register", "Thank You", "Thank's", "Makasih", "Kasih", "Duluan", "Film", "Pendek", "Rekomendasi", "Halo", "Hai", "Festival"];
+            const MENUS = cap_nobsk_menus.map(menu => {
+                //I need to change all menu names to lower case, because comparison between words will be case sensitive
+                return menu.toLowerCase()
+            })
+
+
+            const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+
+            if (typeof SpeechRecognition !== "undefined") {
+                const recognition = new SpeechRecognition();
+                recognition.lang = "id";
+
+
+                const stop = () => {
+                    main.classList.remove("speaking");
+                    recognition.stop();
+                    button.textContent = "Start speaking";
+                };
+
+                const start = () => {
+                    main.classList.add("speaking");
+                    recognition.start();
+                    button.textContent = "Stop speaking";
+
+                };
+
+                var i = 0;
+                const onResult = event => {
+                    result.innerHTML = "";
+                    for (const res of event.results) {
+                        const text = document.createTextNode(res[0].transcript);
+                        const p = document.createElement("p");
+                        if (res.isFinal) {
+                            p.classList.add("final");
+                        }
+                        p.appendChild(text);
+                        result.appendChild(p);
+
+
+                        const transcript = Array.from(event.results)
+                            .map(result => result[0])
+                            .map(result => result.transcript)
+                            .join("")
+                            .toLowerCase()
+                        // p.innerText = transcript
+
+                        MENUS.forEach(function (menu) {
+
+                            //if find a match, change your background menu to that menu
+                            console.log(transcript.includes(menu));
+                            if (transcript.includes(menu)) {
+                                // console.log(transcript)
+                                menu = lastMenu(menu)
+                                menuCallback(menu);
+                                console.log(callbackmenu)
+                                switch (callbackmenu) {
+                                    case 'login':
+                                        button.click();
+                                        nobskAI('Hi, I am Your Artificial Intelligent assistant for NOBSK. Please login in these field')
+                                        break;
+                                    case 'register':
+                                        button.click();
+                                        nobskAI('Here it is, please register in these field')
+                                        break;
+                                    case 'thank\'s':
+                                        button.click();
+                                        nobskAI('You are welcome, I\'m happy to help you')
+                                        break;
+                                    case 'thank you':
+                                        button.click();
+                                        nobskAI('You are welcome, I\'m very happy to help you')
+                                        break;
+                                    case 'makasih':
+                                        button.click();
+                                        nobskAI('You are welcome, I\'m happy to help you')
+                                        break;
+                                    case 'kasih':
+                                        button.click();
+                                        nobskAI('You are welcome, I\'m very happy to help you')
+                                        break;
+                                    case 'duluan':
+                                        button.click();
+                                        nobskAI('You can register first, if your account haven\'t registered yet, I will show you how, please register in these field')
+                                        break;
+                                    case 'film':
+                                        button.click();
+                                        nobskAI('Great, I\'ll show you "recommended" shortfilm these month for you')
+                                        break;
+                                    case 'rekomendasi':
+                                        button.click();
+                                        nobskAI('Great, I\'ll show you "recommended" shortfilm these month for you')
+                                        break;
+                                    case 'pendek':
+                                        button.click();
+                                        nobskAI('Copy. Here we go.. your shortfilm')
+                                        break;
+                                    case 'festival':
+                                        button.click();
+                                        nobskAI('Festival. Here we go.. your shortfilm')
+                                        break;
+                                    case 'festival':
+                                        button.click();
+                                        nobskAI('Festival. Here we go.. your shortfilm')
+                                        break;
+                                    case 'halo':
+                                        button.click();
+                                        nobskAI('Hi, I am Your Artificial Intelligent assistant for NOBSK. You can ask me anything by clicking start speaking')
+                                        break;
+                                    case 'hai':
+                                        button.click();
+                                        nobskAI('Hi, I am Your Artificial Intelligent assistant for NOBSK. You can ask me anything by clicking start speaking')
+                                        break;
+                                    default:
+                                        button.click();
+                                        nobskAI('I don\'t understand what you mean?, could you please repeat what you want to do by clicking start again?')
+
+                                }
+
+                            }
+                        })
+
+
+                    }
+                    i++;
+                    // console.log(i);
+                };
+                // setTimeout(function () {
+                //         document.getElementById('speaks').click()
+                //     }, 500);
+                recognition.continuous = true;
+                recognition.interimResults = false; // ini untuk memperbaiki si kata terus menerus loopnya, kalo false artinya kalo ngomong gak bakal dibenerin alias outputnya 1x aja.
+                recognition.addEventListener("result", onResult);
+                button.addEventListener("click", event => {
+                    listening ? stop() : start();
+                    listening = !listening;
+                });
+            } else {
+                button.remove();
+                const message = document.getElementById("message");
+                message.removeAttribute("hidden");
+                message.setAttribute("aria-hidden", "false");
+            }
+        });
+
+        function nobskAI(words) {
+            document.getElementById('result').innerHTML = words;
+            setTimeout(function () {
+                document.getElementById('speaks').click()
+            }, 500);
+        }
+        function lastMenu(words) {
+            var n = words.split(" ");
+            return n[n.length - 1];
+        }
+    </script>
+    <script type="text/javascript">
+
+        // Initialize the Amazon Cognito credentials provider
+        // Initialize the Amazon Cognito credentials provider
+        AWS.config.region = 'ap-southeast-1'; // Region
+        AWS.config.credentials = new AWS.CognitoIdentityCredentials({
+            IdentityPoolId: 'ap-southeast-1:dd7aef1f-b489-4633-82e1-3221f2a2e975',
+        });
+        // Function invoked by button click
+        function speakText() {
+            // Create the JSON parameters for getSynthesizeSpeechUrl
+            var speechParams = {
+                OutputFormat: "mp3",
+                SampleRate: "16000",
+                Text: "",
+                TextType: "text",
+                VoiceId: "Amy",
+            };
+            // speechParams.Text = document.getElementById("textEntry").value;
+
+            speechParams.Text = removeTags(document.getElementById('result').innerHTML);
+
+            // Create the Polly service object and presigner object
+            var polly = new AWS.Polly({ apiVersion: '2016-06-10' });
+            var signer = new AWS.Polly.Presigner(speechParams, polly)
+
+            // Create presigned URL of synthesized speech file
+            signer.getSynthesizeSpeechUrl(speechParams, function (error, url) {
+                if (error) {
+                    document.getElementById('result').innerHTML = error;
+                } else {
+                    document.getElementById('audioSource').src = url;
+                    document.getElementById('audioPlayback').load();
+                    // document.getElementById('result').innerHTML = "Speech ready to play.";
+                }
+            });
+        }
+
+        function removeTags(str) {
+            if ((str === null) || (str === ''))
+                return false;
+            else
+                str = str.toString();
+            return str.replace(/(<([^>]+)>)/ig, '');
+        }
+    </script>
+</body>
+
+</html>

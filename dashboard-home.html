@@ -148,12 +148,11 @@
 				</div><!-- close #header-user-profile-click -->
 				<div id="header-user-profile-menu">
 					<ul>
-						<li><a href="#!"><span class="icon-User"></span>My Profile</a></li>
-						<li><a href="#!"><span class="icon-Favorite-Window"></span>My
-								Favorites</a></li>
-						<li><a href="#!"><span class="icon-Gears"></span>Account Details</a></li>
-						<li><a href="#!"><span class="icon-Life-Safer"></span>Help/Support</a></li>
-						<li><a href="#!"><span class="icon-Power-3"></span>Log Out</a></li>
+						<li><a href="#!" class="myprofile"><span class="icon-User"></span>Profil Saya</a></li>
+						<li><a href="#!" class="myfav"><span class="icon-Favorite-Window"></span>Favorit Saya</a></li>
+						<li><a href="#!" class="accdetail"><span class="icon-Gears"></span>Pengaturan Akun</a></li>
+						<li><a href="#!" class="bantuan"><span class="icon-Life-Safer"></span>Bantuan</a></li>
+						<li><a href="#!" class="keluar"><span class="icon-Power-3"></span>Log Out</a></li>
 					</ul>
 				</div><!-- close #header-user-profile-menu -->
 			</div><!-- close #header-user-profile -->
@@ -202,28 +201,21 @@
 						</a>
 					</li>
 					<li>
-						<a href="#!">
+						<a href="dashboard-playlists.html">
 							<span class="icon-Movie"></span>
 							Watchlist
 						</a>
 					</li>
 					<li>
-						<a href="#!">
+						<a href="dashboard-new-arrivals.html">
 							<span class="icon-Movie-Ticket"></span>
 							Baru Rilis
 						</a>
 					</li>
 					<li>
-						<a href="#!">
+						<a href="dashboard-coming-soon.html">
 							<span class="icon-Clock"></span>
 							Coming Soon
-						</a>
-					</li>
-					<li>
-						<a href="#!">
-							<i class="far fa-bell"></i>
-							<span class="user-notification-count">3</span>
-							Notifications
 						</a>
 					</li>
 				</ul>
@@ -255,19 +247,19 @@
 					</a>
 				</li>
 				<li class="normal-item-pro">
-					<a href="#!">
+					<a href="dashboard-playlists.html">
 						<span class="icon-Movie"></span>
 						Watchlist
 					</a>
 				</li>
 				<li class="normal-item-pro">
-					<a href="#!">
+					<a href="dashboard-new-arrivals.html">
 						<span class="icon-Movie-Ticket"></span>
 						Baru Rilis
 					</a>
 				</li>
 				<li class="normal-item-pro">
-					<a href="#!">
+					<a href="dashboard-coming-soon.html">
 						<span class="icon-Clock"></span>
 						Coming Soon
 					</a>
@@ -295,7 +287,7 @@
 										<a class="progression-studios-slider-play-btn afterglow"
 											href="#VideoLightbox-1"><i class="fas fa-play"></i></a>
 
-										<video id="VideoLightbox-1"
+										<video id="VideoLightbox-1" oncontextmenu="return false;"
 											poster="images/img/thumbnail-film/1597826908-tilik.png" width="960"
 											height="540">
 											<source src="videos/tilik.mp4" type="video/mp4">
@@ -383,7 +375,7 @@
 										<a class="progression-studios-slider-play-btn afterglow"
 											href="#VideoLightbox-2"><i class="fas fa-play"></i></a>
 
-										<video id="VideoLightbox-2"
+										<video id="VideoLightbox-2" oncontextmenu="return false;"
 											poster="images/img/thumbnail-film/1597826908-tilik.png" width="960"
 											height="540">
 											<source src="videos/tilik.mp4" type="video/mp4">
@@ -890,7 +882,7 @@
 		var callbackmenu = '';
 		function menuCallback(spokenmenu) {
 			callbackmenu = spokenmenu;
-			return callbackmenu;
+			return callbackmenu.toLowerCase();
 		}
 		window.addEventListener("DOMContentLoaded", () => {
 			const button = document.getElementById("button");
@@ -900,7 +892,7 @@
 			//I want to select and change the color of the body, but this could be any HTML element on your page
 			let body = document.querySelector("body")
 
-			let cap_nobsk_menus = ["Login", "Register", "Thank You", "Thank's", "Makasih", "Kasih", "Duluan", "Film", "Pendek", "Rekomendasi", "Halo", "Hai", "Logout", "Masuk", "Daftar", "Kopi", "Boleh", "Teh", "Tutup", "Pagi", "Siang", "Sore", "Malam", "Ya", "Iya", "Logout", "Keluar", "No", "Nggak", "Susu", "Ultramilk", "Mau"];
+			let cap_nobsk_menus = ["Login", "Register", "Thank You", "Thank's", "Makasih", "Kasih", "Duluan", "Film", "Pendek", "Rekomendasi", "Halo", "Hai", "Logout", "Masuk", "Daftar", "Kopi", "Boleh", "Teh", "Tutup", "Pagi", "Siang", "Sore", "Malam", "Ya", "Iya", "Logout", "Keluar", "No", "Nggak", "Susu", "Milk", "Mau", "Festival", "Emi", "Mukhlis", "Fresh", "Waterless", "Slash", "Wordpress", "Baru", "Rilis", "Kamingsun", "Soon", "Profil", "favorite", "favorit", "akun", "Bantuan", "Help", "Tilik", "Detail"];
 			const MENUS = cap_nobsk_menus.map(menu => {
 				//I need to change all menu names to lower case, because comparison between words will be case sensitive
 				return menu.toLowerCase()
@@ -944,6 +936,7 @@
 							.map(result => result[0])
 							.map(result => result.transcript)
 							.join("")
+							.toLowerCase()
 						// p.innerText = transcript
 
 						MENUS.forEach(function (menu) {
@@ -1397,7 +1390,7 @@
 											}, 100)
 										}
 										break;
-									case 'ultramilk':
+									case 'milk':
 										if (window.sessionStorage.getItem('previousWords') === 'choosenow') {
 											button.click();
 											nobskAI('Here you are, your ultramilk without sugar, goodnight have a nice sleep')
@@ -1462,9 +1455,163 @@
 										button.click();
 										nobskAI('Hi, I am Amy, Your Artificial Intelligent assistant for NOBSK. You can ask me anything by clicking start speaking')
 										break;
+									case 'emi':
+										button.click();
+										nobskAI('Hi, Amy here, Your Artificial Intelligent assistant for NOBSK. You can ask me anything by clicking start speaking')
+										break;
 									case 'hai':
 										button.click();
 										nobskAI('Hello, I am Amy, what can I do for you?')
+										break;
+									case 'festival':
+										button.click();
+										nobskAI('Festival. Please wait..')
+										setTimeout(function () {
+											window.location.href = 'festival.html'
+										}, 3500)
+										break;
+									case 'mukhlis':
+										button.click();
+										nobskAI('Watchlist. Please wait.....')
+										setTimeout(function () {
+											window.location.href = 'dashboard-playlists.html'
+										}, 3500)
+										break;
+									case 'fresh':
+										button.click();
+										nobskAI('Watchlist. Please wait.....')
+										setTimeout(function () {
+											window.location.href = 'dashboard-playlists.html'
+										}, 3500)
+										break;
+									case 'waterless':
+										button.click();
+										nobskAI('Watchlist. Please wait.....')
+										setTimeout(function () {
+											window.location.href = 'dashboard-playlists.html'
+										}, 3500)
+										break;
+									case 'slash':
+										button.click();
+										nobskAI('Watchlist. Please wait.....')
+										setTimeout(function () {
+											window.location.href = 'dashboard-playlists.html'
+										}, 3500)
+										break;
+									case 'wordpress':
+										button.click();
+										nobskAI('Watchlist. Please wait.....')
+										setTimeout(function () {
+											window.location.href = 'dashboard-playlists.html'
+										}, 3500)
+										break;
+									case 'rilis':
+										button.click();
+										nobskAI('New Release. Please wait.....')
+										setTimeout(function () {
+											window.location.href = 'dashboard-new-arrivals.html'
+										}, 3500)
+										break;
+									case 'baru':
+										button.click();
+										nobskAI('New Release. Please wait.....')
+										setTimeout(function () {
+											window.location.href = 'dashboard-new-arrivals.html'
+										}, 3500)
+										break;
+									case 'kamingsun':
+										button.click();
+										nobskAI('Comingsoon. Please wait.....')
+										setTimeout(function () {
+											window.location.href = 'dashboard-coming-soon.html'
+										}, 3500)
+										break;
+									case 'soon':
+										button.click();
+										nobskAI('Comingsoon. Please wait.....')
+										setTimeout(function () {
+											window.location.href = 'dashboard-coming-soon.html'
+										}, 3500)
+										break;
+									case 'profil':
+										button.click();
+										nobskAI('My profile. Please wait.....');
+										setTimeout(function () {
+											$('#header-user-profile-click').trigger('click');
+											$('.myprofile').parent().css('background-color', '#eaeaea')
+										}, 1000)
+										setTimeout(function () {
+											$('.myprofile').trigger('click')
+											// window.location.href = 'dashboard-profile.html'
+										}, 3500)
+										break;
+									case 'favourite':
+										button.click();
+										nobskAI('My favorite. Please wait.....');
+										setTimeout(function () {
+											$('#header-user-profile-click').trigger('click');
+											$('.myfav').parent().css('background-color', '#eaeaea')
+										}, 1000)
+										setTimeout(function () {
+											$('.myfav').trigger('click')
+											// window.location.href = 'dashboard-profile.html'
+										}, 3500)
+										break;
+									case 'favorit':
+										button.click();
+										nobskAI('My favorite. Please wait.....');
+										setTimeout(function () {
+											$('#header-user-profile-click').trigger('click');
+											$('.myfav').parent().css('background-color', '#eaeaea')
+										}, 1000)
+										setTimeout(function () {
+											$('.myfav').trigger('click')
+											// window.location.href = 'dashboard-profile.html'
+										}, 3500)
+										break;
+									case 'akun':
+										button.click();
+										nobskAI('My Account. Please wait.....');
+										setTimeout(function () {
+											$('#header-user-profile-click').trigger('click');
+											$('.accdetail').parent().css('background-color', '#eaeaea')
+										}, 1000)
+										setTimeout(function () {
+											$('.accdetail').trigger('click')
+											// window.location.href = 'dashboard-profile.html'
+										}, 3500)
+										break;
+									case 'help':
+										button.click();
+										nobskAI('Help support. Please wait.....');
+										setTimeout(function () {
+											$('#header-user-profile-click').trigger('click');
+											$('.bantuan').parent().css('background-color', '#eaeaea')
+										}, 1000)
+										setTimeout(function () {
+											$('.bantuan').trigger('click')
+											// window.location.href = 'dashboard-profile.html'
+										}, 3500)
+										break;
+									case 'bantuan':
+										button.click();
+										nobskAI('Help support. Please wait.....');
+										setTimeout(function () {
+											$('#header-user-profile-click').trigger('click');
+											$('.bantuan').parent().css('background-color', '#eaeaea')
+										}, 1000)
+										setTimeout(function () {
+											$('.bantuan').trigger('click')
+											// window.location.href = 'dashboard-profile.html'
+										}, 3500)
+										break;
+									case 'detail':
+										button.click();
+										nobskAI('Teeleek detail. Please wait.....');
+										setTimeout(function () {
+											window.location.href = 'movie-detail.html'
+											window.sessionStorage.setItem('detail', true)
+										}, 3500)
 										break;
 									default:
 										button.click();
@@ -1679,6 +1826,44 @@
 			setInterval(function () {
 				$(document).find('.hideTenSecs').hide();
 			}, 5000)
+		})
+
+		$(document).find('.keluar').click(function () {
+			window.sessionStorage.setItem('logoutSuccess', true)
+			window.location.href = window.sessionStorage.getItem('baseUrl')
+		})
+
+		$(document).find('.myprofile').click(function () {
+			window.location.href = 'dashboard-profile.html'
+		})
+
+		$(document).find('.accdetail').click(function () {
+			window.location.href = 'dashboard-account.html'
+		})
+
+		$(document).find('.myfav').click(function () {
+			window.location.href = 'dashboard-favorites.html'
+		})
+
+		$(document).find('.bantuan').click(function () {
+			const Toast = Swal.mixin({
+				toast: true,
+				position: 'top-end',
+				showConfirmButton: false,
+				timer: 3000,
+				timerProgressBar: true,
+				didOpen: (toast) => {
+					toast.addEventListener('mouseenter', Swal.stopTimer)
+					toast.addEventListener('mouseleave', Swal.resumeTimer)
+				}
+			})
+
+			Toast.fire({
+				icon: "error",
+				imageWidth: 20,
+				imageHeight: 20,
+				title: 'bantuan sedang dalam perbaikan'
+			});
 		})
 
 	</script>

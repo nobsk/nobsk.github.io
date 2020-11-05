@@ -146,12 +146,11 @@
 				</div><!-- close #header-user-profile-click -->
 				<div id="header-user-profile-menu">
 					<ul>
-						<li><a href="#!"><span class="icon-User"></span>My Profile</a></li>
-						<li><a href="#!"><span class="icon-Favorite-Window"></span>My
-								Favorites</a></li>
-						<li><a href="#!"><span class="icon-Gears"></span>Account Details</a></li>
-						<li><a href="#!"><span class="icon-Life-Safer"></span>Help/Support</a></li>
-						<li><a href="#!"><span class="icon-Power-3"></span>Log Out</a></li>
+						<li><a href="#!" class="myprofile"><span class="icon-User"></span>Profil Saya</a></li>
+						<li><a href="#!" class="myfav"><span class="icon-Favorite-Window"></span>Favorit Saya</a></li>
+						<li><a href="#!" class="accdetail"><span class="icon-Gears"></span>Pengaturan Akun</a></li>
+						<li><a href="#!" class="bantuan"><span class="icon-Life-Safer"></span>Bantuan</a></li>
+						<li><a href="#!" class="keluar"><span class="icon-Power-3"></span>Log Out</a></li>
 					</ul>
 				</div><!-- close #header-user-profile-menu -->
 			</div><!-- close #header-user-profile -->
@@ -187,7 +186,7 @@
 			<nav id="mobile-navigation-pro">
 
 				<ul id="mobile-menu-pro">
-					<li>
+					<li class="">
 						<a href="dashboard-home.html">
 							<span class="icon-Old-TV"></span>
 							Film Pendek
@@ -200,28 +199,21 @@
 						</a>
 					</li>
 					<li>
-						<a href="#!">
+						<a href="dashboard-playlists.html">
 							<span class="icon-Movie"></span>
 							Watchlist
 						</a>
 					</li>
 					<li>
-						<a href="#!">
+						<a href="dashboard-new-arrivals.html">
 							<span class="icon-Movie-Ticket"></span>
 							Baru Rilis
 						</a>
 					</li>
 					<li>
-						<a href="#!">
+						<a href="dashboard-coming-soon.html">
 							<span class="icon-Clock"></span>
 							Coming Soon
-						</a>
-					</li>
-					<li>
-						<a href="#!">
-							<i class="far fa-bell"></i>
-							<span class="user-notification-count">3</span>
-							Notifications
 						</a>
 					</li>
 				</ul>
@@ -232,9 +224,10 @@
 				</div>
 
 			</nav>
-			</nav>
 
 		</header>
+
+
 
 		<nav id="sidebar-nav">
 			<!-- Add class="sticky-sidebar-js" for auto-height sidebar -->
@@ -252,19 +245,19 @@
 					</a>
 				</li>
 				<li class="normal-item-pro">
-					<a href="#!">
+					<a href="dashboard-playlists.html">
 						<span class="icon-Movie"></span>
 						Watchlist
 					</a>
 				</li>
 				<li class="normal-item-pro">
-					<a href="#!">
+					<a href="dashboard-new-arrivals.html">
 						<span class="icon-Movie-Ticket"></span>
 						Baru Rilis
 					</a>
 				</li>
 				<li class="normal-item-pro">
-					<a href="#!">
+					<a href="dashboard-coming-soon.html">
 						<span class="icon-Clock"></span>
 						Coming Soon
 					</a>
@@ -616,6 +609,23 @@
 
 	</div><!-- close #sidebar-bg-->
 
+	<div id="maintag">
+		<div id="textToSynth">
+			<!-- <input autofocus size="23" type="text" id="textEntry" value="It's very good to meet you." /> -->
+			<button class="btn default" id="speaks" style="display:none" onClick="speakText()">Synthesize</button>
+			<!-- <p id="result">Enter text above then click Synthesize</p> -->
+		</div>
+		<audio id="audioPlayback" style="display: none;" controls autoplay>
+			<source id="audioSource" type="audio/mp3" src="">
+		</audio>
+		<button id="button" class="btn-speaking btn btn-green-pro no-radius"><img src="images/img/homePage/mic-on.svg"
+				alt=""></button>
+		<div id="result" style="display: none;"></div>
+		<p id="message" hidden aria-hidden="true">
+			Your browser doesn't support Speech Recognition. Sorry.
+		</p>
+	</div>
+
 	<!-- Required Framework JavaScript -->
 	<script src="js/libs/jquery-3.3.1.min.js"></script><!-- jQuery -->
 	<script src="js/libs/popper.min.js" defer></script><!-- Bootstrap Popper/Extras JS -->
@@ -630,6 +640,878 @@
 	<script src="js/afterglow.min.js" defer></script><!-- Video Player JS Plugin -->
 	<script src="js/script.js" defer></script><!-- Custom Document Ready JS -->
 	<script src="js/script-dashboard.js" defer></script><!-- Custom Document Ready for Dashboard Only JS -->
+	<!-- AI -->
+	<script src="https://sdk.amazonaws.com/js/aws-sdk-2.763.0.min.js"></script>
+	<script>
+		var getUrl = window.location;
+		var baseUrl = getUrl.protocol + "//" + getUrl.host + "/" + getUrl.pathname.split('/')[1];
+		console.log(getUrl.href)
+		var callbackmenu = '';
+		function menuCallback(spokenmenu) {
+			callbackmenu = spokenmenu;
+			return callbackmenu.toLowerCase();
+		}
+		window.addEventListener("DOMContentLoaded", () => {
+			const button = document.getElementById("button");
+			const result = document.getElementById("result");
+			const main = document.getElementById("maintag");
+			let listening = false;
+			//I want to select and change the color of the body, but this could be any HTML element on your page
+			let body = document.querySelector("body")
+
+			let cap_nobsk_menus = ["Login", "Register", "Thank You", "Thank's", "Makasih", "Kasih", "Duluan", "Film", "Pendek", "Rekomendasi", "Halo", "Hai", "Logout", "Masuk", "Daftar", "Kopi", "Boleh", "Teh", "Tutup", "Pagi", "Siang", "Sore", "Malam", "Ya", "Iya", "Logout", "Keluar", "No", "Nggak", "Susu", "Milk", "Mau", "Festival", "Emi", "Mukhlis", "Fresh", "Waterless", "Slash", "Wordpress", "Baru", "Rilis", "Kamingsun", "Soon", "Profil", "favorite", "favorit", "akun", "Bantuan", "Help", "Tilik", "Detail"];
+			const MENUS = cap_nobsk_menus.map(menu => {
+				//I need to change all menu names to lower case, because comparison between words will be case sensitive
+				return menu.toLowerCase()
+			})
+
+
+			const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+
+			if (typeof SpeechRecognition !== "undefined") {
+				const recognition = new SpeechRecognition();
+				recognition.lang = "id";
+
+
+				const stop = () => {
+					main.classList.remove("speaking");
+					recognition.stop();
+					button.innerHTML = "<img src='images/img/homePage/mic-on.svg' alt=''>";
+
+				};
+
+				const start = () => {
+					main.classList.add("speaking");
+					recognition.start();
+					button.innerHTML = "<img src='images/img/homePage/mic-off.gif' width='50' alt=''>";
+				};
+
+				var i = 0;
+				const onResult = event => {
+					result.innerHTML = "";
+					for (const res of event.results) {
+						const text = document.createTextNode(res[0].transcript);
+						const p = document.createElement("p");
+						if (res.isFinal) {
+							p.classList.add("final");
+						}
+						p.appendChild(text);
+						result.appendChild(p);
+
+
+						const transcript = Array.from(event.results)
+							.map(result => result[0])
+							.map(result => result.transcript)
+							.join("")
+							.toLowerCase()
+						// p.innerText = transcript
+
+						MENUS.forEach(function (menu) {
+
+							// console.log(transcript);
+							//if find a match, change your background menu to that menu
+
+							// console.log(transcript.includes(menu));
+							if (transcript.includes(menu)) {
+								// console.log(transcript)
+								menu = lastMenu(menu)
+								menuCallback(menu);
+								console.log(menu)
+								switch (callbackmenu) {
+									case 'login':
+										if (window.sessionStorage.getItem('baseUrl') === getUrl.href) {
+											$("#LoginModal .modal-content").load(" #LoginModal .modal-content > *");
+											button.click();
+											nobskAI('Good, I will show you the form. Please login in these field')
+											setTimeout(function () {
+												$('#LoginModal').modal('show');
+											}, 100)
+										} else {
+											nobskAI('You are signed in already')
+										}
+										break;
+									case 'masuk':
+										if (window.sessionStorage.getItem('baseUrl') === getUrl.href) {
+											$("#LoginModal .modal-content").load(" #LoginModal .modal-content > *");
+											button.click();
+											nobskAI('Good, I will show you the form. Please login in these field')
+											setTimeout(function () {
+												$('#LoginModal').modal('show');
+											}, 100)
+										} else {
+											nobskAI('You are signed in already')
+										}
+										break;
+									case 'tutup':
+										button.click();
+										nobskAI('as you wish, the modal has been closed')
+										$('#LoginModal').modal('hide');
+										$('#template-modal').modal('hide');
+										break;
+									case 'pagi':
+										$(document).find('.milk').removeClass('fullimage')
+										$(document).find('.milk').css('border', "");
+										$(document).find('.milk').hide()
+										$(document).find('.coffee').removeClass('fullimage')
+										$(document).find('.coffee').css('border', "");
+										$(document).find('.coffee').hide()
+										$(document).find('.tea').removeClass('fullimage')
+										$(document).find('.tea').css('border', "");
+										$(document).find('.tea').hide()
+										$(".template-modal .modal-content").load(" .template-modal .modal-content > *");
+										button.click();
+										nobskAI('Good morning, want to start your day?')
+										window.sessionStorage.setItem('previousWords', 'pagi')
+										break;
+									case 'siang':
+										$(document).find('.milk').removeClass('fullimage')
+										$(document).find('.milk').css('border', "");
+										$(document).find('.milk').hide()
+										$(document).find('.coffee').removeClass('fullimage')
+										$(document).find('.coffee').css('border', "");
+										$(document).find('.coffee').hide()
+										$(document).find('.tea').removeClass('fullimage')
+										$(document).find('.tea').css('border', "");
+										$(document).find('.tea').hide()
+										$(".template-modal .modal-content").load(" .template-modal .modal-content > *");
+										button.click();
+										nobskAI('Good afternoon, wanna drink?')
+										window.sessionStorage.setItem('previousWords', 'siang')
+										break;
+									case 'sore':
+										$(document).find('.milk').removeClass('fullimage')
+										$(document).find('.milk').css('border', "");
+										$(document).find('.milk').hide()
+										$(document).find('.coffee').removeClass('fullimage')
+										$(document).find('.coffee').css('border', "");
+										$(document).find('.coffee').hide()
+										$(document).find('.tea').removeClass('fullimage')
+										$(document).find('.tea').css('border', "");
+										$(document).find('.tea').hide()
+										$(".template-modal .modal-content").load(" .template-modal .modal-content > *");
+										button.click();
+										nobskAI('Good evening, Are you tired? Want some drink?')
+										window.sessionStorage.setItem('previousWords', 'sore')
+										break;
+									case 'malam':
+										$(document).find('.milk').removeClass('fullimage')
+										$(document).find('.milk').css('border', "");
+										$(document).find('.milk').hide()
+										$(document).find('.coffee').removeClass('fullimage')
+										$(document).find('.coffee').css('border', "");
+										$(document).find('.coffee').hide()
+										$(document).find('.tea').removeClass('fullimage')
+										$(document).find('.tea').css('border', "");
+										$(document).find('.tea').hide()
+										$(".template-modal .modal-content").load(" .template-modal .modal-content > *");
+										button.click();
+										nobskAI('Hi, do you want to drink something?')
+										window.sessionStorage.setItem('previousWords', 'malam')
+										break;
+									case 'ya':
+										if (window.sessionStorage.getItem('previousWords') === 'pagi') {
+											button.click();
+											nobskAI('Would you like a drink, before you start everything?')
+											$('#template-modal').modal('show');
+											window.sessionStorage.setItem('previousWords', 'choosedrink')
+										} else if (window.sessionStorage.getItem('previousWords') === 'choosedrink') {
+											var aud = document.getElementById("audioPlayback");
+
+											button.click();
+											nobskAI('Well, I have a cup of coffee')
+											$(document).find('.coffee').show();
+											aud.onended = function () {
+												nobskAI('a cup of tea')
+												$(document).find('.tea').show();
+												aud.onended = function () {
+													nobskAI('and ultramilk')
+													$(document).find('.milk').show();
+													aud.onended = function () {
+														nobskAI('which do you prefer?')
+													}
+												}
+											};
+
+											window.sessionStorage.setItem('previousWords', 'choosenow')
+										} else if (window.sessionStorage.getItem('previousWords') === 'siang') {
+											button.click();
+											nobskAI('Would you like a drink, before you go back to work?')
+											$('#template-modal').modal('show');
+											window.sessionStorage.setItem('previousWords', 'choosedrink')
+										} else if (window.sessionStorage.getItem('previousWords') === 'sore') {
+											button.click();
+											nobskAI('Would you like a drink, before you go to rest?')
+											$('#template-modal').modal('show');
+											window.sessionStorage.setItem('previousWords', 'choosedrink')
+										} else if (window.sessionStorage.getItem('previousWords') === 'malam') {
+											button.click();
+											nobskAI('Would you like a drink, before you are going to sleep?')
+											$('#template-modal').modal('show');
+											window.sessionStorage.setItem('previousWords', 'choosedrink')
+										}
+										break;
+									case 'boleh':
+										if (window.sessionStorage.getItem('previousWords') === 'pagi') {
+											button.click();
+											nobskAI('Would you like a drink, before you start everything?')
+											$('#template-modal').modal('show');
+											window.sessionStorage.setItem('previousWords', 'choosedrink')
+										} else if (window.sessionStorage.getItem('previousWords') === 'choosedrink') {
+											var aud = document.getElementById("audioPlayback");
+
+											button.click();
+											nobskAI('Well, I have a cup of coffee')
+											$(document).find('.coffee').show();
+											aud.onended = function () {
+												nobskAI('a cup of tea')
+												$(document).find('.tea').show();
+												aud.onended = function () {
+													nobskAI('and ultramilk')
+													$(document).find('.milk').show();
+													aud.onended = function () {
+														nobskAI('which do you prefer?')
+													}
+												}
+											};
+
+											window.sessionStorage.setItem('previousWords', 'choosenow')
+										} else if (window.sessionStorage.getItem('previousWords') === 'siang') {
+											button.click();
+											nobskAI('Would you like a drink, before you go back to work?')
+											$('#template-modal').modal('show');
+											window.sessionStorage.setItem('previousWords', 'choosedrink')
+										} else if (window.sessionStorage.getItem('previousWords') === 'sore') {
+											button.click();
+											nobskAI('Would you like a drink, before you go to rest?')
+											$('#template-modal').modal('show');
+											window.sessionStorage.setItem('previousWords', 'choosedrink')
+										} else if (window.sessionStorage.getItem('previousWords') === 'malam') {
+											button.click();
+											nobskAI('Would you like a drink, before you are going to sleep?')
+											$('#template-modal').modal('show');
+											window.sessionStorage.setItem('previousWords', 'choosedrink')
+										}
+										break;
+									case 'iya':
+										if (window.sessionStorage.getItem('previousWords') === 'pagi') {
+											button.click();
+											nobskAI('Would you like a drink, before you start everything?')
+											$('#template-modal').modal('show');
+											window.sessionStorage.setItem('previousWords', 'choosedrink')
+										} else if (window.sessionStorage.getItem('previousWords') === 'choosedrink') {
+											var aud = document.getElementById("audioPlayback");
+
+											button.click();
+											nobskAI('Well, I have a cup of coffee')
+											$(document).find('.coffee').show();
+											aud.onended = function () {
+												nobskAI('a cup of tea')
+												$(document).find('.tea').show();
+												aud.onended = function () {
+													nobskAI('and ultramilk')
+													$(document).find('.milk').show();
+													aud.onended = function () {
+														nobskAI('which do you prefer?')
+													}
+												}
+											};
+
+											window.sessionStorage.setItem('previousWords', 'choosenow')
+										} else if (window.sessionStorage.getItem('previousWords') === 'siang') {
+											button.click();
+											nobskAI('Would you like a drink, before you go back to work?')
+											$('#template-modal').modal('show');
+											window.sessionStorage.setItem('previousWords', 'choosedrink')
+										} else if (window.sessionStorage.getItem('previousWords') === 'sore') {
+											button.click();
+											nobskAI('Would you like a drink, before you go to rest?')
+											$('#template-modal').modal('show');
+											window.sessionStorage.setItem('previousWords', 'choosedrink')
+										} else if (window.sessionStorage.getItem('previousWords') === 'malam') {
+											button.click();
+											nobskAI('Would you like a drink, before you are going to sleep?')
+											$('#template-modal').modal('show');
+											window.sessionStorage.setItem('previousWords', 'choosedrink')
+										}
+										break;
+									case 'mau':
+										if (window.sessionStorage.getItem('previousWords') === 'pagi') {
+											button.click();
+											nobskAI('Would you like a drink, before you start everything?')
+											$('#template-modal').modal('show');
+											window.sessionStorage.setItem('previousWords', 'choosedrink')
+										} else if (window.sessionStorage.getItem('previousWords') === 'choosedrink') {
+											var aud = document.getElementById("audioPlayback");
+
+											button.click();
+											nobskAI('Well, I have a cup of coffee')
+											$(document).find('.coffee').show();
+											aud.onended = function () {
+												nobskAI('a cup of tea')
+												$(document).find('.tea').show();
+												aud.onended = function () {
+													nobskAI('and ultramilk')
+													$(document).find('.milk').show();
+													aud.onended = function () {
+														nobskAI('which do you prefer?')
+													}
+												}
+											};
+
+											window.sessionStorage.setItem('previousWords', 'choosenow')
+										} else if (window.sessionStorage.getItem('previousWords') === 'siang') {
+											button.click();
+											nobskAI('Would you like a drink, before you go back to work?')
+											$('#template-modal').modal('show');
+											window.sessionStorage.setItem('previousWords', 'choosedrink')
+										} else if (window.sessionStorage.getItem('previousWords') === 'sore') {
+											button.click();
+											nobskAI('Would you like a drink, before you go to rest?')
+											$('#template-modal').modal('show');
+											window.sessionStorage.setItem('previousWords', 'choosedrink')
+										} else if (window.sessionStorage.getItem('previousWords') === 'malam') {
+											button.click();
+											nobskAI('Would you like a drink, before you are going to sleep?')
+											$('#template-modal').modal('show');
+											window.sessionStorage.setItem('previousWords', 'choosedrink')
+										}
+										break;
+									case 'tidak':
+										if (window.sessionStorage.getItem('previousWords') === 'pagi' ||
+											window.sessionStorage.getItem('previousWords') === 'siang' ||
+											window.sessionStorage.getItem('previousWords') === 'sore' ||
+											window.sessionStorage.getItem('previousWords') === 'malam') {
+											button.click();
+											nobskAI('Okay, just call me when you need it')
+										}
+										break;
+									case 'no':
+										if (window.sessionStorage.getItem('previousWords') === 'pagi' ||
+											window.sessionStorage.getItem('previousWords') === 'siang' ||
+											window.sessionStorage.getItem('previousWords') === 'sore' ||
+											window.sessionStorage.getItem('previousWords') === 'malam') {
+											button.click();
+											nobskAI('Okay, just call me when you need it')
+										}
+										break;
+									case 'nggak':
+										if (window.sessionStorage.getItem('previousWords') === 'pagi' ||
+											window.sessionStorage.getItem('previousWords') === 'siang' ||
+											window.sessionStorage.getItem('previousWords') === 'sore' ||
+											window.sessionStorage.getItem('previousWords') === 'malam') {
+											button.click();
+											nobskAI('Okay, just call me when you need it')
+										}
+										break;
+									case 'logout':
+										if (window.sessionStorage.getItem('baseUrl') === getUrl.href) {
+											nobskAI('You are logged out already.')
+										} else {
+											button.click();
+											nobskAI('Please wait, you will be ended your session')
+											setTimeout(function () {
+												window.sessionStorage.setItem('logoutSuccess', true)
+												window.location.href = window.sessionStorage.getItem('baseUrl')
+											}, 3500)
+										}
+										break;
+									case 'keluar':
+										if (window.sessionStorage.getItem('baseUrl') === getUrl.href) {
+											nobskAI('You are logged out already.')
+										} else {
+											button.click();
+											nobskAI('Please wait, you will be ended your session')
+											setTimeout(function () {
+												window.sessionStorage.setItem('logoutSuccess', true)
+												window.location.href = window.sessionStorage.getItem('baseUrl')
+											}, 3500)
+										}
+										break;
+									case 'register':
+										$("#LoginModal .modal-content").load(" #LoginModal .modal-content > *");
+										nobskAI('Here it is, please register in these field')
+										setTimeout(function () {
+											button.click();
+											$('#LoginModal').modal('show');
+											$('.not-a-member-pro').trigger('click');
+										}, 100)
+										break;
+									case 'daftar':
+										$("#LoginModal .modal-content").load(" #LoginModal .modal-content > *");
+										nobskAI('Here it is, please register in these field')
+										setTimeout(function () {
+											button.click();
+											$('#LoginModal').modal('show');
+											$('.not-a-member-pro').trigger('click');
+										}, 100)
+										break;
+									case 'thank\'s':
+										button.click();
+										nobskAI('You are welcome, I\'m happy to help you')
+										break;
+									case 'thank you':
+										button.click();
+										nobskAI('You are welcome, I\'m very happy to help you')
+										break;
+									case 'makasih':
+										button.click();
+										nobskAI('You are welcome, I\'m happy to help you')
+										break;
+									case 'kasih':
+										button.click();
+										nobskAI('You are welcome, I\'m very happy to help you')
+										break;
+									case 'duluan':
+										button.click();
+										nobskAI('You can register first, if your account haven\'t registered yet, I will show you how, please register in these field')
+										$('#LoginModal').modal('show');
+										$('.not-a-member-pro').trigger('click');
+										break;
+									case 'kopi':
+										if (window.sessionStorage.getItem('previousWords') === 'choosenow') {
+											button.click();
+											nobskAI('Here you are, your coffee without sugar')
+											$(document).find('.tea').hide()
+											$(document).find('.milk').hide()
+											$(document).find('.coffee').addClass('text-center');
+											$(document).find('.coffee').addClass('mx-auto');
+											$(document).find('.coffee').css('border', "dotted 5px aquamarine");
+											$(document).find('.coffee').addClass('fullimage')
+											window.sessionStorage.removeItem('previousWords')
+										} else {
+											$(document).find('.milk').removeClass('fullimage')
+											$(document).find('.milk').css('border', "");
+											$(document).find('.milk').hide()
+											$(document).find('.coffee').removeClass('fullimage')
+											$(document).find('.coffee').css('border', "");
+											$(document).find('.coffee').hide()
+											$(document).find('.tea').removeClass('fullimage')
+											$(document).find('.tea').css('border', "");
+											$(document).find('.tea').hide()
+											$(".template-modal .modal-content").load(" .template-modal .modal-content > *");
+											nobskAI('So today, do you want some coffee?')
+											setTimeout(function () {
+												button.click();
+												window.sessionStorage.setItem('previousWords', 'choosedrink')
+												$('#template-modal').modal('show');
+											}, 100)
+										}
+										break;
+									case 'teh':
+										if (window.sessionStorage.getItem('previousWords') === 'choosenow') {
+											button.click();
+											nobskAI('Here you are, your teh without sugar')
+											$(document).find('.coffee').hide()
+											$(document).find('.milk').hide()
+											$(document).find('.tea').addClass('text-center');
+											$(document).find('.tea').addClass('mx-auto');
+											$(document).find('.tea').css('border', "dotted 5px aquamarine");
+											$(document).find('.tea').addClass('fullimage')
+											window.sessionStorage.removeItem('previousWords')
+										} else {
+											$(document).find('.milk').removeClass('fullimage')
+											$(document).find('.milk').css('border', "");
+											$(document).find('.milk').hide()
+											$(document).find('.coffee').removeClass('fullimage')
+											$(document).find('.coffee').css('border', "");
+											$(document).find('.coffee').hide()
+											$(document).find('.tea').removeClass('fullimage')
+											$(document).find('.tea').css('border', "");
+											$(document).find('.tea').hide()
+											$(".template-modal .modal-content").load(" .template-modal .modal-content > *");
+											nobskAI('So today, do you want some tea?')
+											setTimeout(function () {
+												button.click();
+												window.sessionStorage.setItem('previousWords', 'choosedrink')
+												$('#template-modal').modal('show');
+											}, 100)
+										}
+										break;
+									case 'susu':
+										if (window.sessionStorage.getItem('previousWords') === 'choosenow') {
+											button.click();
+											nobskAI('Here you are, your ultramilk without sugar, goodnight have a nice sleep')
+											$(document).find('.coffee').hide()
+											$(document).find('.tea').hide()
+											$(document).find('.milk').addClass('text-center');
+											$(document).find('.milk').addClass('mx-auto');
+											$(document).find('.milk').css('border', "dotted 5px aquamarine");
+											$(document).find('.milk').addClass('fullimage')
+											window.sessionStorage.removeItem('previousWords')
+										} else {
+											$(document).find('.milk').removeClass('fullimage')
+											$(document).find('.milk').css('border', "");
+											$(document).find('.milk').hide()
+											$(document).find('.coffee').removeClass('fullimage')
+											$(document).find('.coffee').css('border', "");
+											$(document).find('.coffee').hide()
+											$(document).find('.tea').removeClass('fullimage')
+											$(document).find('.tea').css('border', "");
+											$(document).find('.tea').hide()
+											$(".template-modal .modal-content").load(" .template-modal .modal-content > *");
+											nobskAI('Milk will makes you feel sleepy, do you want some milk?')
+											setTimeout(function () {
+												button.click();
+												window.sessionStorage.setItem('previousWords', 'choosedrink')
+												$('#template-modal').modal('show');
+											}, 100)
+										}
+										break;
+									case 'milk':
+										if (window.sessionStorage.getItem('previousWords') === 'choosenow') {
+											button.click();
+											nobskAI('Here you are, your ultramilk without sugar, goodnight have a nice sleep')
+											$(document).find('.coffee').hide()
+											$(document).find('.tea').hide()
+											$(document).find('.milk').addClass('text-center');
+											$(document).find('.milk').addClass('mx-auto');
+											$(document).find('.milk').css('border', "dotted 5px aquamarine");
+											$(document).find('.milk').addClass('fullimage')
+											window.sessionStorage.removeItem('previousWords')
+										} else {
+											$(document).find('.milk').removeClass('fullimage')
+											$(document).find('.milk').css('border', "");
+											$(document).find('.milk').hide()
+											$(document).find('.coffee').removeClass('fullimage')
+											$(document).find('.coffee').css('border', "");
+											$(document).find('.coffee').hide()
+											$(document).find('.tea').removeClass('fullimage')
+											$(document).find('.tea').css('border', "");
+											$(document).find('.tea').hide()
+											$(".template-modal .modal-content").load(" .template-modal .modal-content > *");
+											nobskAI('Milk will makes you feel sleepy, do you want some milk?')
+											setTimeout(function () {
+												button.click();
+												window.sessionStorage.setItem('previousWords', 'choosedrink')
+												$('#template-modal').modal('show');
+											}, 100)
+										}
+										break;
+									case 'film':
+										$("#LoginModal .modal-content").load(" #LoginModal .modal-content > *");
+										button.click();
+										nobskAI('Great, I\'ll show you "recommended" shortfilm these month for you')
+										setTimeout(function () {
+											$('#LoginModal').modal('show');
+											$('.login').trigger('click');
+											window.sessionStorage.setItem('loginSuccess', true)
+										}, 3000)
+										break;
+									case 'rekomendasi':
+										$("#LoginModal .modal-content").load(" #LoginModal .modal-content > *");
+										button.click();
+										nobskAI('Great, I\'ll show you "recommended" shortfilm these month for you')
+										setTimeout(function () {
+											$('#LoginModal').modal('show');
+											$('.login').trigger('click');
+											window.sessionStorage.setItem('loginSuccess', true)
+										}, 3000)
+										break;
+									case 'pendek':
+										$("#LoginModal .modal-content").load(" #LoginModal .modal-content > *");
+										button.click();
+										nobskAI('Copy, Here we go, your shortfilm lists')
+										setTimeout(function () {
+											$('#LoginModal').modal('show');
+											$('.login').trigger('click');
+											window.sessionStorage.setItem('loginSuccess', true)
+										}, 2000)
+
+										break;
+									case 'halo':
+										button.click();
+										nobskAI('Hi, I am Amy, Your Artificial Intelligent assistant for NOBSK. You can ask me anything by clicking start speaking')
+										break;
+									case 'emi':
+										button.click();
+										nobskAI('Hi, Amy here, Your Artificial Intelligent assistant for NOBSK. You can ask me anything by clicking start speaking')
+										break;
+									case 'hai':
+										button.click();
+										nobskAI('Hello, I am Amy, what can I do for you?')
+										break;
+									case 'festival':
+										button.click();
+										nobskAI('Festival. Please wait..')
+										setTimeout(function () {
+											window.location.href = 'festival.html'
+										}, 3500)
+										break;
+									case 'mukhlis':
+										button.click();
+										nobskAI('Watchlist. Please wait.....')
+										setTimeout(function () {
+											window.location.href = 'dashboard-playlists.html'
+										}, 3500)
+										break;
+									case 'fresh':
+										button.click();
+										nobskAI('Watchlist. Please wait.....')
+										setTimeout(function () {
+											window.location.href = 'dashboard-playlists.html'
+										}, 3500)
+										break;
+									case 'waterless':
+										button.click();
+										nobskAI('Watchlist. Please wait.....')
+										setTimeout(function () {
+											window.location.href = 'dashboard-playlists.html'
+										}, 3500)
+										break;
+									case 'slash':
+										button.click();
+										nobskAI('Watchlist. Please wait.....')
+										setTimeout(function () {
+											window.location.href = 'dashboard-playlists.html'
+										}, 3500)
+										break;
+									case 'wordpress':
+										button.click();
+										nobskAI('Watchlist. Please wait.....')
+										setTimeout(function () {
+											window.location.href = 'dashboard-playlists.html'
+										}, 3500)
+										break;
+									case 'rilis':
+										button.click();
+										nobskAI('New Release. Please wait.....')
+										setTimeout(function () {
+											window.location.href = 'dashboard-new-arrivals.html'
+										}, 3500)
+										break;
+									case 'baru':
+										button.click();
+										nobskAI('New Release. Please wait.....')
+										setTimeout(function () {
+											window.location.href = 'dashboard-new-arrivals.html'
+										}, 3500)
+										break;
+									case 'kamingsun':
+										button.click();
+										nobskAI('Comingsoon. Please wait.....')
+										setTimeout(function () {
+											window.location.href = 'dashboard-coming-soon.html'
+										}, 3500)
+										break;
+									case 'soon':
+										button.click();
+										nobskAI('Comingsoon. Please wait.....')
+										setTimeout(function () {
+											window.location.href = 'dashboard-coming-soon.html'
+										}, 3500)
+										break;
+									case 'profil':
+										button.click();
+										nobskAI('My profile. Please wait.....');
+										setTimeout(function () {
+											$('#header-user-profile-click').trigger('click');
+											$('.myprofile').parent().css('background-color', '#eaeaea')
+										}, 1000)
+										setTimeout(function () {
+											$('.myprofile').trigger('click')
+											// window.location.href = 'dashboard-profile.html'
+										}, 3500)
+										break;
+									case 'favourite':
+										button.click();
+										nobskAI('My favorite. Please wait.....');
+										setTimeout(function () {
+											$('#header-user-profile-click').trigger('click');
+											$('.myfav').parent().css('background-color', '#eaeaea')
+										}, 1000)
+										setTimeout(function () {
+											$('.myfav').trigger('click')
+											// window.location.href = 'dashboard-profile.html'
+										}, 3500)
+										break;
+									case 'favorit':
+										button.click();
+										nobskAI('My favorite. Please wait.....');
+										setTimeout(function () {
+											$('#header-user-profile-click').trigger('click');
+											$('.myfav').parent().css('background-color', '#eaeaea')
+										}, 1000)
+										setTimeout(function () {
+											$('.myfav').trigger('click')
+											// window.location.href = 'dashboard-profile.html'
+										}, 3500)
+										break;
+									case 'akun':
+										button.click();
+										nobskAI('My Account. Please wait.....');
+										setTimeout(function () {
+											$('#header-user-profile-click').trigger('click');
+											$('.accdetail').parent().css('background-color', '#eaeaea')
+										}, 1000)
+										setTimeout(function () {
+											$('.accdetail').trigger('click')
+											// window.location.href = 'dashboard-profile.html'
+										}, 3500)
+										break;
+									case 'help':
+										button.click();
+										nobskAI('Help support. Please wait.....');
+										setTimeout(function () {
+											$('#header-user-profile-click').trigger('click');
+											$('.bantuan').parent().css('background-color', '#eaeaea')
+										}, 1000)
+										setTimeout(function () {
+											$('.bantuan').trigger('click')
+											// window.location.href = 'dashboard-profile.html'
+										}, 3500)
+										break;
+									case 'bantuan':
+										button.click();
+										nobskAI('Help support. Please wait.....');
+										setTimeout(function () {
+											$('#header-user-profile-click').trigger('click');
+											$('.bantuan').parent().css('background-color', '#eaeaea')
+										}, 1000)
+										setTimeout(function () {
+											$('.bantuan').trigger('click')
+											// window.location.href = 'dashboard-profile.html'
+										}, 3500)
+										break;
+									case 'detail':
+										button.click();
+										nobskAI('Teeleek detail. Please wait.....');
+										setTimeout(function () {
+											window.location.href = 'movie-detail.html'
+											window.sessionStorage.setItem('detail', true)
+										}, 3500)
+										break;
+									default:
+										button.click();
+										nobskAI('I don\'t understand what you mean?, could you please repeat what you want to do by clicking start again?')
+
+								}
+
+							}
+						})
+
+
+					}
+					i++;
+					// console.log(i);
+				};
+				// setTimeout(function () {
+				//         document.getElementById('speaks').click()
+				//     }, 500);
+				recognition.continuous = true;
+				recognition.interimResults = false; // ini untuk memperbaiki si kata terus menerus loopnya, kalo false artinya kalo ngomong gak bakal dibenerin alias outputnya 1x aja.
+				recognition.addEventListener("result", onResult);
+				button.addEventListener("click", event => {
+					listening ? stop() : start();
+					listening = !listening;
+				});
+			} else {
+				button.remove();
+				const message = document.getElementById("message");
+				message.removeAttribute("hidden");
+				message.setAttribute("aria-hidden", "false");
+			}
+		});
+
+		function nobskAI(words) {
+			document.getElementById('result').innerHTML = words;
+			setTimeout(function () {
+				$(document).find('.btn-speaking').html(words)
+				document.getElementById('speaks').click()
+			}, 500);
+			var aud = document.getElementById("audioPlayback");
+			aud.onended = function () {
+				$(document).find('.btn-speaking').html('<img src="images/img/homePage/mic-on.svg" alt="">')
+			};
+		}
+		function lastMenu(words) {
+			var n = words.split(" ");
+			return n[n.length - 1];
+		}
+
+		var detail = window.sessionStorage.getItem('detail')
+		console.log(detail)
+		if (detail) {
+			nobskAI('Good hahaha')
+			window.sessionStorage.removeItem('detail')
+		}
+
+		var is_signed = window.sessionStorage.getItem('login');
+		if (is_signed) {
+			const Toast = Swal.mixin({
+				toast: true,
+				position: 'top-end',
+				showConfirmButton: false,
+				timer: 3000,
+				timerProgressBar: true,
+				didOpen: (toast) => {
+					toast.addEventListener('mouseenter', Swal.stopTimer)
+					toast.addEventListener('mouseleave', Swal.resumeTimer)
+				}
+			})
+
+			Toast.fire({
+				icon: 'success',
+				title: 'Signed in successfully'
+			});
+
+			window.sessionStorage.removeItem('login');
+		}
+		var signed = window.sessionStorage.getItem('loginSuccess');
+		console.log(signed);
+		if (signed) {
+			nobskAI('Login successfully')
+			window.sessionStorage.removeItem('loginSuccess');
+		}
+
+
+		// Initialize the Amazon Cognito credentials provider
+		// Initialize the Amazon Cognito credentials provider
+		AWS.config.region = 'ap-southeast-1'; // Region
+		AWS.config.credentials = new AWS.CognitoIdentityCredentials({
+			IdentityPoolId: 'ap-southeast-1:dd7aef1f-b489-4633-82e1-3221f2a2e975',
+		});
+		// Function invoked by button click
+		function speakText() {
+			// Create the JSON parameters for getSynthesizeSpeechUrl
+			var speechParams = {
+				OutputFormat: "mp3",
+				SampleRate: "16000",
+				Text: "",
+				TextType: "text",
+				VoiceId: "Amy",
+			};
+			// speechParams.Text = document.getElementById("textEntry").value;
+
+			speechParams.Text = removeTags(document.getElementById('result').innerHTML);
+
+			// Create the Polly service object and presigner object
+			var polly = new AWS.Polly({ apiVersion: '2016-06-10' });
+			var signer = new AWS.Polly.Presigner(speechParams, polly)
+
+			// Create presigned URL of synthesized speech file
+			signer.getSynthesizeSpeechUrl(speechParams, function (error, url) {
+				if (error) {
+					document.getElementById('result').innerHTML = error;
+				} else {
+					document.getElementById('audioSource').src = url;
+					document.getElementById('audioPlayback').load();
+					// document.getElementById('result').innerHTML = "Speech ready to play.";
+				}
+			});
+		}
+
+		function removeTags(str) {
+			if ((str === null) || (str === ''))
+				return false;
+			else
+				str = str.toString();
+			return str.replace(/(<([^>]+)>)/ig, '');
+		}
+
+		$(document).find('.coffee').hide();
+		$(document).find('.tea').hide();
+		$(document).find('.milk').hide();
+	</script>
 	<script>
 
 		var scrollItem = '<div class="row bottom-border p-4 pointer clickable-row">' +
@@ -672,6 +1554,44 @@
 				}, 500)
 			}
 		});
+
+		$(document).find('.keluar').click(function () {
+			window.sessionStorage.setItem('logoutSuccess', true)
+			window.location.href = window.sessionStorage.getItem('baseUrl')
+		})
+
+		$(document).find('.myprofile').click(function () {
+			window.location.href = 'dashboard-profile.html'
+		})
+
+		$(document).find('.accdetail').click(function () {
+			window.location.href = 'dashboard-account.html'
+		})
+
+		$(document).find('.myfav').click(function () {
+			window.location.href = 'dashboard-favorites.html'
+		})
+
+		$(document).find('.bantuan').click(function () {
+			const Toast = Swal.mixin({
+				toast: true,
+				position: 'top-end',
+				showConfirmButton: false,
+				timer: 3000,
+				timerProgressBar: true,
+				didOpen: (toast) => {
+					toast.addEventListener('mouseenter', Swal.stopTimer)
+					toast.addEventListener('mouseleave', Swal.resumeTimer)
+				}
+			})
+
+			Toast.fire({
+				icon: "error",
+				imageWidth: 20,
+				imageHeight: 20,
+				title: 'bantuan sedang dalam perbaikan'
+			});
+		})
 
 	</script>
 </body>
