@@ -288,7 +288,14 @@
 						<img src="images/bg/festival.svg" alt="">
 					</div>
 				</div>
-				<br><br>
+				<br>
+				<div class="row">
+					<div class="col-md-12 text-center">
+						<h5 class="dark-mode-font">Buat festival Anda untuk karya Film Pendek</h5>
+						<button class="btn btn-md btn-info buat-festival">Buat Festival</button>
+					</div>
+				</div>
+				<br>
 
 				<div class="row">
 					<h4 class="dark-mode-font">Festival yang anda ikuti</h4>
@@ -1594,6 +1601,32 @@
 				imageHeight: 20,
 				title: 'bantuan sedang dalam perbaikan'
 			});
+		})
+
+
+		$(document).find('.buat-festival').click(function () {
+			$('.buat-festival').html('<i class="fas fa-circle-notch fa-spin"></i>');
+			setTimeout(function () {
+				const Toast = Swal.mixin({
+					toast: true,
+					position: 'top-end',
+					showConfirmButton: false,
+					timer: 3000,
+					timerProgressBar: true,
+					didOpen: (toast) => {
+						toast.addEventListener('mouseenter', Swal.stopTimer)
+						toast.addEventListener('mouseleave', Swal.resumeTimer)
+					}
+				})
+
+				Toast.fire({
+					icon: "success",
+					imageWidth: 20,
+					imageHeight: 20,
+					title: 'Festival Berhasil Dibuat!'
+				});
+				$('.buat-festival').html('Buat Festival');
+			}, 2000)
 		})
 
 	</script>

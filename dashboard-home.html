@@ -17,7 +17,7 @@
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
 
 	<link rel="stylesheet" href="node_modules/@sweetalert2/theme-wordpress-admin/wordpress-admin.css">
-
+	<link rel="stylesheet" href="css/loading-bar.css">
 	<script src="node_modules/sweetalert2/dist/sweetalert2.min.js"></script>
 	<!-- SKELETON LOADER -->
 	<!-- <link rel="stylesheet" href="https://unpkg.com/placeholder-loading/dist/css/placeholder-loading.min.css"> -->
@@ -510,6 +510,33 @@
 
 			<div class="dashboard-container">
 
+				<div class="row">
+					<div class="col-md">
+						<h2 class="festival-card-title dark-mode-font">Film Pendek</h2>
+						<p class="dark-mode-font">Tunjukkan karya terbaikmu kepada semua orang, gratis!</p>
+						<button class="btn btn-md btn-info buat-film">Upload Film Pendek</button>
+						<style>
+							#myProgress {
+								width: 100%;
+								background-color: grey;
+							}
+
+							#myBar {
+								width: 1%;
+								height: 30px;
+								background-color: green;
+							}
+						</style>
+						<div id="myProgress">
+							<div id="myBar"></div>
+						</div>
+					</div>
+					<div class="col-md-4">
+						<img src="images/bg/film.svg" alt="">
+					</div>
+				</div>
+				<br>
+
 				<h4 class="heading-extra-margin-bottom dark-mode-font">Comedies</h4>
 				<div class="row infinite">
 
@@ -856,7 +883,7 @@
 	<script src="js/afterglow.min.js" defer></script><!-- Video Player JS Plugin -->
 	<script src="js/script.js" defer></script><!-- Custom Document Ready JS -->
 	<script src="js/script-dashboard.js" defer></script><!-- Custom Document Ready for Dashboard Only JS -->
-
+	<script src="js/loading-bar.js" defer></script>
 
 	<script>(function (d) { var s = d.createElement("script"); s.setAttribute("data-account", "FZQLa4ZY1R"); s.setAttribute("src", "https://cdn.userway.org/widget.js"); (d.body || d.head).appendChild(s); })(document)</script>
 	<noscript>Please ensure Javascript is enabled for purposes of <a href="https://userway.org">website
@@ -1825,7 +1852,7 @@
 			}, 2000)
 			setInterval(function () {
 				$(document).find('.hideTenSecs').hide();
-			}, 5000)
+			}, 10000)
 		})
 
 		$(document).find('.keluar').click(function () {
@@ -1865,7 +1892,54 @@
 				title: 'bantuan sedang dalam perbaikan'
 			});
 		})
+		$(document).find('.buat-film').click(function () {
+			$('.buat-film').html('<i class="fas fa-circle-notch fa-spin"></i>');
+			move()
+			setTimeout(function () {
+				const Toast = Swal.mixin({
+					toast: true,
+					position: 'top-end',
+					showConfirmButton: false,
+					timer: 3000,
+					timerProgressBar: true,
+					didOpen: (toast) => {
+						toast.addEventListener('mouseenter', Swal.stopTimer)
+						toast.addEventListener('mouseleave', Swal.resumeTimer)
+					}
+				})
 
+				Toast.fire({
+					icon: "success",
+					imageWidth: 20,
+					imageHeight: 20,
+					title: 'Film Berhasil Diupload!'
+				});
+				$('.buat-film').html('Upload Film Pendek');
+			}, 2000)
+		})
+		$('#myBar').hide();
+		var i = 0;
+		function move() {
+			$('#myBar').show();
+			if (i == 0) {
+				i = 1;
+				var elem = document.getElementById("myBar");
+				var width = 1;
+				var id = setInterval(frame, 10);
+				function frame() {
+					if (width >= 100) {
+						clearInterval(id);
+						i = 0;
+						setTimeout(function () {
+							$('#myBar').hide().fadeOut(500);
+						}, 1000)
+					} else {
+						width++;
+						elem.style.width = width + "%";
+					}
+				}
+			}
+		}
 	</script>
 
 </body>
