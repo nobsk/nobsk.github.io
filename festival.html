@@ -669,7 +669,7 @@
 			//I want to select and change the color of the body, but this could be any HTML element on your page
 			let body = document.querySelector("body")
 
-			let cap_nobsk_menus = ["Login", "Register", "Thank You", "Thank's", "Makasih", "Kasih", "Duluan", "Film", "Pendek", "Rekomendasi", "Halo", "Hai", "Logout", "Masuk", "Daftar", "Kopi", "Boleh", "Teh", "Tutup", "Pagi", "Siang", "Sore", "Malam", "Ya", "Iya", "Logout", "Keluar", "No", "Nggak", "Susu", "Milk", "Mau", "Festival", "Emi", "Mukhlis", "Fresh", "Waterless", "Slash", "Wordpress", "Baru", "Rilis", "Kamingsun", "Soon", "Profil", "favorite", "favorit", "akun", "Bantuan", "Help", "Tilik", "Detail"];
+			let cap_nobsk_menus = ["Login", "Register", "Thank You", "Thank's", "Makasih", "Kasih", "Duluan", "Film", "Pendek", "Rekomendasi", "Halo", "Hai", "Logout", "Masuk", "Daftar", "Kopi", "Boleh", "Teh", "Tutup", "Pagi", "Siang", "Sore", "Malam", "Ya", "Iya", "Logout", "Keluar", "No", "Nggak", "Susu", "Milk", "Mau", "Festival", "Emi", "Mukhlis", "Fresh", "Waterless", "Slash", "Wordpress", "Baru", "Rilis", "Kamingsun", "Soon", "Profil", "favorite", "favorit", "akun", "Bantuan", "Help", "Tilik", "Detail", "Sembunyikan"];
 			const MENUS = cap_nobsk_menus.map(menu => {
 				//I need to change all menu names to lower case, because comparison between words will be case sensitive
 				return menu.toLowerCase()
@@ -1389,6 +1389,13 @@
 											window.location.href = 'movie-detail.html'
 											window.sessionStorage.setItem('detail', true)
 										}, 3500)
+										break;
+									case 'sembunyikan':
+										button.click();
+										nobskAI('goodbye!');
+										setTimeout(function () {
+											$(document).find('#maintag').hide()
+										}, 2000);
 										break;
 									default:
 										button.click();
