@@ -64,7 +64,7 @@ Berikut demo penggunaan Amy. (Maaf jika bahasa yang diujicobakan sangat random d
 [![Amy](http://img.youtube.com/vi/zOL0_gS4VxE/0.jpg)](http://www.youtube.com/watch?v=zOL0_gS4VxE "Amy.")
 
 Untuk menyembunyikan Amy cukup dengan bilang:
-"Sembunyikan", maka amy akan hilang secara otomatis.
+`Sembunyikan` maka amy akan hilang secara otomatis.
 
 ### Sequence Diagram Amy
 ![](https://i.imgur.com/rTWliHV.png)
