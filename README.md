@@ -79,7 +79,7 @@ Sequence diagram amy memiliki 4 object utama:
 Mozilla Firefox & Google Chrome (Desktop & Mobilephone)
 
 
-## Workflow
+## Usage Workflow
 
 General:
 1. User membuka halaman utama
