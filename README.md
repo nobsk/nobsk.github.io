@@ -60,7 +60,7 @@ Amy juga mampu melakukan nested question dengan keyword:
 
 dan ikuti amy seterusnya untuk menjawab pertanyaannya.
 
-Berikut contoh penggunaan Amy. (Maaf jika bahasa yang diujicobakan sangat random.)
+Berikut demo penggunaan Amy. (Maaf jika bahasa yang diujicobakan sangat random dan tidak formal.)
 [![Amy](http://img.youtube.com/vi/zOL0_gS4VxE/0.jpg)](http://www.youtube.com/watch?v=zOL0_gS4VxE "Amy.")
 
 Untuk menyembunyikan Amy cukup dengan bilang:
@@ -69,12 +69,63 @@ Untuk menyembunyikan Amy cukup dengan bilang:
 ### Sequence Diagram Amy
 ![](https://i.imgur.com/rTWliHV.png)
 
+Sequence diagram amy memiliki 4 object utama:
+- SpeechRecognition: adalah API dari Chrome dan Mozillafirefox (akan difungsikan keduanya menggunakan *case*)
+- Engine Event: Engine event adalah sekumpulan algoritma yang dibuat sebagai "handler/controller" dari input yang diterima, memprosesnya dan memberikan event serta feedback/output. Basis engine ini adalah murni javascript dan dikombinasikan dengan JQuery.
+- Speech Synthesis: Speech synthesize yang kami gunakan juga berbasis javascript, yaitu dengan menggunakan suara wanita ber-bahasa inggris (untuk saat ini belum ada bahasa indonesia yang native). Kami memberi nama amy, karena service Amazon Polly dengan accent en-Us adalah Amy.
+- DISPLAY: Display adalah file berekstensi `.html` yang akan menampilkan hasil dari event yang dilakukan oleh amy, dan juga menampilkan halaman dengan functional lainnya.
+
 ### Tested
 Mozilla Firefox & Google Chrome (Desktop & Mobilephone)
 
+
+## Workflow
+
+General:
+1. User membuka halaman utama
+2. Bisa mendaftarkan akun (dengan hanya menekan tombol register dan disini sengaja dibuat gagal daftar)
+3. Bisa login (ketika klik tombol login, bisa login ke dalam sistem)
+4. Ketika sudah di dalam sistem maka ada 4 navigasi utama: Film Pendek, Festival, Watchlist, Baru Rilis, dan Coming Soon. Bisa dipilih dengan interaksi klik pada mouse, atau dengan bantuan "*Amy*".
+5. Pada halaman yang sama, terdapat dropdown di bagian kanan atas, di sana terdapat: Profil Saya, Favorit Saya, Pengaturan Akun, Bantuan, dan Logout. Interaksi yang bisa dilakukan bisa diklik secara manual, atau juga dengan bantuan "*Amy*"
+
+Halaman Film pendek:
+1. User dapat melakukan Play Film Pendek pada slider
+2. User dapat memilih 1 film dalam suatu kategori dengan klik pada tiap card, maka akan diarahkan ke halaman detail dari film tersebut (Atau bisa dengan bantuan "Amy" dengan keyword "**Detail**")
+3. bisa melakukan scrolling, dan akan muncul infinite scrolling
+4. User dapat melakukan upload film baru (individual), dengan klik upload film pendek
+![upload-2](images/upload2.gif)
+
+Halaman Film Detail:
+1. Di halaman ini, user dapat memutar video, membaca deskripsi, melihat review sebelumnya, melihat komentar sebelumnya, dan menambahkan komentar
+2. Setiap komponen dapat diklik dengan muncul suatu aksi tertentu
+3. Memutar video bisa dilakukan dengan Amy dengan keyword "Putar"
+4. Sembunyikan amy dengan keyword "Sembunyikan"
+5. Halaman ini didesain untuk responsive di semua device.
+![](https://i.imgur.com/8gYjafY.jpg)
+
+Halaman Festival:
+
+
 ## UseCase Diagram
 
-![](https://i.imgur.com/8EjdwIJ.png)
+![use-case](https://i.imgur.com/2p0r8fw.png)
+
+
+UseCase dari website terdapat 5 bagian, yaitu
+1. Festival Owner: 
+  Festival owner memiliki 2 hal yang bisa dilakukan setelah login ke dalam website, yaitu Request festival dan Create festival. Request festival akan langsung diteruskan ke admin dan admin bisa memberikan fee payment dan approval dari request yang diberikan festival owner. Setelah melakukan create festival, festival owner akan me-manage short film yang ada di dalam festival yang sudah dibuat.
+    
+2. Participant: 
+  Participant dapat melakukan upload short film ke dalam festival yang sedang berlangsung, kemudian bisa melakukan manage terhadap short film nya masing-masing. Setelah upload, admin akan menyaring setiap film yang diupload oleh participant dan memberikan approval dari film yang diupload.
+    
+3. Reviewer: 
+  Reviewer memiliki 4 hal yang bisa dilakukan di dalam website, yaitu mnginvite reviewer lain, submit review, menonton film yang sudah diupload, dan melakukan vote winner film festival. Invite reviewer lain ini dilakukan agar reviewer lain juga bisa melakukan manage short film. hasil voting dari reviewer juga akan masuk ke dalam manajemen dari setiap short film tersebut sehingga jumlah vote bisa dilihat dan ditentukan siapa pemenangnya.
+
+4. Guest: 
+  Guest hanya bisa menonton film dan submit comment di dalam website. Setelah memasukkan comment, admin akan melakukan remove inappropriate comment. 
+
+5. Admin
+  Admin akan menerima data yang dimasukkan ke dalam website. Kemudian dapat melakukan manajemen terhadap setiap short film, setiap comment, dan participant yang mengambil bagian dalam website. Admin juga mengatur payment kepada setiap participant dan festival owner di dalam website.
 
 
 ## Technologies
