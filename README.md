@@ -38,7 +38,7 @@ Catatan: Tidak direkomendasikan untuk membuka `index.html` secara langsung, kare
 
 ## Amy: Adorable Machine Yawner - The Next Website Assistant (Amy > Chatbot)
 
-Amy != chatbot, karena basisnya adalah integrasi dari speech recognition dan synthesize lalu mampu melakukan event/tindakan terhadap aplikasi.
+Amy != chatbot, karena basisnya adalah integrasi dari speech recognition dan synthesize lalu mampu melakukan event/tindakan terhadap aplikasi. Amy digunakan untuk navigasi, berpindah halaman, login, logout, mencari film, dan memutar film.
 
 Amy mampu mendeteksi kalimat, di mana di dalam sebuah kalimat tersebut ada sebuah keyword. Amy akan menjalankan perintah berdasarkan keyword terakhir yang diucap. Misalnya:
 
@@ -63,6 +63,9 @@ dan ikuti amy seterusnya untuk menjawab pertanyaannya.
 Berikut contoh penggunaan Amy. (Maaf jika bahasa yang diujicobakan sangat random.)
 [![Amy](http://img.youtube.com/vi/zOL0_gS4VxE/0.jpg)](http://www.youtube.com/watch?v=zOL0_gS4VxE "Amy.")
 
+Untuk menyembunyikan Amy cukup dengan bilang:
+"Sembunyikan", maka amy akan hilang secara otomatis.
+
 ### Sequence Diagram Amy
 ![](https://i.imgur.com/rTWliHV.png)
 
@@ -83,3 +86,21 @@ Polly SDK
 Chrome & Mozilla SpeechRecognition
 skrn
 
+## Infinite Scrolling
+![](https://i.imgur.com/iR8hfQf.gif)
+
+
+## Skeleton Loader + Infinite Scrolling
+![](https://i.imgur.com/7yE8exh.gif)
+
+
+## Smooth Loadmore Section
+
+![](https://i.imgur.com/wrhqbQ6.gif)
+
+## Multiple Item touch horizontal scrollable and beautiful Toast Notification
+
+![](https://i.imgur.com/WulMciB.gif)
+
+## Video Player
+![](https://i.imgur.com/ivzRTwn.gif)
