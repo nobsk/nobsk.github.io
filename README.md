@@ -49,7 +49,7 @@ berdasarkan database, kata "***film***" adalah keyword yang tersedia, dan kata t
 
 Keyword yang bisa digunakan saat bertanya pada Amy:
 
-"Login", "Register", "Terima kasih", "Duluan", "Film", "Pendek", "Rekomendasi", "Halo", "Hai", "Logout", "Masuk", "Daftar", "Kopi", "Boleh", "Teh", "Tutup", "Pagi", "Siang", "Sore", "Malam", "Ya", "Iya", "Logout", "Keluar", "No", "Nggak", "Susu", "Milk", "Mau", "Festival", "Emi", "Watchlist", "Baru", "Rilis", "Comingsoon", "Profil", "favorite", "favorit", "akun", "Bantuan", "Help", "Tilik", "Detail".
+`Login` `Register` `Terima kasih` `Duluan` `Film` `Pendek` `Rekomendasi` `Halo` `Hai` `Logout` `Masuk` `Daftar` `Kopi` `Boleh` `Teh` `Tutup` `Pagi` `Siang` `Sore` `Malam` `Ya` `Iya` `Logout` `Keluar` `No` `Nggak` `Susu` `Milk` `Mau` `Festival` `Emi` `Watchlist` `Baru` `Rilis` `Comingsoon` `Profil` `favorite` `favorit` `akun` `Bantuan` `Help` `Tilik` `Detail`.
 
 Amy juga mampu melakukan nested question dengan keyword:
 
