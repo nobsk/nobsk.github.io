@@ -87,20 +87,16 @@ Chrome & Mozilla SpeechRecognition
 skrn
 
 ## Infinite Scrolling
-![](https://i.imgur.com/iR8hfQf.gif)
-
+![infinite-scrolling](https://i.imgur.com/iR8hfQf.gif)
 
 ## Skeleton Loader + Infinite Scrolling
-![](https://i.imgur.com/7yE8exh.gif)
-
+![skeleton-loader](https://i.imgur.com/7yE8exh.gif)
 
 ## Smooth Loadmore Section
-
-![](https://i.imgur.com/wrhqbQ6.gif)
+![smooth-loadmore](https://i.imgur.com/wrhqbQ6.gif)
 
 ## Multiple Item touch horizontal scrollable and beautiful Toast Notification
-
-![](https://i.imgur.com/WulMciB.gif)
+![multiple-slider-custom-toast](https://i.imgur.com/WulMciB.gif)
 
 ## Video Player
-![](https://i.imgur.com/ivzRTwn.gif)
+![video-player](https://i.imgur.com/ivzRTwn.gif)
