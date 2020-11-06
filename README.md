@@ -53,10 +53,10 @@ Keyword yang bisa digunakan saat bertanya pada Amy:
 
 Amy juga mampu melakukan nested question dengan keyword:
 
-"pagi",
-"siang",
-"sore",
-"malam"
+`pagi`
+`siang`
+`sore`
+`malam`
 
 dan ikuti amy seterusnya untuk menjawab pertanyaannya.
 
