@@ -100,3 +100,6 @@ skrn
 
 ## Video Player
 ![video-player](images/player.gif)
+
+## Uploader Progressbar
+![progress-bar](images/upload.gif)
