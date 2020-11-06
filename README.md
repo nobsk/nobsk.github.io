@@ -29,7 +29,7 @@ Tidak perlu menginstall pada mesin, maka bisa mengunjungi url environment nobsk 
 
 Catatan: Tidak direkomendasikan untuk membuka `index.html` secara langsung, karena ada beberapa dependensi yang dijalankan melalui webserver. Maka dari itu, berikut langkah yang dapat diikuti.
 
-1. Download .zip / Clone repository nobsk. Atau rekomendasi download release versi beta kami: https://github.com/nobsk/nobsk.github.io/releases/tag/v1.0.0-beta
+1. Download .zip / Clone repository nobsk. Atau rekomendasi download release versi beta kami: https://github.com/nobsk/nobsk.github.io/releases/tag/v1.0.0-beta.1
 2. Extract .zip yang sudah didownload, letakkan pada folder webroot/htdocs pada web server yang ada pada mesin (xampp, mamp, lamp)
 3. Akses dengan url: http://localhost/<nama_folder>
 
@@ -87,16 +87,16 @@ Chrome & Mozilla SpeechRecognition
 skrn
 
 ## Infinite Scrolling
-![infinite-scrolling](https://i.imgur.com/iR8hfQf.gif)
+![infinite-scrolling](images/infinite.gif)
 
 ## Skeleton Loader + Infinite Scrolling
-![skeleton-loader](https://i.imgur.com/7yE8exh.gif)
+![skeleton-loader](images/skeleton.gif)
 
 ## Smooth Loadmore Section
-![smooth-loadmore](https://i.imgur.com/wrhqbQ6.gif)
+![smooth-loadmore](images/loadmore.gif)
 
 ## Multiple Item touch horizontal scrollable and beautiful Toast Notification
-![multiple-slider-custom-toast](https://i.imgur.com/WulMciB.gif)
+![multiple-slider-custom-toast](images/slider.gif)
 
 ## Video Player
-![video-player](https://i.imgur.com/ivzRTwn.gif)
+![video-player](images/player.gif)
