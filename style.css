@@ -53,25 +53,6 @@
   transform: translateX(-50%);
 }
 
-@media only screen and (max-width: 768px) {
-
-  .btn-speaking {
-    z-index: 9999999;
-    position: fixed;
-    /* top: 100px; */
-    bottom: auto;
-    top: 80%;
-    /* or whatever top you need */
-    left: 50%;
-    -webkit-transform: translateX(-50%);
-    -moz-transform: translateX(-50%);
-    -ms-transform: translateX(-50%);
-    -o-transform: translateX(-50%);
-    transform: translateX(-50%);
-  }
-
-}
-
 #maintag.speaking .btn-speaking {
   /* background: salmon; */
   color: #fff;
