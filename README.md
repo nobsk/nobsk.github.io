@@ -101,7 +101,7 @@ Halaman Film Detail:
 1. Halaman Film Detail bisa diakses melalui card-card film yang tersedia, atau dengan bantuan "Amy" dengan keyword `detail`
 2. Di halaman ini, user dapat memutar video, membaca deskripsi, melihat review sebelumnya, melihat komentar sebelumnya, dan menambahkan komentar
 3. Setiap komponen dapat diklik dengan muncul suatu aksi tertentu
-4. Memutar video bisa dilakukan dengan Amy dengan keyword "Putar"
+4. Memutar video bisa dilakukan dengan Amy dengan keyword "Putar **Film**"
 5. Sembunyikan amy dengan keyword "Sembunyikan"
 6. Halaman ini didesain untuk responsive di semua device.
 ![](https://i.imgur.com/8gYjafY.jpg)
