@@ -3,7 +3,9 @@
 [![hackmd-github-sync-badge](https://hackmd.io/g57oFvBCQJ2kNNN1_pBp3g/badge)](https://hackmd.io/g57oFvBCQJ2kNNN1_pBp3g)
 
 
-NOBSK is a minimal, attractive, milenial short film screening for Indonesian Film Festival.
+NOBSK is a minimal, attractive, milenial short film screening for Indonesian Film Festival. NOBSK adalah web-aplikasi yang untuk festival film pendek di Indonesia. Term ‘NOBSK.’ merupakan singkatan dari kata “NOnton-film-pendek Bareng SKuy”, di mana tujuan dari web-aplikasi ini selain untuk menyediakan screening karya film pendek oleh para pegiat film pendek di Indonesia yang bisa ditonton oleh siapa saja tanpa harus keluar rumah alias “short-film screening from home”, NOBSK juga memiliki fungsi sebagai “call for entries and festivals” yaitu manajemen film pendek untuk para Organizer. Ada beberapa role pada web-aplikasi ini: Short-film Organizer, Filmmaker/Participant, Reviewer dan Guest. NOBSK didesain dengan model interaksi yang minimalis, millennial-friendly, responsive, dan easy to navigate, sehingga harapan pengamalan berselancar di web-aplikasi ini tak kalah dengan berada di short-film screening fisikal. NOBSK memiliki inovasi dalam hal interaksinya, yaitu "Amy" sebagai tiny-based AI yang kami buat sebagai "penunggu" dari NOBSK yang dapat membantu user melakukan navigasi dan berselancar di NOBSK (Apa itu Amy? Akan dijelaskan pada poin selanjutnya).
+
+Dekade ini, kreativitas anak bangsa di dunia perfilman tidak bisa dianggap remeh, terutama di kancah film pendek. Sudah banyak penghargaan Internasional yang didapatkan atas karya orisinil film pendek karya anak bangsa. Festival Film Pendek adalah suatu event di mana para filmmaker bisa berpartisipasi dan berkarya, meningkatkan kemampuan dengan bantuan para reviewer yang tergabung dalam festival, serta bisa terhubung dengan filmmaker lainnya. Untuk itulah NOBSK hadir sebagai solusi yang menyediakan wadah untuk berkumpulnya para filmmaker, organizer, reviewer, dan penggemar film pendek untuk menciptakan karya film pendek orisinil dan meningkatkan kualitas perfilman Indonesia.
 
 *Kelompok:*
 - **Alfian Firmansyah | 1706985874**
@@ -34,11 +36,11 @@ Catatan: Tidak direkomendasikan untuk membuka `index.html` secara langsung, kare
 3. Akses dengan url: http://localhost/<nama_folder>
 
 
-
-
 ## Amy: Adorable Machine Yawner - The First Website Assistant by nobsk
 
-Amy bukanlah chatbot, karena basisnya adalah integrasi dari speech recognition dan synthesize lalu mampu melakukan event/tindakan terhadap aplikasi. Amy digunakan untuk navigasi, berpindah halaman, login, logout, mencari film, dan memutar film.
+Mengapa kami membuat Amy? jawabannya adalah interactivity. Response komunikasi tercepat manusia adalah auditory atau response suara yaitu sekitar 150 ms. Sedangkan visual berada pada 200 ms, dan pain berada pada 700 ms. Amy membuat komunikasi antar sistem dan manusia menjadi "sedikit lebih dekat" dan natural, karena pada umumnya manusia berkomunikasi secara verbal dan mengeluarkan suara, dan mendapatkan feedback melalui suara pula. Sedangkan di waktu senggang mungkin ada beberapa yang melalui visual seperti chat dan sebagainya. Amy membuat komunikasi antar pengguna dan aplikasi menjadi lebih natural dan lebih dekat, dialog akan bersifat robust (kami tidak tahu apakah jika komunikasi lewat gelombang otak lebih natural?). Diharapkan dengan hadirnya "Amy", sistem tesebut bisa menjadi sebuah success factor yang menjadi pembeda dengan sistem lain yang tersebar diluar sana, karena kami percaya bahwa "Amy" adalah yang pertama sebagai Artificial Intelligent dan Website Assistant dengan metode interaksi suara dan speech synthesis. (Berbekal dari Skripsi berjudul: Implementasi Sistem Bantuan Penderita Buta Warna: Interaksi Suara Untuk Perangkat Tertanam Dengan Sistem Operasi Tertanam Microsoft oleh Dr. Ruki Harwahyu, ST. MT. Msc. 2011)
+
+Amy bukanlah chatbot, karena basisnya adalah integrasi dari speech recognition dan synthesize lalu mampu melakukan event/tindakan terhadap aplikasi. Amy digunakan untuk navigasi, berpindah halaman, login, logout, mencari film, dan memutar film. 
 
 Amy mampu mendeteksi kalimat, di mana di dalam sebuah kalimat tersebut ada sebuah keyword. Amy akan menjalankan perintah berdasarkan keyword terakhir yang diucap. Misalnya:
 
