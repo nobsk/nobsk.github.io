@@ -36,9 +36,9 @@ Catatan: Tidak direkomendasikan untuk membuka `index.html` secara langsung, kare
 
 
 
-## Amy: Adorable Machine Yawner - The Next Website Assistant (Amy > Chatbot)
+## Amy: Adorable Machine Yawner - The First Website Assistant by nobsk
 
-Amy != chatbot, karena basisnya adalah integrasi dari speech recognition dan synthesize lalu mampu melakukan event/tindakan terhadap aplikasi. Amy digunakan untuk navigasi, berpindah halaman, login, logout, mencari film, dan memutar film.
+Amy bukanlah chatbot, karena basisnya adalah integrasi dari speech recognition dan synthesize lalu mampu melakukan event/tindakan terhadap aplikasi. Amy digunakan untuk navigasi, berpindah halaman, login, logout, mencari film, dan memutar film.
 
 Amy mampu mendeteksi kalimat, di mana di dalam sebuah kalimat tersebut ada sebuah keyword. Amy akan menjalankan perintah berdasarkan keyword terakhir yang diucap. Misalnya:
 
@@ -79,9 +79,9 @@ Sequence diagram amy memiliki 4 object utama:
 Mozilla Firefox & Google Chrome (Desktop & Mobilephone)
 
 
-## Usage Workflow
+## Usage Workflow: Lengkap
 
-General:
+**General:**
 1. User membuka halaman utama
 2. Bisa mendaftarkan akun (dengan hanya menekan tombol register dan disini sengaja dibuat gagal daftar)
 3. Bisa login (ketika klik tombol login, bisa login ke dalam sistem)
@@ -96,6 +96,7 @@ Halaman Film pendek:
 ![upload-2](images/upload2.gif)
 
 Halaman Film Detail:
+0. Halaman Film Detail bisa diakses melalui card-card film yang tersedia, atau dengan bantuan "Amy" dengan keyword `detail`
 1. Di halaman ini, user dapat memutar video, membaca deskripsi, melihat review sebelumnya, melihat komentar sebelumnya, dan menambahkan komentar
 2. Setiap komponen dapat diklik dengan muncul suatu aksi tertentu
 3. Memutar video bisa dilakukan dengan Amy dengan keyword "Putar"
@@ -104,7 +105,9 @@ Halaman Film Detail:
 ![](https://i.imgur.com/8gYjafY.jpg)
 
 Halaman Festival:
-
+1. Halaman festival bisa diakses dengan menggunakan navigasi sidebar di sisi kiri, dan juga dengan bantuan "Amy" dengan keyword `festival`
+2. Di halaman ini bisa melakukan pembuatan festival dengan menekan tombol Buat Festival.
+3. Halaman ini didesain dengan responsivitas dan juga infinite scrolling "Semua Festival"
 
 ## UseCase Diagram
 
