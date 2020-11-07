@@ -109,6 +109,8 @@ Halaman Festival:
 2. Di halaman ini bisa melakukan pembuatan festival dengan menekan tombol Buat Festival.
 3. Halaman ini didesain dengan responsivitas dan juga infinite scrolling "Semua Festival"
 
+Pada bagian kanan atas, terdapat beberapa halaman user, yaitu Profil Saya, Favorit Saya, Pengaturan Akun, Bantuan, dan Logout. Semua halaman ini bisa diakses langsung dengan klik, dan juga dengan bantuan "Amy".
+
 ## UseCase Diagram
 
 ![use-case](https://i.imgur.com/2p0r8fw.png)
