@@ -40,7 +40,7 @@ Catatan: Tidak direkomendasikan untuk membuka `index.html` secara langsung, kare
 
 Mengapa kami membuat Amy? jawabannya adalah interactivity. Response komunikasi tercepat manusia adalah auditory atau response suara yaitu sekitar 150 ms. Sedangkan visual berada pada 200 ms, dan pain berada pada 700 ms. Amy membuat komunikasi antar sistem dan manusia menjadi "sedikit lebih dekat" dan natural, karena pada umumnya manusia berkomunikasi secara verbal dan mengeluarkan suara, dan mendapatkan feedback melalui suara pula. Sedangkan di waktu senggang mungkin ada beberapa yang melalui visual seperti chat dan sebagainya. Amy membuat komunikasi antar pengguna dan aplikasi menjadi lebih natural dan lebih dekat, dialog akan bersifat robust (kami tidak tahu apakah jika komunikasi lewat gelombang otak lebih natural?). Diharapkan dengan hadirnya "Amy", sistem tesebut bisa menjadi sebuah success factor yang menjadi pembeda dengan sistem lain yang tersebar diluar sana, karena kami percaya bahwa "Amy" adalah yang pertama sebagai Artificial Intelligent dan Website Assistant dengan metode interaksi suara dan speech synthesis. (Berbekal dari Skripsi berjudul: Implementasi Sistem Bantuan Penderita Buta Warna: Interaksi Suara Untuk Perangkat Tertanam Dengan Sistem Operasi Tertanam Microsoft oleh Dr. Ruki Harwahyu, ST. MT. Msc. 2011)
 
-Amy bukanlah chatbot, karena basisnya adalah integrasi dari speech recognition dan synthesize lalu mampu melakukan event/tindakan terhadap aplikasi. Amy digunakan untuk navigasi, berpindah halaman, login, logout, mencari film, dan memutar film. 
+Amy bukanlah chatbot, karena basisnya adalah integrasi dari speech recognition dan synthesize lalu mampu melakukan event/tindakan secara langsung terhadap aplikasi (dan chatbot tidak melakukan itu). Amy digunakan untuk navigasi, berpindah halaman, login, logout, mencari film, dan memutar film. 
 
 Amy mampu mendeteksi kalimat, di mana di dalam sebuah kalimat tersebut ada sebuah keyword. Amy akan menjalankan perintah berdasarkan keyword terakhir yang diucap. Misalnya:
 
@@ -98,12 +98,12 @@ Halaman Film pendek:
 ![upload-2](images/upload2.gif)
 
 Halaman Film Detail:
-0. Halaman Film Detail bisa diakses melalui card-card film yang tersedia, atau dengan bantuan "Amy" dengan keyword `detail`
-1. Di halaman ini, user dapat memutar video, membaca deskripsi, melihat review sebelumnya, melihat komentar sebelumnya, dan menambahkan komentar
-2. Setiap komponen dapat diklik dengan muncul suatu aksi tertentu
-3. Memutar video bisa dilakukan dengan Amy dengan keyword "Putar"
-4. Sembunyikan amy dengan keyword "Sembunyikan"
-5. Halaman ini didesain untuk responsive di semua device.
+1. Halaman Film Detail bisa diakses melalui card-card film yang tersedia, atau dengan bantuan "Amy" dengan keyword `detail`
+2. Di halaman ini, user dapat memutar video, membaca deskripsi, melihat review sebelumnya, melihat komentar sebelumnya, dan menambahkan komentar
+3. Setiap komponen dapat diklik dengan muncul suatu aksi tertentu
+4. Memutar video bisa dilakukan dengan Amy dengan keyword "Putar"
+5. Sembunyikan amy dengan keyword "Sembunyikan"
+6. Halaman ini didesain untuk responsive di semua device.
 ![](https://i.imgur.com/8gYjafY.jpg)
 
 Halaman Festival:
