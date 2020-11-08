@@ -79,6 +79,34 @@ Sequence diagram amy memiliki 4 object utama:
 - Speech Synthesis: Speech synthesize yang kami gunakan juga berbasis javascript, yaitu dengan menggunakan suara wanita ber-bahasa inggris (untuk saat ini belum ada bahasa indonesia yang native). Kami memberi nama amy, karena service Amazon Polly dengan accent en-Us adalah Amy.
 - DISPLAY: Display adalah file berekstensi `.html` yang akan menampilkan hasil dari event yang dilakukan oleh amy, dan juga menampilkan halaman dengan functional lainnya.
 
+### Simulasi Kelainan Mata
+
+Kiri: Deuteranopia (Red-Green) || Kanan: Normal
+![](https://i.imgur.com/2k7ikuQ.jpg)
+
+Kiri: Protanopia (Red-Green) || Kanan: Normal
+![](https://i.imgur.com/sw7FSX5.jpg)
+
+Kiri: Protanopia (Red-Green) || Kanan: Protanopia (Red-Green)
+![](https://i.imgur.com/Gvw8MgS.png)
+
+
+Kiri: Achromatopia (Full) || Kanan: Normal
+![](https://i.imgur.com/ocGGbd9.jpg)
+
+Kiri: Katarak || Kanan: Normal
+![](https://i.imgur.com/AX7CAbv.jpg)
+
+Kiri: Glaukoma || Kanan: Normal
+![](https://i.imgur.com/w3yt6Eu.jpg)
+
+Kiri: Dyslexia || Kanan: Normal
+![](https://i.imgur.com/Hwgvqmt.jpg)
+
+Kiri: Rabun Jauh || Kanan: Normal
+![](https://i.imgur.com/by5Bp30.jpg)
+
+
 ### Tested
 Mozilla Firefox & Google Chrome (Desktop & Mobilephone)
 
