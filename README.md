@@ -13,6 +13,8 @@ Dekade ini, kreativitas anak bangsa di dunia perfilman tidak bisa dianggap remeh
 - Samuel Natanael | 1706986076
 
 ---
+FIGMA DESIGN: https://www.figma.com/file/RX4urxUzEEv3wyo4SLzM4d/Film-Detail?node-id=0%3A1
+---
 
 ![](https://i.imgur.com/Z4F7a52.png) ==>> ![](https://i.imgur.com/QIT6a41.png)
 
