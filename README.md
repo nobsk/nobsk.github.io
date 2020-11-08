@@ -170,4 +170,4 @@ kneeslider
 ## Attribution & Contribution
 - Alfian: Project initiator, Amy Creator, Quality Evaluator, Interactive component researcher, Security.
 - Kristian Girsang: Base Color Website v2, Video Player, Film Detail page creator, Thumbnail "Tilik" initiator.
-- Samuel Natanael: Landingpage creator, usecase researcher, base color website v1, button color initiator.
+- Samuel Natanael: Landingpage creator, usecase researcher, base color website v1, button color initiator, Festival page designer
