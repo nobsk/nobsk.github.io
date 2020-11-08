@@ -44,6 +44,15 @@ Mengapa kami membuat Amy? jawabannya adalah interactivity. Response komunikasi t
 
 Amy bukanlah chatbot, karena basisnya adalah integrasi dari speech recognition dan synthesize lalu mampu melakukan event/tindakan secara langsung terhadap aplikasi (dan chatbot tidak melakukan itu). Amy digunakan untuk navigasi, berpindah halaman, login, logout, mencari film, dan memutar film. 
 
+Tombol Amy (mode off):
+
+![](https://i.imgur.com/lvssLsn.png)
+
+Tombol Amy (mode Listening):
+
+![](https://i.imgur.com/M0bMGNz.png)
+
+
 Amy mampu mendeteksi kalimat, di mana di dalam sebuah kalimat tersebut ada sebuah keyword. Amy akan menjalankan perintah berdasarkan keyword terakhir yang diucap. Misalnya:
 
 "Halo amy, saya mau nonton ***film*** di sini bagaimana ya caranya?"
