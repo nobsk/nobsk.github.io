@@ -161,3 +161,8 @@ skrn
 
 ## Uploader Progressbar
 ![progress-bar](images/upload.gif)
+
+## Attribution & Contribution
+- Alfian: Project initiator, Amy Creator, Evaluator, Interactive component researcher.
+- Kristian Girsang: Base Color Website v2, Video Player, Film Detail page creator, Thumbnail "Tilik" initiator.
+- Samuel Natanael: Landingpage creator, usecase researcher, base color website v1, button color initiator.
