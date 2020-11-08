@@ -145,6 +145,9 @@ undraw.co
 Polly SDK
 Chrome & Mozilla SpeechRecognition
 skrn
+afterglow
+kneeslider
+
 
 ## Infinite Scrolling
 ![infinite-scrolling](images/infinite.gif)
