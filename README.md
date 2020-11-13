@@ -117,8 +117,16 @@ Kiri: Rabun Jauh || Kanan: Normal
 
 
 ### Tested
-Mozilla Firefox & Google Chrome (Desktop & Mobilephone)
+Amy successfully run with Mozilla Firefox & Google Chrome (Desktop & Mobilephone).
 
+### Future Work
+
+Kelebihan dari Amy adalah, base AI program amy dibuat dengan menggunakan javascript, sehingga kami bisa melakukan pengembangan lanjutan untuk *dictionary* yang lebih banyak (tentu dalam bahasa Indonesia), dan kami bisa buat supaya siapapun yang akan menggunakan bisa *Customize* secara mudah keyword serta tindakannya (karena sekarang masih menggunakan hardcoding). Kami bisa membuildnya menjadi *package* atau sebuah *service* yang dipanggil hanya dengan endpoint dengan parameter tertentu (API). 
+
+Use-case lain yang memiliki probabilitas tinggi untuk bisa menggunakan Amy:
+- Sistem IoT: Hal ini valid, karena Amy berbasis Javascript, artinya instruksi Speech Recognition -> event -> Feedback pun bisa dilakukan dengan endpoint saja. Sebagai contoh, untuk Sistem Smarthome kami bisa menggunakan Amy sebagai engine event yang mengirimkan sinyal ke controller berdasarkan kumpulan dictionary yang sudah ditrain.
+
+- Asisten Pribadi: Seperti halnya jarvis pada film ironman, semakin berkembangnya *dictionary* yang Amy punya, bukan tidak mungkin amy bisa melakukan semua *computation* atau bahkan bisa bekerja secara ANN (Artificial Neural Network) yang bisa secara otomatis melakukan train tanpa harus terikat interaksi oleh kami sebagai pencipta (sehingga tidak perlu menambahkan *dictionary* lagi secara manual).
 
 ## Usage Workflow: Lengkap
 
