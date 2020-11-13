@@ -79,6 +79,10 @@ Berikut demo penggunaan Amy. (Maaf jika bahasa yang diujicobakan sangat random d
 Untuk menyembunyikan Amy cukup dengan bilang:
 `Sembunyikan` maka amy akan hilang secara otomatis.
 
+### Sejarah Amy Dibuat
+Pada awalnya amy hanya bisa melakukan pengubahan warna background pada website, dan tanpa ada feedback suara. Amy hanya mengerti warna pada CSS. Jadi kita sebagai speaker hanya tinggal memanggil nama
+<iframe src="https://www.linkedin.com/embed/feed/update/urn:li:ugcPost:6720570706528206849" height="652" width="504" frameborder="0" allowfullscreen="" title="Embedded post"></iframe>
+
 ### Sequence Diagram Amy
 ![](https://i.imgur.com/rTWliHV.png)
 
@@ -89,6 +93,7 @@ Sequence diagram amy memiliki 4 object utama:
 - DISPLAY: Display adalah file berekstensi `.html` yang akan menampilkan hasil dari event yang dilakukan oleh amy, dan juga menampilkan halaman dengan functional lainnya.
 
 ### Simulasi Kelainan Mata
+Karena latar belakang diciptakannya Amy adalah 
 
 Kiri: Deuteranopia (Red-Green) || Kanan: Normal
 ![](https://i.imgur.com/2k7ikuQ.jpg)
