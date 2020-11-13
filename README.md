@@ -78,6 +78,7 @@ Berikut demo penggunaan Amy (Maaf jika bahasa yang diujicobakan sangat random da
 [![Amy](http://img.youtube.com/vi/zOL0_gS4VxE/0.jpg)](http://www.youtube.com/watch?v=zOL0_gS4VxE "Amy.")
 
 Dan ini lanjutannya (**2:30 mins**):
+
 [![Amy-continued](http://img.youtube.com/vi/kI5lhSVPCzo/0.jpg)](http://www.youtube.com/watch?v=kI5lhSVPCzo "")
 
 Untuk menyembunyikan Amy cukup dengan bilang:
@@ -222,6 +223,15 @@ kneeslider
 
 ## Uploader Progressbar
 ![progress-bar](images/upload.gif)
+
+## Security
+Dengan penambahan atribut 
+
+```html
+<video oncontextmenu="return false;"></video>
+```
+
+Maka video tidak bisa didownload dengan behavior click kanan `save video As`, namun cara ini masih belum cukup, karena video masih bisa didownload dengan IDM atau Download Manager Lainnya dengan Link, maka dari itu seharusnya menggunakan penyimpanan video dengan layanan cloud yang mampu serving chunk url (Streaming), di mana setiap video diclick, maka URL akan expired. 
 
 ## Attribution & Contribution
 - Alfian: Project initiator, Amy Creator, Quality Evaluator, Interactive component researcher, Security.
