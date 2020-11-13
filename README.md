@@ -80,8 +80,8 @@ Untuk menyembunyikan Amy cukup dengan bilang:
 `Sembunyikan` maka amy akan hilang secara otomatis.
 
 ### Sejarah Amy Dibuat
-Pada awalnya amy hanya bisa melakukan pengubahan warna background pada website, dan tanpa ada feedback suara. Amy hanya mengerti warna pada CSS. Jadi kita sebagai speaker hanya tinggal memanggil nama
-<iframe src="https://www.linkedin.com/embed/feed/update/urn:li:ugcPost:6720570706528206849" height="652" width="504" frameborder="0" allowfullscreen="" title="Embedded post"></iframe>
+Pada awalnya amy adalah sebuah engine speech-recognition di mana dapat melakukan capture terhadap suara, dan dari setiap kata yang diucapkan akan dipilah-pilah di mana setiap pilahan akan dicek apakah ada warna CSS yang cocok dengan kata tersebut, sehingga jika ada yang cocok engine tersebut bisa melakukan pengubahan warna background pada website, dan tanpa ada feedback suara. Jadi kita sebagai speaker hanya tinggal memanggil nama-nama warna dalam bahasa inggris untuk mengubah warna background pada website.
+[![First-Amy](http://img.youtube.com/vi/dhw8TNSJhUE/0.jpg)](http://www.youtube.com/watch?v=dhw8TNSJhUE "")
 
 ### Sequence Diagram Amy
 ![](https://i.imgur.com/rTWliHV.png)
@@ -93,7 +93,7 @@ Sequence diagram amy memiliki 4 object utama:
 - DISPLAY: Display adalah file berekstensi `.html` yang akan menampilkan hasil dari event yang dilakukan oleh amy, dan juga menampilkan halaman dengan functional lainnya.
 
 ### Simulasi Kelainan Mata
-Karena latar belakang diciptakannya Amy adalah 
+Latar belakang diciptakannya Amy adalah untuk sistem bantuan bagi seseorang yang memiliki kelainan mata, atau kesulitan dalam pengelihatan, maka dari kami mencoba melakukan simulasi perbandingan antar beberapa pengelihatan yang berkelainan dan yang normal.
 
 Kiri: Deuteranopia (Red-Green) || Kanan: Normal
 ![](https://i.imgur.com/2k7ikuQ.jpg)
