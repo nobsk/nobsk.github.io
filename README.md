@@ -74,6 +74,7 @@ Amy juga mampu melakukan nested question dengan keyword:
 dan ikuti amy seterusnya untuk menjawab pertanyaannya.
 
 Berikut demo penggunaan Amy (Maaf jika bahasa yang diujicobakan sangat random dan tidak formal.) :
+**2:38 mins**
 [![Amy](http://img.youtube.com/vi/zOL0_gS4VxE/0.jpg)](http://www.youtube.com/watch?v=zOL0_gS4VxE "Amy.")
 
 Untuk menyembunyikan Amy cukup dengan bilang:
