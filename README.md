@@ -77,6 +77,9 @@ Berikut demo penggunaan Amy (Maaf jika bahasa yang diujicobakan sangat random da
 **2:38 mins**
 [![Amy](http://img.youtube.com/vi/zOL0_gS4VxE/0.jpg)](http://www.youtube.com/watch?v=zOL0_gS4VxE "Amy.")
 
+Dan ini lanjutannya (**2:30 mins**):
+[![Amy-continued](http://img.youtube.com/vi/kI5lhSVPCzo/0.jpg)](http://www.youtube.com/watch?v=kI5lhSVPCzo "")
+
 Untuk menyembunyikan Amy cukup dengan bilang:
 `Sembunyikan` maka amy akan hilang secara otomatis.
 
