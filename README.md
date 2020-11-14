@@ -75,6 +75,7 @@ dan ikuti amy seterusnya untuk menjawab pertanyaannya.
 
 Berikut demo penggunaan Amy (Maaf jika bahasa yang diujicobakan sangat random dan tidak formal. silakan klik kanan + *Open Link in New Tab*) :
 **2:38 mins**
+
 [![Amy](http://img.youtube.com/vi/zOL0_gS4VxE/0.jpg)](http://www.youtube.com/watch?v=zOL0_gS4VxE "Amy.")
 
 Dan ini lanjutannya (**2:30 mins**) dengan klik kanan + *Open Link in New Tab*:
@@ -88,6 +89,7 @@ Untuk menyembunyikan Amy cukup dengan bilang:
 Pada awalnya amy adalah sebuah engine speech-recognition di mana dapat melakukan capture terhadap suara, dan dari setiap kata yang diucapkan akan dipilah-pilah di mana setiap pilahan akan dicek apakah ada warna CSS yang cocok dengan kata tersebut, sehingga jika ada yang cocok engine tersebut bisa melakukan pengubahan warna background pada website, dan tanpa ada feedback suara. Jadi kita sebagai speaker hanya tinggal memanggil nama-nama warna dalam bahasa inggris untuk mengubah warna background pada website.
 
 Berikut demo amy pertama kali melakukan aksinya mengubah warna background pada website (**1:37 mins**) klik kanan + *Open Link in New Tab*:
+
 [![First-Amy](http://img.youtube.com/vi/dhw8TNSJhUE/0.jpg)](http://www.youtube.com/watch?v=dhw8TNSJhUE "")
 
 ### Sequence Diagram Amy
